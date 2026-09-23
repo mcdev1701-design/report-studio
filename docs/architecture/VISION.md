@@ -1,18 +1,42 @@
 # Vision
 
-Celem projektu jest stworzenie wizualnego projektanta raportów
-działającego w przeglądarce WWW.
+## Nazwa projektu
 
-Inspiracje:
+Report Studio
+
+## Cel
+
+Stworzenie nowoczesnego wizualnego projektanta raportów
+działającego w przeglądarce internetowej.
+
+## Inspiracje
 
 - Crystal Reports
 - FastReport
 - JasperReports
+- Power BI Report Builder
 
-Założenia:
+## Główne założenia
 
-- pełna kontrola nad kodem
 - pełna dokumentacja
-- rozwój etapami
-- architektura enterprise
-- nauka nowych technologii
+- rozwój etapowy
+- edukacyjny charakter projektu
+- architektura modułowa
+- możliwość pracy z wieloma źródłami danych
+
+## Obsługiwane źródła danych
+
+- MS SQL Server
+- CSV
+- Excel
+- JSON
+- STDIN
+- Named Pipe
+
+## Eksport
+
+- HTML
+- PDF
+- Excel
+- CSV
+- XML

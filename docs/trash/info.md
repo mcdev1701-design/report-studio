@@ -16,3 +16,7 @@
 ## Uruchamianie serwera uvisorn
 
 (.venv) uvicorn backend.app.main:app --reload
+
+## Pojęcia i mam
+
+ADR = Architecture Decision Record

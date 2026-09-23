@@ -2,17 +2,27 @@
 
 ## Aktualny etap
 
-ETAP_01A
+ETAP_01B
 
 ## Status
 
-W trakcie realizacji
+W realizacji
 
 ## Zrealizowane
 
-- Utworzono strukturę katalogów
-- Zainicjalizowano Git
+- Git
+- GitHub
+- LICENSE
+- README
+- CONTRIBUTING
 
-## Następny krok
+## W realizacji
 
-Przygotowanie środowiska FastAPI
+- VISION.md
+- ROADMAP.md
+- ARCHITECTURE.md
+
+## Następny etap
+
+ETAP_01C
+Konfiguracja backendu FastAPI
