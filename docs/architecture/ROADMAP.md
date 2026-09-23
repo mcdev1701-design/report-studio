@@ -1,67 +1,100 @@
-# Roadmap
+# ROADMAP
 
-## ETAP 01
+## ETAP_01 - FUNDAMENTY
 
-Bootstrap projektu
+Cel:
 
-Status: W realizacji
-
----
-
-## ETAP 02
-
-Data Source Engine
+Przygotowanie środowiska projektowego.
 
 Zakres:
 
-- DataSource Interface
-- MSSQL Source
-- CSV Source
-- Excel Source
-- Pipe Source
+- Git
+- GitHub
+- Dokumentacja
+- FastAPI
+- Frontend
+- Testy
+
+Status:
+
+W realizacji
 
 ---
 
-## ETAP 03
+## ETAP_02 - DATA SOURCE ENGINE
 
-Visual Designer
+Cel:
 
-Zakres:
+Uniwersalna warstwa dostępu do danych.
+
+Obsługiwane źródła:
+
+- MSSQL
+- CSV
+- Excel
+- JSON
+- STDIN
+- Named Pipes
+
+Rezultat:
+
+Pierwszy działający silnik źródeł danych.
+
+---
+
+## ETAP_03 - VISUAL DESIGNER
+
+Cel:
+
+Przeglądarkowy projektant raportów.
+
+Funkcje:
 
 - Canvas
 - Toolbox
-- Property Panel
+- Properties Panel
 - Drag & Drop
+- Resize
+- Grid
+- Snap
+
+Technologie:
+
+- Konva.js
+- GSAP
 
 ---
 
-## ETAP 04
+## ETAP_04 - REPORT MODEL
 
-Report Model
+Cel:
 
-Zakres:
+Model raportu zapisany w JSON.
 
-- JSON Definition
+Funkcje:
+
 - Save
 - Load
+- Validation
+- Versioning
 
 ---
 
-## ETAP 05
+## ETAP_05 - HTML RENDERER
 
-Render Engine
+Cel:
 
-Zakres:
-
-- HTML Renderer
+Generowanie raportu HTML.
 
 ---
 
-## ETAP 06
+## ETAP_06 - EXPORT ENGINE
 
-Export Engine
+Cel:
 
-Zakres:
+Eksport raportów.
+
+Formaty:
 
 - PDF
 - Excel
@@ -70,36 +103,48 @@ Zakres:
 
 ---
 
-## ETAP 07
+## ETAP_07 - PARAMETERS
 
-Parameters
+Cel:
 
----
-
-## ETAP 08
-
-Grouping
+Dynamiczne parametry raportów.
 
 ---
 
-## ETAP 09
+## ETAP_08 - GROUPING
 
-Charts
+Cel:
 
----
-
-## ETAP 10
-
-Subreports
+Grupowanie oraz agregacje.
 
 ---
 
-## ETAP 11
+## ETAP_09 - CHART ENGINE
 
-Report Repository
+Cel:
+
+Obsługa wykresów.
 
 ---
 
-## ETAP 12
+## ETAP_10 - SUBREPORTS
 
-Release 1.0
+Cel:
+
+Raporty zagnieżdżone.
+
+---
+
+## ETAP_11 - REPOSITORY
+
+Cel:
+
+Centralne repozytorium raportów.
+
+---
+
+## ETAP_12 - RELEASE 1.0
+
+Cel:
+
+Pierwsza stabilna wersja systemu.

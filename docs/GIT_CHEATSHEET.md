@@ -178,13 +178,37 @@ git push origin v0.1.0
 
 ---
 
+# Tagi
+
 ## Wyświetlenie tagów
 
 ```bash
 git tag
 ```
 
----
+## Dodawanie tagów z opisami 
+
+```bash
+git tag -a v0.1.0 -m "Bootstrap projektu"
+```
+
+## Wyświetlanie szczegółow taga
+
+```bash
+git show v0.1.0
+```
+
+## Powrót do konkretnej wersji
+
+```bash
+git checkout v0.1.0
+```
+
+## Publikacja taga
+
+```bash
+git push origin v0.1.0
+```
 
 ## Wycofanie zmian w pliku
 
