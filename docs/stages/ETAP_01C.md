@@ -41,3 +41,12 @@ Przygotowanie profesjonalnego szkieletu backendu FastAPI.
 - utworzono core/logger.py
 - skonfigurowano logowanie aplikacji
 - dodano logowanie endpointów
+
+- usunięto config.py
+- wprowadzono centralny obiekt Settings
+
+### Dodano
+
+- lifecycle.py
+- obsługę uruchamiania aplikacji
+- obsługę zamykania aplikacji

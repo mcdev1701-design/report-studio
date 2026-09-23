@@ -81,3 +81,26 @@ z jednego mechanizmu logowania.
 - łatwiejsze debugowanie
 - monitorowanie błędów
 - spójność logów
+
+### Decyzja
+
+Usunięto config.py.
+
+### Powód
+
+Wprowadzono centralną konfigurację
+opartą o obiekt Settings.
+
+### Wynik
+
+Wszystkie ustawienia aplikacji
+znajdują się w core/settings.py.
+
+### Decyzja
+
+Wprowadzono centralną obsługę cyklu życia aplikacji.
+
+### Powód
+
+Przygotowanie projektu pod przyszłą
+inicjalizację bazy danych i usług.

@@ -17,6 +17,16 @@
 
 (.venv) uvicorn backend.app.main:app --reload
 
+## Uruchamianie testów
+
+(.venv) pytest
+
 ## Pojęcia i mam
 
 ADR = Architecture Decision Record
+
+Testy jednostkowe:
+
+Arrange - Przygotowanie
+Act - Wkonanie operacji
+Assert - Sprawdzenie wyniku

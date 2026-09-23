@@ -25,7 +25,11 @@ from backend.app.api.v1.endpoints.health import (
     router as health_router
 )
 
+# Import loggera aplikacji.
 from backend.app.core.logger import logger
+
+# Import obsługi cyklu życia aplikacji.
+from backend.app.core.lifecycle import lifespan
 
 logger.info("Uruchamianie aplikacji Report Studio")
 
@@ -40,7 +44,8 @@ logger.info("Uruchamianie aplikacji Report Studio")
 #
 app = FastAPI(
     title=settings.app_name,
-    version=settings.app_version
+    version=settings.app_version,
+    lifespan=lifespan
 )
 
 # ==================================================
