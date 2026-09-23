@@ -49,3 +49,20 @@ z podziałem na:
 
 Ograniczenie przyszłej refaktoryzacji
 oraz zachowanie modularnej architektury.
+
+## ETAP_01C
+
+### Decyzja
+
+Wprowadzono centralny obiekt Settings.
+
+### Powód
+
+Wszystkie ustawienia aplikacji będą
+zarządzane z jednego miejsca.
+
+### Korzyści
+
+- prostsza konfiguracja,
+- łatwiejsze testowanie,
+- łatwiejsza rozbudowa projektu.

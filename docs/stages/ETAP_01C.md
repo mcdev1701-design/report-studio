@@ -30,3 +30,8 @@ Przygotowanie profesjonalnego szkieletu backendu FastAPI.
 - działa GET /api/v1/health
 - działa Swagger
 - istnieje dokumentacja backendu
+
+### Wykonano
+
+- utworzono core/settings.py
+- wprowadzono centralną konfigurację aplikacji

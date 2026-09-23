@@ -18,11 +18,7 @@ Odpowiedzialności:
 from fastapi import FastAPI
 
 # Import konfiguracji aplikacji.
-from backend.app.config import (
-    APP_NAME,
-    APP_VERSION,
-    API_PREFIX
-)
+from backend.app.core.settings import settings
 
 # Import routera endpointów zdrowia aplikacji.
 from backend.app.api.v1.endpoints.health import (
@@ -39,8 +35,8 @@ from backend.app.api.v1.endpoints.health import (
 # do wygenerowania dokumentacji Swagger.
 #
 app = FastAPI(
-    title=APP_NAME,
-    version=APP_VERSION
+    title=settings.app_name,
+    version=settings.app_version
 )
 
 # ==================================================
@@ -56,7 +52,7 @@ app = FastAPI(
 #
 app.include_router(
     health_router,
-    prefix=API_PREFIX,
+    prefix=settings.api_prefix,
     tags=["Health"]
 )
 
@@ -81,6 +77,6 @@ def root():
     """
 
     return {
-        "application": APP_NAME,
-        "version": APP_VERSION
+        "application": settings.app_name,
+        "version": settings.app_version
     }

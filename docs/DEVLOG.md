@@ -1,22 +1,23 @@
-# DEVLOG
-
 ## ETAP_01C
 
-Data: 2026-09-23
+### Commit 1
 
-Rozpoczęto implementację backendu FastAPI.
+ETAP_01C bootstrap backend FastAPI
 
-Utworzono gałąź:
+Wykonano:
 
-feature/etap-01c-fastapi-bootstrap
+- przygotowano strukturę backend/app
+- dodano pakiety Python (__init__.py)
+- dodano config.py
+- dodano main.py
+- dodano endpoint health
+- uruchomiono Swagger UI
+- zweryfikowano działanie aplikacji
 
-Cel etapu:
+Wynik testów:
 
-- utworzenie szkieletu backendu
-- konfiguracja FastAPI
-- endpoint health
-- dokumentacja API
+✅ GET /
 
-Status:
+✅ GET /api/v1/health
 
-W trakcie realizacji
+✅ GET /docs
