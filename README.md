@@ -28,4 +28,4 @@ Projekt udostępniony na licencji MIT.
 
 Status:
 
-Etap 01A - Bootstrap projektu
+Rozpoczęcie ETAP_01C
