@@ -25,6 +25,10 @@ from backend.app.api.v1.endpoints.health import (
     router as health_router
 )
 
+from backend.app.core.logger import logger
+
+logger.info("Uruchamianie aplikacji Report Studio")
+
 # ==================================================
 # FASTAPI APPLICATION
 # ==================================================
@@ -75,6 +79,8 @@ def root():
             "version": "0.1.0"
         }
     """
+
+    logger.info("Wywołano endpoint root")
 
     return {
         "application": settings.app_name,

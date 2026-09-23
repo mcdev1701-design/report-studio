@@ -21,3 +21,29 @@ Wynik testów:
 ✅ GET /api/v1/health
 
 ✅ GET /docs
+
+### Testy automatyczne
+
+Wprowadzono pytest.
+
+Dodano pierwsze testy:
+
+- root endpoint
+- health endpoint
+
+Rezultat:
+
+2 testy przechodzą poprawnie.
+
+### Uwagi
+
+Podczas uruchamiania testów pojawiają się ostrzeżenia
+Dotyczące:
+
+- FastAPI
+- Starlette
+- httpx
+
+Nie wpływają na działanie aplikacji.
+
+Do ponownej weryfikacji podczas aktualizacji zależności.

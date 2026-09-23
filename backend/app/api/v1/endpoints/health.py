@@ -18,6 +18,7 @@ W przyszłości:
 """
 
 from fastapi import APIRouter
+from backend.app.core.logger import logger
 
 # Router grupujący endpointy związane
 # ze stanem aplikacji.
@@ -45,6 +46,8 @@ def health_check():
             "status": "OK"
         }
     """
+    
+    logger.info("Wywołano endpoint health")
 
     return {
         "status": "OK"

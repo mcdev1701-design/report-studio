@@ -66,3 +66,18 @@ zarządzane z jednego miejsca.
 - prostsza konfiguracja,
 - łatwiejsze testowanie,
 - łatwiejsza rozbudowa projektu.
+
+### Decyzja
+
+Wprowadzono centralny system logowania.
+
+### Powód
+
+Wszystkie moduły aplikacji będą korzystać
+z jednego mechanizmu logowania.
+
+### Korzyści
+
+- łatwiejsze debugowanie
+- monitorowanie błędów
+- spójność logów

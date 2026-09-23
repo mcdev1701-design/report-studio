@@ -35,3 +35,9 @@ Przygotowanie profesjonalnego szkieletu backendu FastAPI.
 
 - utworzono core/settings.py
 - wprowadzono centralną konfigurację aplikacji
+
+### Wykonano 2
+
+- utworzono core/logger.py
+- skonfigurowano logowanie aplikacji
+- dodano logowanie endpointów
