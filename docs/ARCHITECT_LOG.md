@@ -31,3 +31,21 @@ GSAP + Konva.js.
 ### Powód
 
 Budowa nowoczesnego wizualnego projektanta raportów.
+
+## 2026-09-23
+
+### Decyzja
+
+Backend zostanie zbudowany w oparciu o FastAPI
+z podziałem na:
+
+- api
+- services
+- schemas
+- models
+- core
+
+### Powód
+
+Ograniczenie przyszłej refaktoryzacji
+oraz zachowanie modularnej architektury.

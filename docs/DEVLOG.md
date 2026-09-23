@@ -1,18 +1,22 @@
 # DEVLOG
 
-## ETAP_01A
+## ETAP_01C
 
-Data: 2026-09-22
+Data: 2026-09-23
 
-Wykonano:
+Rozpoczęto implementację backendu FastAPI.
 
-- inicjalizacja Git
-- konfiguracja Python
-- instalacja FastAPI
-- utworzenie README
-- utworzenie PROJECT_STATE
-- pierwszy endpoint
+Utworzono gałąź:
 
-Wnioski:
+feature/etap-01c-fastapi-bootstrap
 
-Poznanie podstawowej struktury projektu.
+Cel etapu:
+
+- utworzenie szkieletu backendu
+- konfiguracja FastAPI
+- endpoint health
+- dokumentacja API
+
+Status:
+
+W trakcie realizacji

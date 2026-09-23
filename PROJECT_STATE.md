@@ -2,27 +2,27 @@
 
 ## Aktualny etap
 
-ETAP_01B
+ETAP_01C
+
+## Aktualna gałąź
+
+feature/etap-01c-fastapi-bootstrap
 
 ## Status
 
-W realizacji
+W realizacji ETAP_01C
 
-## Zrealizowane
+## Zakończone
 
-- Git
-- GitHub
-- LICENSE
-- README
-- CONTRIBUTING
+- ETAP_01A Bootstrap projektu
+- ETAP_01B Dokumentacja architektury
 
-## W realizacji
+## Aktualnie realizowane
 
-- VISION.md
-- ROADMAP.md
-- ARCHITECTURE.md
+- Struktura backendu FastAPI
+- Konfiguracja aplikacji
+- Health Check API
 
-## Następny etap
+## Następny krok
 
-ETAP_01C
-Konfiguracja backendu FastAPI
+Utworzenie struktury backend/app
