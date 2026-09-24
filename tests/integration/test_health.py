@@ -42,3 +42,18 @@ def test_health_endpoint():
     assert response.json() == {
         "status": "OK"
     }
+
+def test_info_endpoint():
+    """
+    Test endpointu GET /api/v1/info
+    """
+
+    response = client.get("/api/v1/info")
+
+    assert response.status_code == 200
+
+    assert response.json() == {
+        "application": "Report Studio",
+        "version": "0.1.0",
+        "status": "Development"
+    }
