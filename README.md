@@ -28,24 +28,22 @@ Projekt udostępniony na licencji MIT.
 
 ## Status
 
-Aktualny etap: ETAP_01C
+Aktualny etap: ETAP_01D
 
 Status: W realizacji
 
 Aktualny branch:
 
-feature/etap-01c-fastapi-bootstrap
+feature/etap-01d-frontend-bootstrap
 
 ### Ostatnio ukończono
 
-✅ ETAP_01A - Bootstrap projektu
-
-✅ ETAP_01B - Dokumentacja architektury
+✅ ETAP_01C - Backend Foundation
 
 ### Aktualnie realizowane
 
-🚧 ETAP_01C - FastAPI Bootstrap
+🚧 ETAP_01D - Frontend Bootstrap
 
 ### Następny etap
 
-⏳ ETAP_01D - Frontend Bootstrap
+⏳ ETAP_02A - Data Source Engine

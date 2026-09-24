@@ -4,8 +4,7 @@
 
 Dokument opisuje strukturę dokumentacji projektu Report Studio.
 
-Każdy nowy dokument powinien zostać przypisany do jednej z kategorii
-opisanych poniżej.
+Każdy nowy dokument powinien zostać przypisany do jednej z kategorii opisanych poniżej.
 
 ---
 
@@ -20,7 +19,16 @@ Zawiera:
 - cel projektu,
 - opis technologii,
 - instrukcję uruchomienia,
-- informacje o licencji.
+- informacje o licencji,
+- aktualny status projektu,
+- aktualny etap,
+- aktualny branch.
+
+Aktualizowany:
+
+- przy rozpoczęciu etapu,
+- przy zakończeniu etapu,
+- przy kamieniach milowych.
 
 ---
 
@@ -38,8 +46,17 @@ Aktualnie:
 
 Historia zmian projektu.
 
-Aktualizowany przy każdym większym wydaniu
-oraz przed utworzeniem nowego taga.
+Zawiera:
+
+- nowe funkcjonalności,
+- poprawki,
+- wydania,
+- kamienie milowe.
+
+Aktualizowany:
+
+- przed utworzeniem nowego taga,
+- przed wydaniem nowej wersji.
 
 ---
 
@@ -50,12 +67,13 @@ Aktualny stan projektu.
 Zawiera:
 
 - aktualny etap,
+- aktualny branch,
 - status projektu,
 - wykonane zadania,
 - zadania w realizacji,
-- następne kroki.
+- kolejne kroki.
 
-Aktualizowany po zakończeniu każdego etapu.
+Aktualizowany po zakończeniu każdego podetapu i etapu.
 
 ---
 
@@ -69,10 +87,14 @@ Opisuje:
 
 - co wykonano,
 - napotkane problemy,
-- rozwiązania,
+- zastosowane rozwiązania,
 - wnioski.
 
-Aktualizacja po każdym etapie.
+Aktualizacja:
+
+- na początku etapu,
+- w trakcie realizacji,
+- przy zakończeniu etapu.
 
 ---
 
@@ -82,11 +104,32 @@ Dziennik decyzji architektonicznych.
 
 Opisuje:
 
-- ważne decyzje,
-- argumenty za wyborem rozwiązania,
-- odrzucone alternatywy.
+- najważniejsze decyzje projektowe,
+- uzasadnienia,
+- korzyści,
+- konsekwencje.
 
-Aktualizacja wyłącznie przy istotnych zmianach architektury.
+Aktualizacja:
+
+- wyłącznie przy decyzjach architektonicznych.
+
+Nie służy do opisywania codziennych zmian w kodzie.
+
+---
+
+## PROJECT_WORKFLOW.md
+
+Procedura prowadzenia projektu.
+
+Opisuje:
+
+- workflow etapów,
+- workflow dokumentacji,
+- workflow Git,
+- workflow tagowania,
+- działania wykonywane przy rozpoczęciu i zakończeniu etapów.
+
+Jest nadrzędnym dokumentem operacyjnym projektu.
 
 ---
 
@@ -96,8 +139,9 @@ Standard tworzenia commitów.
 
 Opisuje:
 
-- sposób nazewnictwa commitów,
-- konwencje stosowane w projekcie.
+- format commitów,
+- przykłady commitów,
+- dobre praktyki.
 
 ---
 
@@ -107,9 +151,9 @@ Strategia pracy z Git.
 
 Opisuje:
 
-- gałąź main,
-- gałąź develop,
-- gałęzie feature,
+- branch main,
+- branch develop,
+- branch feature,
 - merge workflow.
 
 ---
@@ -122,7 +166,7 @@ Szybka ściąga z najczęściej używanych komend Git.
 
 ## DOCUMENTATION_INDEX.md
 
-Spis dokumentacji projektu.
+Spis całej dokumentacji projektu.
 
 ---
 
@@ -174,25 +218,37 @@ Gdzie znajduje się dany element systemu?
 
 Architecture Decision Records.
 
-Jedna decyzja = jeden plik.
+Jedna decyzja = jeden dokument.
 
 Przykłady:
 
 - ADR-001-project-philosophy.md
 - ADR-002-git-workflow.md
 
-Opisuje:
+Każdy ADR powinien zawierać:
 
 - problem,
 - decyzję,
 - uzasadnienie,
-- konsekwencje.
+- konsekwencje,
+- status.
 
 ---
 
 # Dokumentacja API (docs/api)
 
-Opis interfejsów backendu.
+Dokumentacja backendu i endpointów.
+
+Przykład:
+
+### BACKEND_OVERVIEW.md
+
+Zawiera:
+
+- opis backendu,
+- strukturę katalogów,
+- główne komponenty,
+- sposób uruchamiania.
 
 Docelowo:
 
@@ -207,12 +263,27 @@ Docelowo:
 
 Dokumentacja części frontendowej.
 
+## FRONTEND_OVERVIEW.md
+
+Główny dokument opisujący frontend aplikacji.
+
+Zawiera:
+
+- cele i założenia frontendu,
+- wykorzystywane technologie,
+- planowane technologie,
+- strukturę katalogów,
+- komunikację z backendem,
+- architekturę frontendu,
+- roadmapę rozwoju frontendu.
+
 Docelowo:
 
 - Konva.js,
 - GSAP,
 - komponenty GUI,
-- logika projektanta raportów.
+- logika projektanta raportów,
+- komunikacja z API.
 
 ---
 
@@ -225,7 +296,8 @@ Docelowo:
 - MSSQL,
 - modele danych,
 - migracje,
-- połączenia i konfiguracja.
+- konfiguracja połączeń,
+- diagramy bazy danych.
 
 ---
 
@@ -238,6 +310,7 @@ Docelowo:
 - testy jednostkowe,
 - testy integracyjne,
 - testy UI,
+- testy wydajnościowe,
 - procedury testowe.
 
 ---
@@ -251,7 +324,8 @@ Docelowo:
 - konfiguracja środowiska,
 - Docker,
 - publikacja aplikacji,
-- CI/CD.
+- CI/CD,
+- instrukcje wdrożeniowe.
 
 ---
 
@@ -269,34 +343,90 @@ Przykłady:
 
 - architektura systemu,
 - przepływ danych,
-- workflow projektanta raportów,
+- workflow raportów,
+- struktura projektu,
 - model raportu.
 
 ---
+
+# Dokumentacja etapów (docs/stages)
+
+Dokumentacja poszczególnych etapów rozwoju projektu.
+
+Przykłady:
+
+- ETAP_01A.md
+- ETAP_01B.md
+- ETAP_01C.md
+- ETAP_01D.md
+
+Każdy dokument etapu powinien zawierać:
+
+- nazwę etapu,
+- branch,
+- status,
+- cel,
+- zakres,
+- kryteria ukończenia,
+- wykonane zadania,
+- rezultaty,
+- sposób testowania.
+
+Aktualizowany:
+
+- przy rozpoczęciu etapu,
+- w trakcie realizacji,
+- po zakończeniu etapu.
+
+---
+
+# PROJECT_CONTEXT.md
+
+Kontekst dla AI
 
 # Archiwum (docs/archive)
 
 Archiwalne lub wycofane dokumenty.
 
-Nigdy nie usuwać dokumentacji bez potrzeby.
+Przechowuje:
 
-Przenosić tutaj:
+- stare wersje dokumentów,
+- porzucone koncepcje,
+- nieaktualne diagramy,
+- materiały historyczne.
 
-- stare wersje,
-- odrzucone koncepcje,
-- nieaktualne diagramy.
+Dokumentów nie usuwamy bez potrzeby.
+
+Przenosimy je do archiwum.
 
 ---
 
 # Zasady prowadzenia dokumentacji
 
 1. Najpierw dokumentacja, potem implementacja.
-2. Każdy nowy typ dokumentu musi zostać dopisany do DOCUMENTATION_INDEX.md.
-3. Nie duplikować informacji pomiędzy dokumentami.
-4. Jedna odpowiedzialność = jeden dokument.
-5. Każdy etap projektu powinien posiadać wpis w DEVLOG.md.
-6. Każda istotna decyzja architektoniczna powinna posiadać własny ADR.
-7. Przed utworzeniem taga należy zaktualizować:
+2. Każdy nowy dokument musi zostać wpisany do DOCUMENTATION_INDEX.md.
+3. Nie duplikujemy informacji pomiędzy dokumentami.
+4. Jeden dokument powinien mieć jedną odpowiedzialność.
+5. README.md musi zawsze odzwierciedlać aktualny stan projektu.
+6. Każdy etap musi posiadać własny dokument w katalogu docs/stages.
+7. Każda istotna decyzja architektoniczna powinna posiadać wpis w ARCHITECT_LOG.md lub oddzielny ADR.
+8. Przed utworzeniem taga należy zaktualizować:
+   - README.md
    - PROJECT_STATE.md
-   - CHANGELOG.md
    - DEVLOG.md
+   - CHANGELOG.md
+   - ROADMAP.md
+9. Rozpoczęcie etapu wymaga aktualizacji:
+   - README.md
+   - PROJECT_STATE.md
+   - DEVLOG.md
+   - ETAP_xx.md
+10. Zakończenie etapu wymaga aktualizacji:
+   - README.md
+   - PROJECT_STATE.md
+   - DEVLOG.md
+   - ETAP_xx.md
+11. Każdy kamień milowy (Milestone) powinien zakończyć się:
+   - aktualizacją CHANGELOG.md,
+   - utworzeniem taga Git,
+   - publikacją Release na GitHub.

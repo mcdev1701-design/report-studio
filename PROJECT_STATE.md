@@ -1,28 +1,25 @@
-# PROJECT STATE
-
 ## Aktualny etap
 
-ETAP_01C
+ETAP_01D
 
 ## Aktualna gałąź
 
-feature/etap-01c-fastapi-bootstrap
+feature/etap-01d-frontend-bootstrap
 
 ## Status
 
-W realizacji ETAP_01C
+W realizacji
 
 ## Zakończone
 
-- ETAP_01A Bootstrap projektu
-- ETAP_01B Dokumentacja architektury
+- ETAP_01A
+- ETAP_01B
+- ETAP_01C
 
 ## Aktualnie realizowane
 
-- Struktura backendu FastAPI
-- Konfiguracja aplikacji
-- Health Check API
+- Frontend Bootstrap
 
 ## Następny krok
 
-Utworzenie struktury backend/app
+Przygotowanie struktury frontendu

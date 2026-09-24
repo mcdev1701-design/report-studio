@@ -30,3 +30,10 @@ Testy jednostkowe:
 Arrange - Przygotowanie
 Act - Wkonanie operacji
 Assert - Sprawdzenie wyniku
+
+### Przywracanie kontekstu AI(owi)
+
+1. PROJECT_CONTEXT.md
+2. PROJECT_STATE.md
+3. Aktualny ETAP_xx.md
+4. PROJECT_WORKFLOW.md

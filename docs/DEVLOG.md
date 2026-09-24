@@ -47,3 +47,47 @@ Dotyczące:
 Nie wpływają na działanie aplikacji.
 
 Do ponownej weryfikacji podczas aktualizacji zależności.
+
+## ETAP_01D
+
+Data: 2026-09-24
+
+Rozpoczęto ETAP_01D.
+
+Utworzono branch:
+
+feature/etap-01d-frontend-bootstrap
+
+Cel etapu:
+
+- przygotowanie struktury frontendu
+- komunikacja z FastAPI
+- pierwszy ekran aplikacji
+
+Utworzono pierwszy szkielet frontendu.
+
+Zweryfikowano:
+
+- HTML
+- CSS
+- JavaScript
+
+Frontend działa lokalnie.
+
+Dodano pierwszy cykl życia frontendu.
+
+Przepływ:
+
+HTML
+↓
+DOMContentLoaded
+↓
+loadApplicationInfo()
+
+Zweryfikowano poprawną kolejność wykonywania kodu.
+
+
+utworzono frontend
+wykonano pierwszy fetch
+zidentyfikowano problem CORS
+podjęto decyzję o serwowaniu frontendu przez FastAPI

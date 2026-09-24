@@ -118,3 +118,54 @@ backend/app/core/settings.py
 - Powód 
 - Korzyści lub Wynik 
 5. Wpisy grupujemy chronologicznie według dat.
+
+## 2026-09-24
+
+### Decyzja
+
+Frontend będzie rozwijany etapowo bez użycia frameworków SPA.
+
+### Powód
+
+Celem projektu jest pełne zrozumienie:
+
+- HTML
+- CSS
+- JavaScript
+- komunikacji z API
+
+przed wprowadzeniem dodatkowych warstw abstrakcji.
+
+### Korzyści
+
+- prostszy debugging,
+- łatwiejsza nauka,
+- większa kontrola nad kodem.
+
+## 2026-09-24
+
+### Decyzja
+
+Frontend będzie serwowany przez FastAPI.
+
+### Powód
+
+Na obecnym etapie projektu najważniejsze jest
+zrozumienie podstaw komunikacji pomiędzy
+frontendem a backendem.
+
+Wprowadzenie oddzielnego serwera frontendowego
+spowodowałoby dodatkową złożoność:
+
+- CORS,
+- dodatkowa konfiguracja,
+- większa liczba elementów do utrzymania.
+
+### Korzyści
+
+- prostsza architektura,
+- jedna aplikacja,
+- brak problemów z CORS,
+- łatwiejsza nauka działania FastAPI.
+
+Frontend będzie serwowany przez FastAPI.
