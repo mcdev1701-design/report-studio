@@ -91,3 +91,7 @@ utworzono frontend
 wykonano pierwszy fetch
 zidentyfikowano problem CORS
 podjęto decyzję o serwowaniu frontendu przez FastAPI
+
+
+Przeniesiono frontend do struktury FastAPI. Usunięto katalog:
+frontend/

@@ -169,3 +169,38 @@ spowodowałoby dodatkową złożoność:
 - łatwiejsza nauka działania FastAPI.
 
 Frontend będzie serwowany przez FastAPI.
+
+## 2026-09-25
+
+### Decyzja
+
+Usunięto oddzielny katalog frontend.
+
+### Powód
+
+Podjęto decyzję o serwowaniu frontendu bezpośrednio przez FastAPI.
+
+Utrzymywanie dwóch lokalizacji zawierających pliki HTML, CSS i JavaScript prowadziłoby do:
+
+- duplikacji kodu,
+- ryzyka niespójności,
+- trudniejszego utrzymania projektu.
+
+### Korzyści
+
+- jedno źródło prawdy,
+- prostsza struktura projektu,
+- brak problemów z CORS,
+- łatwiejsza integracja frontendu z backendem.
+
+### Wynik
+
+Frontend został przeniesiony do:
+
+```text
+backend/app/templates/
+
+backend/app/static/
+├── css/
+├── js/
+└── assets/

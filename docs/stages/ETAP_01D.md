@@ -38,3 +38,5 @@ Przygotowanie fundamentów frontendu aplikacji.
 - dodano obsługę DOMContentLoaded
 - utworzono funkcję loadApplicationInfo()
 - zweryfikowano uruchamianie JavaScript
+
+- utworzono szkielet frontendu, - wykonano pierwszy fetch(), - zdiagnozowano problem CORS, - podjęto decyzję o serwowaniu frontendu przez FastAPI, - przeniesiono frontend do katalogów templates i static, - usunięto katalog frontend.
