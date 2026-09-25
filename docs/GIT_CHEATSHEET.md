@@ -303,6 +303,13 @@ git tag v0.1.0
 git push origin v0.1.0
 ```
 
+## Sprawdzenie, które gałęzie są już scalone (będąc na gałęzi głównej)
+
+```bash
+git branch --merged
+
+```
+
 ---
 
 # STRATEGIA GAŁĘZI
