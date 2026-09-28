@@ -61,3 +61,17 @@ Przygotowanie fundamentów frontendu aplikacji.
 
 - pierwszy komponent UI:
   SystemStatusPanel
+
+### Dodano
+
+- ToolboxPanel
+- pierwsze elementy toolboxa:
+  - Text
+  - Field
+  - Image
+  - Chart
+
+  ### Dodano
+
+- CanvasPanel
+- makietę obszaru roboczego raportu

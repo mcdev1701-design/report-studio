@@ -204,3 +204,21 @@ backend/app/static/
 ├── css/
 ├── js/
 └── assets/
+
+### Decyzja
+
+Projektant raportów będzie rozwijany w oparciu o trzy główne komponenty UI:
+
+- ToolboxPanel
+- CanvasPanel
+- PropertyPanel
+
+### Powód
+
+Rozdzielenie odpowiedzialności interfejsu użytkownika.
+
+### Korzyści
+
+- prostsza rozbudowa,
+- czytelniejszy kod,
+- łatwiejsza integracja z Konva.js.

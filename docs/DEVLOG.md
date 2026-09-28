@@ -127,3 +127,13 @@ SystemStatusPanel
 Cel:
 
 Prezentacja informacji o stanie aplikacji.
+
+Dodano pierwszy komponent projektanta raportów.
+
+Komponent:
+
+ToolboxPanel
+
+Cel:
+
+Prezentacja narzędzi dostępnych dla użytkownika.

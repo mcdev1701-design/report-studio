@@ -471,3 +471,51 @@ Odpowiedzialność:
 - wyświetlanie danych,
 - aktualizacja po otrzymaniu odpowiedzi API,
 - prezentacja stanu aplikacji.
+
+## ToolboxPanel
+
+Cel:
+
+Prezentacja elementów możliwych do dodania do raportu.
+
+W przyszłości:
+
+- Drag & Drop
+- Integracja z Konva.js
+- Tworzenie obiektów raportu
+
+Pierwsze elementy:
+
+- Text
+- Field
+- Image
+- Chart
+
+Odpowiedzialność:
+
+- prezentacja dostępnych narzędzi,
+- inicjowanie dodawania komponentów raportu.
+
+## CanvasPanel
+
+Cel:
+
+Główny obszar roboczy projektanta raportów.
+
+W przyszłości:
+
+- Konva.js
+- Drag & Drop
+- Resize obiektów
+- Grid
+- Snap
+
+Odpowiedzialność:
+
+- wyświetlanie elementów raportu,
+- projektowanie układu raportu,
+- interakcja z ToolboxPanel.
+
+Aktualny status:
+
+Makieta UI.
