@@ -607,3 +607,64 @@ Technologie:
 
 - CSS Flexbox
 - Media Queries
+
+## Pierwsza interakcja UI
+
+Cel:
+
+Obsługa wyboru narzędzia z ToolboxPanel.
+
+Przepływ:
+
+Użytkownik
+↓
+Kliknięcie przycisku
+↓
+JavaScript
+↓
+Aktualizacja PropertyPanel
+
+Aktualny zakres:
+
+- wybór narzędzia,
+- wyświetlenie aktywnego narzędzia.
+
+## Komunikacja komponentów
+
+Aktualny przepływ:
+
+ToolboxPanel
+↓
+JavaScript
+↓
+CanvasPanel
+
+oraz
+
+ToolboxPanel
+↓
+JavaScript
+↓
+PropertyPanel
+
+## Pierwsze obiekty Canvas
+
+Cel:
+
+Dodawanie obiektów do CanvasPanel.
+
+Aktualny zakres:
+
+- Text Object
+
+Przepływ:
+
+Toolbox
+↓
+Click
+↓
+JavaScript
+↓
+Canvas Object
+↓
+CanvasPanel

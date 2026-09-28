@@ -193,3 +193,58 @@ CSS_CHEATSHEET.md
 Cel:
 
 Budowa własnej bazy wiedzy CSS wykorzystywanej w projekcie.
+
+Wprowadzono pierwszą interakcję UI.
+
+Mechanizm:
+
+Toolbox
+↓
+Click Event
+↓
+JavaScript
+↓
+PropertyPanel
+
+Rezultat:
+
+Użytkownik może wybierać narzędzia
+i obserwować reakcję interfejsu.
+
+Wprowadzono pierwszą komunikację pomiędzy komponentami UI.
+
+Przepływ:
+
+Toolbox
+↓
+JavaScript
+↓
+Canvas
+↓
+Properties
+
+Rezultat:
+
+Zmiana wybranego narzędzia aktualizuje dwa komponenty interfejsu jednocześnie.
+
+Wprowadzono pierwszy stan aplikacji.
+
+Obiekt:
+
+canvasObjects
+
+Przepływ:
+
+Toolbox
+↓
+Click
+↓
+State Update
+↓
+Render
+↓
+Canvas
+
+Rezultat:
+
+Użytkownik może dodawać obiekty na canvas.

@@ -7,19 +7,26 @@
  * Frontend Bootstrap
  */
 
+/**
+ * Obiekty znajdujące się na canvasie.
+ */
+const canvasObjects = [];
+
 console.log("Report Studio Frontend");
 
 /**
  * Uruchamiane po pełnym załadowaniu dokumentu HTML.
  */
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    console.log("DOM loaded");
+        loadApplicationInfo();
 
-    loadApplicationInfo();
+        initializeToolbox();
 
-});
-
+    }
+);
 /**
  * Pobiera informacje o aplikacji z backendu.
  */
@@ -51,4 +58,109 @@ async function loadApplicationInfo() {
     }
 
 
+}
+
+/**
+ * Obsługa wyboru narzędzia.
+ */
+function initializeToolbox() {
+
+    const toolButtons =
+        document.querySelectorAll(".tool-button");
+
+    toolButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const selectedTool =
+                button.dataset.tool;
+
+            updatePropertyPanel(
+                selectedTool
+            );
+
+            addCanvasObject(
+                selectedTool
+            );
+
+        });
+
+    });
+
+}
+
+/**
+ * Aktualizacja PropertyPanel.
+ */
+function updatePropertyPanel(
+    selectedTool
+) {
+
+    const propertyPanel =
+        document.getElementById(
+            "property-placeholder"
+        );
+
+    propertyPanel.innerHTML = `
+        <strong>Selected Tool</strong>
+        <br><br>
+        ${selectedTool}
+    `;
+}
+
+/**
+ * Aktualizacja CanvasPanel.
+ */
+function updateCanvasPanel(
+    selectedTool
+) {
+
+    const canvasPanel =
+        document.getElementById(
+            "canvas-placeholder"
+        );
+
+    canvasPanel.innerHTML = `
+        <strong>Selected Tool</strong>
+        <br><br>
+        ${selectedTool}
+    `;
+}
+
+/**
+ * Dodanie obiektu do canvasa.
+ */
+function addCanvasObject(
+    selectedTool
+) {
+
+    canvasObjects.push(selectedTool);
+
+    renderCanvas();
+
+}
+
+/**
+ * Renderowanie obiektów canvas.
+ */
+function renderCanvas() {
+
+    const canvasElement =
+        document.getElementById(
+            "canvas-placeholder"
+        );
+
+    let html = "";
+
+    canvasObjects.forEach(object => {
+
+        html += `
+            <div class="canvas-object">
+                ${object} Object
+            </div>
+        `;
+
+    });
+
+    canvasElement.innerHTML = html;
 }

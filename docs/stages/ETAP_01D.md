@@ -119,3 +119,22 @@ Przygotowanie fundamentów frontendu aplikacji.
 
 - FRONTEND_OVERVIEW.md
 - CSS_CHEATSHEET.md
+
+### Dodano
+
+- pierwszą interakcję użytkownika,
+- obsługę kliknięcia ToolboxPanel,
+- aktualizację PropertyPanel,
+- wykorzystanie data-* attributes.
+
+### Dodano
+
+- komunikację ToolboxPanel → CanvasPanel
+- synchronizację CanvasPanel i PropertyPanel
+
+### Dodano
+
+- pierwszy model danych Canvas
+- canvasObjects
+- renderCanvas()
+- dodawanie obiektów do CanvasPanel
