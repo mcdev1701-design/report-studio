@@ -25,14 +25,30 @@ document.addEventListener("DOMContentLoaded", () => {
  */
 async function loadApplicationInfo() {
 
-    console.log("Pobieranie informacji o aplikacji...");
+    try {
 
-    const response = await fetch(
-        "http://127.0.0.1:8000/api/v1/info"
-    );
+            console.log("Pobieranie informacji o aplikacji...");
 
-    const data = await response.json();
+            const response = await fetch(
+                "/api/v1/info"
+            );
 
-    console.log(data);
+            const data = await response.json();
+
+            console.log(data);
+
+            const backendInfoElement = 
+                document.getElementById("backend-info");
+
+            backendInfoElement.innerHTML = `
+                <strong>Application:</strong> ${data.application}<br>
+                <strong>Version:</strong> ${data.version}<br>
+                <strong>Status:</strong> ${data.status}
+            `;
+    }
+    catch (error) {
+        console.error(error);
+    }
+
 
 }

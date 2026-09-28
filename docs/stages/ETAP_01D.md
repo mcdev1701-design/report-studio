@@ -40,3 +40,19 @@ Przygotowanie fundamentów frontendu aplikacji.
 - zweryfikowano uruchamianie JavaScript
 
 - utworzono szkielet frontendu, - wykonano pierwszy fetch(), - zdiagnozowano problem CORS, - podjęto decyzję o serwowaniu frontendu przez FastAPI, - przeniesiono frontend do katalogów templates i static, - usunięto katalog frontend.
+
+### Wykonano
+
+- pobrano dane z endpointu info
+- zaktualizowano DOM
+- wyświetlono dane backendu na stronie
+- dodano obsługę błędów try/catch
+
+### Wykonano
+
+- serwowanie frontendu przez FastAPI
+- konfiguracja Jinja2Templates
+- konfiguracja StaticFiles
+- integracja frontend-backend
+- aktualizacja widoku na podstawie danych API
+- aktualizacja testów po zmianie root endpoint

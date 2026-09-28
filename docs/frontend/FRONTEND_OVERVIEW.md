@@ -403,3 +403,46 @@ Wyjście:
 Aktualizacja elementu:
 
 backend-info
+
+## Aktualizacja DOM
+
+Po pobraniu danych z API frontend aktualizuje zawartość:
+
+backend-info
+
+Przepływ:
+
+FastAPI
+↓
+JSON
+↓
+JavaScript
+↓
+DOM Update
+↓
+Widok użytkownika
+
+### Odpowiedzialność funkcji loadApplicationInfo()
+
+1. Pobranie danych z API.
+2. Odczyt odpowiedzi JSON.
+3. Odszukanie elementu backend-info.
+4. Aktualizacja zawartości elementu.
+5. Obsługa błędów.
+
+## Aktualizacja widoku
+
+Dane pobrane z API są wyświetlane
+w elemencie:
+
+backend-info
+
+Mechanizm:
+
+JSON
+↓
+JavaScript
+↓
+innerHTML
+↓
+DOM Update

@@ -31,6 +31,12 @@ from backend.app.core.logger import logger
 # Import obsługi cyklu życia aplikacji.
 from backend.app.core.lifecycle import lifespan
 
+# Import obsługi szablonów HTML.
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+
 logger.info("Uruchamianie aplikacji Report Studio")
 
 # ==================================================
@@ -46,6 +52,22 @@ app = FastAPI(
     title=settings.app_name,
     version=settings.app_version,
     lifespan=lifespan
+)
+
+#==================================================
+# STATIC FILES CONFIGURATION
+#=================================================
+app.mount(
+    "/static",
+    StaticFiles(directory="backend/app/static"),
+    name="static"
+)
+
+#=================================================
+# TEMPLATES CONFIGURATION
+#=================================================
+templates = Jinja2Templates(
+    directory="backend/app/templates"
 )
 
 # ==================================================
@@ -66,28 +88,13 @@ app.include_router(
 )
 
 
-@app.get("/")
-def root():
+@app.get("/", response_class=HTMLResponse)
+def root(request: Request):
     """
-    Główny endpoint aplikacji.
-
-    Cel:
-        Szybkie sprawdzenie czy aplikacja działa.
-
-    Adres:
-        GET /
-
-    Przykładowa odpowiedź:
-
-        {
-            "application": "Report Studio",
-            "version": "0.1.0"
-        }
+    Strona główna aplikacji.
     """
 
-    logger.info("Wywołano endpoint root")
-
-    return {
-        "application": settings.app_name,
-        "version": settings.app_version
-    }
+    return templates.TemplateResponse(
+        request=request,
+        name="index.html"
+    )
