@@ -10,7 +10,7 @@ feature/etap-01d-frontend-bootstrap
 
 ## Status
 
-W realizacji
+Status: Zakończony
 
 ## Cel
 

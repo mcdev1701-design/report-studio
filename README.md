@@ -28,46 +28,24 @@ Projekt udostępniony na licencji MIT.
 
 ## Status
 
-Aktualny etap: ETAP_01D
+Aktualny etap: ETAP_02
 
 Status: W realizacji
 
-Aktualny branch:
+### Ukończone etapy
 
-feature/etap-01d-frontend-bootstrap
+✅ ETAP_01A - Bootstrap projektu
 
-### Ostatnio ukończono
+✅ ETAP_01B - Dokumentacja architektury
 
 ✅ ETAP_01C - Backend Foundation
 
+✅ ETAP_01D - Frontend Bootstrap
+
 ### Aktualnie realizowane
 
-🚧 ETAP_01D - Frontend Bootstrap
-
-### Postęp ETAP_01D
-
-✅ Frontend serwowany przez FastAPI
-
-✅ Jinja2 Templates
-
-✅ Static Files
-
-✅ Pierwszy fetch() do API
-
-✅ SystemStatusPanel
-
-✅ ToolboxPanel
-
-✅ CanvasPanel
-
-✅ PropertyPanel
-
-✅ Layout v1 (Flexbox)
-
-✅ Responsywność (Media Query)
-
-✅ CSS_CHEATSHEET.md
+🚧 ETAP_02 - Data Source Engine
 
 ### Następny krok
 
-⏳ Pierwsza interakcja Toolbox → Canvas
+Implementacja abstrakcji DataSource

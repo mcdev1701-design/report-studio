@@ -31,6 +31,9 @@ document.addEventListener(
         initializeToolbox();
 // Inicjalizacja skrótów klawiaturowych.
         initializeKeyboardShortcuts();
+// Aktualizacja panelu skrótów.
+        updateShortcutsPanel();
+
 
     }
 );
@@ -231,6 +234,8 @@ function selectCanvasObject() {
         selectedObject
     );
 
+    updateShortcutsPanel();
+
 }
 
 /**
@@ -309,12 +314,18 @@ function deleteSelectedObject() {
 
     selectedObjectId = null;
 
+    updateShortcutsPanel();
+
     renderCanvas();
 
     clearPropertyPanel();
 
+
 }
 
+/**
+ * Czyszczenie PropertyPanel.
+ */
 function clearPropertyPanel() {
 
     const propertyPanel =
@@ -324,4 +335,34 @@ function clearPropertyPanel() {
 
     propertyPanel.innerHTML =
        "Brak zaznaczonego obiektu";
+}
+
+/**
+ * Aktualizacja panelu skrótów.
+ */
+function updateShortcutsPanel() {
+
+    const shortcutsPanel =
+        document.getElementById(
+            "shortcuts-content"
+        );
+
+    if (selectedObjectId === null) {
+
+        shortcutsPanel.innerHTML = `
+            <ul>
+                <li>Wybierz narzędzie - utwórz obiekt</li>
+                <li>Kliknij obiekt - wybierz obiekt</li>
+            </ul>
+        `;
+
+        return;
+    }
+
+    shortcutsPanel.innerHTML = `
+        <ul>
+            <li>Kliknij obiekt <b>(LPM)</b> - zmień zaznaczenie</li>
+            <li>Klawisz: <b>Delete</b> - usuń zaznaczony obiekt</li>
+        </ul>
+    `;
 }

@@ -45,3 +45,22 @@ Wykonano:
 Następny krok:
 
 Pierwsza interakcja użytkownika z ToolboxPanel.
+
+## Aktualny etap
+
+ETAP_02
+
+## Status
+
+W realizacji
+
+## Zakończone
+
+- ETAP_01A
+- ETAP_01B
+- ETAP_01C
+- ETAP_01D
+
+## Następny krok
+
+Data Source Engine
