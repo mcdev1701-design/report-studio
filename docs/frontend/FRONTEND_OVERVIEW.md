@@ -519,3 +519,91 @@ Odpowiedzialność:
 Aktualny status:
 
 Makieta UI.
+
+## PropertyPanel
+
+Cel:
+
+Prezentacja właściwości zaznaczonego elementu raportu.
+
+W przyszłości:
+
+- pozycja obiektu,
+- rozmiar obiektu,
+- czcionka,
+- kolor,
+- powiązane dane.
+
+Odpowiedzialność:
+
+- wyświetlanie właściwości,
+- edycja właściwości,
+- komunikacja z CanvasPanel.
+
+Aktualny status:
+
+Makieta UI.
+
+## Layout v1
+
+Projektant raportów składa się z trzech głównych paneli:
+
+- ToolboxPanel
+- CanvasPanel
+- PropertyPanel
+
+Panele rozmieszczone są poziomo przy użyciu:
+
+display: flex
+
+Cel:
+
+Przygotowanie struktury przyszłego wizualnego projektanta raportów.
+
+## Responsywność
+
+Layout projektanta raportów powinien dostosowywać się do szerokości okna przeglądarki.
+
+Desktop:
+
+Toolbox | Canvas | Properties
+
+Tablet / Małe ekrany:
+
+Toolbox
+Canvas
+Properties
+
+Technologia:
+
+- CSS Flexbox
+- Media Queries
+
+## Aktualny stan UI
+
+Dostępne komponenty:
+
+- SystemStatusPanel
+- ToolboxPanel
+- CanvasPanel
+- PropertyPanel
+
+Layout:
+
+Desktop
+
+Toolbox | Canvas | Properties
+
+System Status
+
+Mobile
+
+Toolbox
+Canvas
+Properties
+System Status
+
+Technologie:
+
+- CSS Flexbox
+- Media Queries

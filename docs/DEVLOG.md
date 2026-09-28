@@ -137,3 +137,59 @@ ToolboxPanel
 Cel:
 
 Prezentacja narzędzi dostępnych dla użytkownika.
+
+Wprowadzono pierwszy układ projektanta raportów.
+
+Technologia:
+
+display:flex
+
+Rezultat:
+
+Panele rozmieszzczone poziomo,
+w sposób przypominający narzędzia
+typu Crystal Reports.
+
+Wprowadzono pierwszą responsywność UI.
+
+Technologie:
+
+- Flexbox
+- Media Queries
+
+Rezultat:
+
+Layout dostosowuje się do szerokości ekranu.
+
+### Layout v1
+
+Utworzono pierwszą wersję układu projektanta raportów.
+
+Wykorzystane technologie:
+
+- Flexbox
+- Media Queries
+
+Dodano komponenty:
+
+- ToolboxPanel
+- CanvasPanel
+- PropertyPanel
+
+Rezultat:
+
+Interfejs zaczyna przypominać aplikację typu:
+
+- Crystal Reports
+- JasperSoft Studio
+- Visual Studio Designer
+
+### Dokumentacja
+
+Dodano:
+
+CSS_CHEATSHEET.md
+
+Cel:
+
+Budowa własnej bazy wiedzy CSS wykorzystywanej w projekcie.

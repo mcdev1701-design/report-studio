@@ -222,3 +222,40 @@ Rozdzielenie odpowiedzialności interfejsu użytkownika.
 - prostsza rozbudowa,
 - czytelniejszy kod,
 - łatwiejsza integracja z Konva.js.
+
+### Decyzja
+
+Interfejs projektanta raportów oparto na trzech głównych komponentach:
+
+- ToolboxPanel
+- CanvasPanel
+- PropertyPanel
+
+### Powód
+
+Jest to sprawdzony wzorzec stosowany
+w systemach projektowania wizualnego.
+
+### Korzyści
+
+- rozdzielenie odpowiedzialności,
+- łatwiejsza rozbudowa,
+- prostsza integracja z Konva.js.
+
+### Decyzja
+
+Pierwsza wersja interfejsu wykorzystuje Flexbox.
+
+### Powód
+
+Prosta implementacja układu:
+
+- ToolboxPanel
+- CanvasPanel
+- PropertyPanel
+
+### Korzyści
+
+- responsywność
+- czytelny kod CSS
+- łatwa przyszła integracja z Konva.js

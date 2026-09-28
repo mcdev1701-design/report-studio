@@ -23,3 +23,25 @@ W realizacji
 ## Następny krok
 
 Przygotowanie struktury frontendu
+
+## Aktualnie realizowane
+
+ETAP_01D
+
+Wykonano:
+
+- Bootstrap frontendu
+- Integracja FastAPI + Frontend
+- Jinja2 Templates
+- Static Files
+- SystemStatusPanel
+- ToolboxPanel
+- CanvasPanel
+- PropertyPanel
+- Layout Flexbox
+- Responsywność UI
+- Dokument CSS_CHEATSHEET.md
+
+Następny krok:
+
+Pierwsza interakcja użytkownika z ToolboxPanel.

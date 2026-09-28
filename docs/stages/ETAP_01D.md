@@ -75,3 +75,47 @@ Przygotowanie fundamentów frontendu aplikacji.
 
 - CanvasPanel
 - makietę obszaru roboczego raportu
+
+### Dodano
+
+- PropertyPanel
+- makietę panelu właściwości
+
+### Dodano
+
+- Layout v1
+- display:flex
+- rozmieszczenie paneli:
+  - ToolboxPanel
+  - CanvasPanel
+  - PropertyPanel
+
+  ### Dodano
+
+- responsywność layoutu
+- media queries
+- obsługę węższych ekranów
+
+### Dodano
+
+- SystemStatusPanel
+- ToolboxPanel
+- CanvasPanel
+- PropertyPanel
+
+### Layout
+
+- display:flex
+- flex:1
+- flex-shrink
+- gap
+
+### Responsywność
+
+- media queries
+- układ pionowy dla małych ekranów
+
+### Dokumentacja
+
+- FRONTEND_OVERVIEW.md
+- CSS_CHEATSHEET.md

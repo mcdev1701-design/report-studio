@@ -44,6 +44,30 @@ feature/etap-01d-frontend-bootstrap
 
 🚧 ETAP_01D - Frontend Bootstrap
 
-### Następny etap
+### Postęp ETAP_01D
 
-⏳ ETAP_02A - Data Source Engine
+✅ Frontend serwowany przez FastAPI
+
+✅ Jinja2 Templates
+
+✅ Static Files
+
+✅ Pierwszy fetch() do API
+
+✅ SystemStatusPanel
+
+✅ ToolboxPanel
+
+✅ CanvasPanel
+
+✅ PropertyPanel
+
+✅ Layout v1 (Flexbox)
+
+✅ Responsywność (Media Query)
+
+✅ CSS_CHEATSHEET.md
+
+### Następny krok
+
+⏳ Pierwsza interakcja Toolbox → Canvas
