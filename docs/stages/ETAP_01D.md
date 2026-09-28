@@ -56,3 +56,8 @@ Przygotowanie fundamentów frontendu aplikacji.
 - integracja frontend-backend
 - aktualizacja widoku na podstawie danych API
 - aktualizacja testów po zmianie root endpoint
+
+### Dodano
+
+- pierwszy komponent UI:
+  SystemStatusPanel

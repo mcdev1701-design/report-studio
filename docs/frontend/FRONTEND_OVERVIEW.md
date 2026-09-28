@@ -446,3 +446,28 @@ JavaScript
 innerHTML
 ↓
 DOM Update
+
+# Komponenty UI
+
+## SystemStatusPanel
+
+Cel:
+
+Prezentacja podstawowych informacji
+o działającej aplikacji.
+
+Źródło danych:
+
+GET /api/v1/info
+
+Wyświetlane informacje:
+
+- Application
+- Version
+- Status
+
+Odpowiedzialność:
+
+- wyświetlanie danych,
+- aktualizacja po otrzymaniu odpowiedzi API,
+- prezentacja stanu aplikacji.

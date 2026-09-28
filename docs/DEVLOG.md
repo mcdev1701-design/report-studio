@@ -95,3 +95,35 @@ podjęto decyzję o serwowaniu frontendu przez FastAPI
 
 Przeniesiono frontend do struktury FastAPI. Usunięto katalog:
 frontend/
+
+### Integracja FastAPI i Frontendu
+
+- frontend został przeniesiony do templates i static
+- skonfigurowano Jinja2Templates
+- skonfigurowano StaticFiles
+- frontend pobiera dane z API
+- dane wyświetlane są w przeglądarce
+
+Wynik:
+
+Pełna komunikacja:
+
+FastAPI
+↓
+JSON
+↓
+JavaScript
+↓
+DOM
+↓
+Przeglądarka
+
+Wprowadzono pierwszy komponent UI.
+
+Komponent:
+
+SystemStatusPanel
+
+Cel:
+
+Prezentacja informacji o stanie aplikacji.
