@@ -138,3 +138,16 @@ Przygotowanie fundamentów frontendu aplikacji.
 - canvasObjects
 - renderCanvas()
 - dodawanie obiektów do CanvasPanel
+
+### Dodano
+
+- identyfikatory obiektów Canvas
+- selectedObject
+- zaznaczanie obiektów
+- aktualizację PropertyPanel na podstawie obiektu
+
+### Dodano
+
+- wizualne zaznaczanie obiektów
+- klasę canvas-object-selected
+- synchronizację selectedObject z CanvasPanel

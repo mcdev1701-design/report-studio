@@ -248,3 +248,26 @@ Canvas
 Rezultat:
 
 Użytkownik może dodawać obiekty na canvas.
+
+Wprowadzono pierwszy model zaznaczania obiektów.
+
+Pojęcia:
+
+- selectedTool
+- selectedObject
+
+Rezultat:
+
+PropertyPanel prezentuje dane wybranego obiektu Canvas.
+
+Wprowadzono wizualne zaznaczanie obiektów Canvas.
+
+Mechanizm:
+
+selectedObject
+↓
+renderCanvas()
+↓
+aktualizacja klas CSS
+↓
+wyróżnienie zaznaczonego obiektu

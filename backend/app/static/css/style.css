@@ -192,6 +192,10 @@ RESPONSYWNOŚĆ
     }
 }
 
+/*=================================================
+STYLIZACJA OBIEKTÓW NA CANVASIE 
+=================================================
+*/
 .canvas-object {
 
     margin-bottom: 10px;
@@ -201,4 +205,32 @@ RESPONSYWNOŚĆ
     border: 1px solid #999999;
 
     background-color: #ffffff;
+
+    cursor: pointer;
+}
+
+.canvas-object-selected {
+
+    border: 2px solid #0d6efd;
+
+    background-color: #e7f1ff;
+}
+
+/*=================================================
+SHORTCUTS PANEL 
+=================================================
+*/
+#shortcuts-panel {
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    /*border: 1px solid #cccccc;
+
+    border-radius: 6px;
+
+    background-color: #ffffff;*/
+
+    font-size: 12px;
 }

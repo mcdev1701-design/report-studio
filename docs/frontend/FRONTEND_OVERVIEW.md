@@ -668,3 +668,65 @@ JavaScript
 Canvas Object
 ↓
 CanvasPanel
+
+## Zaznaczanie obiektów
+
+Cel:
+
+Umożliwienie zaznaczania obiektów znajdujących się na CanvasPanel.
+
+Przepływ:
+
+Canvas Object
+↓
+Click
+↓
+selectedObject
+↓
+PropertyPanel
+
+Aktualny zakres:
+
+- zaznaczanie obiektu,
+- wyświetlenie informacji o obiekcie.
+
+## Wizualne zaznaczanie obiektów
+
+Cel:
+
+Wyróżnienie aktualnie zaznaczonego obiektu Canvas.
+
+Przepływ:
+
+Canvas Object
+↓
+Click
+↓
+selectedObject
+↓
+Aktualizacja stylu CSS
+↓
+Wyróżnienie obiektu
+
+## Usuwanie obiektów
+
+Cel:
+
+Usuwanie obiektów znajdujących się na CanvasPanel.
+
+Przepływ:
+
+Canvas Object
+↓
+Select
+↓
+Delete
+↓
+Usunięcie obiektu
+↓
+Render Canvas
+
+Aktualny zakres:
+
+- usuwanie pojedynczego obiektu
+- wykorzystanie klawisza Delete
