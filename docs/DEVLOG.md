@@ -296,3 +296,56 @@ Zrealizowano:
 Rezultat:
 
 Powstał pierwszy działający szkielet wizualnego projektanta raportów.
+
+## ETAP_02A
+
+Rozpoczęto projektowanie
+warstwy Data Source.
+
+Cel:
+
+Oddzielenie logiki źródeł danych
+od reszty systemu.
+
+Rozpoczęto implementację Data Source Engine.
+
+Wprowadzono abstrakcyjną klasę DataSource.
+
+Cel:
+
+Ujednolicenie obsługi wszystkich źródeł danych.
+
+Wprowadzono pierwszą implementację DataSource.
+
+Komponent:
+
+JsonSource
+
+Cel:
+
+Zweryfikowanie poprawności kontraktu
+DataSource przed implementacją MSSQL.
+
+### JsonSource
+
+Wprowadzono pierwszą implementację DataSource.
+
+Komponent:
+
+JsonSource
+
+Wynik:
+
+- connect()
+- disconnect()
+- test_connection()
+- get_data()
+
+Testy:
+
+✅ 6 passed
+
+Wniosek:
+
+Architektura DataSource jest gotowa
+do implementacji kolejnych źródeł danych.

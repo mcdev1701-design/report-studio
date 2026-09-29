@@ -48,7 +48,7 @@ Pierwsza interakcja użytkownika z ToolboxPanel.
 
 ## Aktualny etap
 
-ETAP_02
+ETAP_02A
 
 ## Status
 

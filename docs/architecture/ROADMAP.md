@@ -40,6 +40,12 @@ Rezultat:
 
 Pierwszy działający silnik źródeł danych.
 
+ETAP_02A
+Data Source Engine - źródło 
+
+ETAP_02B
+Dataset Model - zunifikowane dane w formacie list[dict]
+
 ---
 
 ## ETAP_03 - VISUAL DESIGNER

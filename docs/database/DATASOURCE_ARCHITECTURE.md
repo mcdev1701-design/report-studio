@@ -1,0 +1,425 @@
+# Data Source Architecture
+
+## Cel dokumentu
+
+Dokument opisuje architekturę warstwy Data Source projektu Report Studio.
+
+Warstwa Data Source odpowiada za dostarczanie danych do silnika raportowego.
+
+Nie odpowiada za:
+
+- renderowanie raportów,
+- eksport danych,
+- interfejs użytkownika,
+- projektowanie raportów.
+
+Jedyną odpowiedzialnością Data Source jest pobranie oraz udostępnienie danych.
+
+---
+
+# Definicja Data Source
+
+Data Source jest abstrakcją źródła danych.
+
+Z punktu widzenia Report Studio nie ma znaczenia czy dane pochodzą z:
+
+- MSSQL
+- CSV
+- Excel
+- JSON
+- STDIN
+- Named Pipe
+
+Każde źródło danych powinno być obsługiwane w taki sam sposób.
+
+---
+
+# Główne założenia
+
+## Jednolity interfejs
+
+Każde źródło danych powinno udostępniać ten sam zestaw operacji.
+
+Dzięki temu silnik raportowy nie będzie musiał wiedzieć z jakiego źródła pochodzą dane.
+
+Przykład:
+
+```text
+Report Engine
+
+        │
+        ▼
+
+DataSource
+
+        │
+        ▼
+
+MSSQL
+CSV
+Excel
+JSON
+STDIN
+Pipe
+```
+
+---
+
+## Rozszerzalność
+
+Dodanie nowego źródła danych nie powinno wymagać zmian
+w silniku raportowym.
+
+Przykład:
+
+Dzisiaj:
+
+```text
+MSSQL
+CSV
+Excel
+```
+
+Jutro:
+
+```text
+Oracle
+PostgreSQL
+REST API
+```
+
+Powinny być dodawane jako nowe implementacje Data Source.
+
+---
+
+## Separacja odpowiedzialności
+
+Data Source:
+
+✅ pobiera dane
+
+Data Source:
+
+❌ nie renderuje raportu
+
+❌ nie eksportuje PDF
+
+❌ nie obsługuje UI
+
+---
+
+# Obsługiwane źródła danych
+
+## ETAP_02
+
+Planowane:
+
+- MSSQL
+- CSV
+- Excel
+- JSON
+
+---
+
+## Planowane w kolejnych etapach
+
+- STDIN
+- Named Pipe
+- PostgreSQL
+- Oracle
+- REST API
+
+---
+
+# Kontrakt Data Source
+
+Każde źródło danych powinno wspierać następujące operacje.
+
+---
+
+## connect()
+
+Cel:
+
+Nawiązanie połączenia ze źródłem danych.
+
+Przykłady:
+
+MSSQL
+
+```text
+Połączenie z serwerem SQL.
+```
+
+CSV
+
+```text
+Otwarcie pliku.
+```
+
+Named Pipe
+
+```text
+Połączenie z kanałem komunikacyjnym.
+```
+
+---
+
+## disconnect()
+
+Cel:
+
+Zamknięcie połączenia lub zwolnienie zasobów.
+
+Przykłady:
+
+- zamknięcie połączenia MSSQL,
+- zamknięcie pliku,
+- zamknięcie Pipe.
+
+---
+
+## test_connection()
+
+Cel:
+
+Weryfikacja dostępności źródła danych.
+
+Przykłady:
+
+```text
+Czy serwer SQL odpowiada?
+```
+
+```text
+Czy plik istnieje?
+```
+
+```text
+Czy Pipe jest dostępny?
+```
+
+---
+
+## get_data()
+
+Cel:
+
+Pobranie danych.
+
+Rezultat:
+
+Dane powinny zostać zwrócone w ujednoliconej formie.
+
+---
+
+# Model architektury
+
+```text
++----------------+
+|   DataSource   |
++----------------+
+        ▲
+        │
+        │
++-------+--------+--------+--------+---------+---------+
+|       |        |        |        |         |         |
+▼       ▼        ▼        ▼        ▼         ▼
+
+MSSQL   CSV     Excel    JSON    STDIN     Pipe
+```
+
+---
+
+# Oczekiwana struktura projektu
+
+```text
+backend/app/
+
+services/
+
+datasources/
+
+├── datasource.py
+├── mssql_source.py
+├── csv_source.py
+├── excel_source.py
+├── json_source.py
+├── stdin_source.py
+└── pipe_source.py
+```
+
+---
+
+# Przepływ danych
+
+```text
+Data Source
+        │
+        ▼
+Data Source Engine
+        │
+        ▼
+Report Engine
+        │
+        ▼
+Renderer
+        │
+        ▼
+HTML / PDF / Excel
+```
+
+---
+
+# Decyzje architektoniczne
+
+## Data Source nie zna raportów
+
+Warstwa Data Source nie posiada wiedzy o:
+
+- układzie raportu,
+- grupowaniu,
+- eksportach,
+- wizualizacji.
+
+Jej zadaniem jest wyłącznie dostarczenie danych.
+
+---
+
+## Report Engine nie zna typu źródła
+
+Report Engine korzysta wyłącznie z interfejsu Data Source.
+
+Nie powinien wiedzieć czy dane pochodzą z:
+
+- MSSQL,
+- CSV,
+- Excel,
+- Pipe.
+
+---
+
+# Kryteria ukończenia ETAP_02A
+
+✅ Zaprojektowany kontrakt Data Source
+
+✅ Udokumentowana architektura
+
+✅ Określone wspierane źródła danych
+
+✅ Przygotowany model rozwoju warstwy danych
+
+✅ Gotowość do implementacji klasy bazowej DataSource
+
+## ETAP_02A
+
+Na tym etapie implementowany jest wyłącznie
+kontrakt DataSource.
+
+Implementacje konkretnych źródeł danych
+powstaną w kolejnych etapach.
+
+# Pierwsza implementacja
+
+## JsonSource
+
+Cel:
+
+Zweryfikowanie poprawności architektury DataSource.
+
+Powód wyboru:
+
+- brak zależności zewnętrznych,
+- prosta implementacja,
+- możliwość testowania bez bazy danych.
+
+Odpowiedzialność:
+
+- odczyt pliku JSON,
+- zwrócenie danych do silnika raportowego.
+
+## Format zwracanych danych
+
+get_data() zwraca:
+
+list[dict]
+
+Przykład:
+
+[
+    {
+        "id": 1,
+        "name": "Produkt A"
+    },
+    {
+        "id": 2,
+        "name": "Produkt B"
+    }
+]
+
+Powód:
+
+Jest to uniwersalny format możliwy do obsługi przez wszystkie planowane źródła danych.
+
+# Wewnętrzny model danych
+
+Data Source odpowiada wyłącznie za pobranie danych.
+
+Wszystkie dane powinny zostać przekształcone do wspólnego formatu.
+
+Aktualny standard:
+
+```python
+list[dict]
+```
+
+Przykład:
+
+```python
+[
+    {
+        "id": 1,
+        "name": "Produkt A"
+    }
+]
+```
+
+Dzięki temu Report Engine nie musi wiedzieć czy dane
+pochodzą z:
+
+- MSSQL
+- CSV
+- Excel
+- JSON
+- Pipe
+
+## Konfiguracja Data Source
+
+Każde źródło danych otrzymuje konfigurację
+podczas tworzenia obiektu.
+
+Przykład:
+
+source = JsonSource(
+    file_path="sample_data.json"
+)
+
+source.connect()
+
+source.get_data()
+
+## JsonSource
+
+Pierwsza implementacja DataSource.
+
+Cel:
+
+Weryfikacja architektury Data Source Engine.
+
+Format wejściowy:
+
+JSON
+
+Format wyjściowy:
+
+list[dict]
