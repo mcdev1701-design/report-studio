@@ -423,3 +423,24 @@ JSON
 Format wyjściowy:
 
 list[dict]
+
+# Dataset
+
+Dataset jest uniwersalnym nośnikiem danych
+w projekcie Report Studio.
+
+DataSource zwraca Dataset.
+
+Report Engine pracuje na Dataset.
+
+Renderer pracuje na Dataset.
+
+## Aktualny przepływ danych
+
+JSON File
+        ↓
+JsonSource
+        ↓
+Dataset
+        ↓
+Report Engine

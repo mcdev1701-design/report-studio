@@ -349,3 +349,16 @@ Wniosek:
 
 Architektura DataSource jest gotowa
 do implementacji kolejnych źródeł danych.
+
+Wprowadzono Dataset jako wspólny model danych.
+
+JsonSource nie zwraca już list[dict].
+
+JsonSource zwraca Dataset.
+
+Korzyści:
+
+- metadane
+- liczba rekordów
+- kolumny
+- wspólny kontrakt dla wszystkich źródeł danych

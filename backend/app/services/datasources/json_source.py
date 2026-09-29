@@ -12,12 +12,17 @@ Aktualny standard:
 list[dict]
 """
 
+from datetime import datetime
 import json
 
+"""
+Abstrakcyjna definicja źródła danych.
+"""
 from backend.app.services.datasources.datasource import (
     DataSource
 )
 
+from backend.app.models.dataset import Dataset
 
 class JsonSource(DataSource):
     """
@@ -87,12 +92,12 @@ class JsonSource(DataSource):
 
             return False
 
-    def get_data(self):
+    def get_data(self) -> Dataset:
         """
         Pobranie danych.
 
         Returns:
-            list[dict]
+            Dataset
         """
 
         with open(
@@ -103,4 +108,10 @@ class JsonSource(DataSource):
 
             data = json.load(file)
 
-        return data
+        return Dataset(
+            name="JSON Dataset",
+            source_type="json",
+            source_name=self.file_path,
+            loaded_at=datetime.now(),
+            rows=data
+        )

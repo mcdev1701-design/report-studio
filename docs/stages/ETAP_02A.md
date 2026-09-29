@@ -59,3 +59,18 @@ dla wszystkich źródeł danych.
 ### Wynik testów
 
 ✅ 6 passed
+
+### Dodano
+
+- model Dataset
+- row_count
+- columns
+- standard wymiany danych pomiędzy
+  DataSource a Report Engine
+
+### Dodano
+
+- integrację JsonSource z Dataset
+- row_count
+- columns
+- wspólny model wymiany danych

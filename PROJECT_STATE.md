@@ -64,3 +64,16 @@ W realizacji
 ## Następny krok
 
 Data Source Engine
+
+Status:
+
+W realizacji
+
+Postęp:
+
+✅ DataSource
+✅ JsonSource
+
+Następny krok:
+
+Projekt modelu Dataset
