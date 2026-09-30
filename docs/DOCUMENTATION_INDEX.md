@@ -95,9 +95,9 @@ Podstawowe zasady przygotowywania zmian i wskazówki do workflow.
 
 ---
 
-## DOCUMENTATION_GUIDE.docx
+## DOCUMENTATION_GUIDE.odt
 
-[Przewodnik Word](DOCUMENTATION_GUIDE.docx) zawiera zasady prowadzenia
+[Przewodnik Word](DOCUMENTATION_GUIDE.odt) zawiera zasady prowadzenia
 dokumentacji i opis każdego pliku Markdown. `docs/trash/info.md` jest
 prywatnym zbiorem luźnych notatek, a nie źródłem normatywnym.
 
