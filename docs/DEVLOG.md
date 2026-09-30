@@ -322,4 +322,20 @@ testów znajduje się w `docs/testing/KNOWN_WARNINGS.md` oraz w logu uruchomieni
 
 ### Rozpoczęto
 
-ETAP_02B - Dataset & Source Implementations
+## ETAP_02B
+
+Rozpoczęto implementację kolejnych źródeł danych.
+
+Branch:
+
+feature/etap-02b-source-implementations
+
+Zakres:
+
+- CSVSource
+- ExcelSource
+- przygotowanie pod MSSQLSource
+
+Cel:
+
+Zweryfikowanie, że różne źródła danych zwracają ten sam model Dataset.
