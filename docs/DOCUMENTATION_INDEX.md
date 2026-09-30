@@ -311,13 +311,22 @@ Docelowo:
 
 # Diagramy (docs/diagrams)
 
-Katalog jest przygotowany; diagramy nie zostały jeszcze dodane.
+## datasource-engine.ascii.md
+
+Architektura Data Source Engine.
+
+## frontend-architecture.ascii.md
+
+Architektura części frontendowej.
+
+## report-engine.ascii.md
+
+Architektura silnika raportowego.
 
 Formaty:
 
+- .md
 - draw.io
-- png
-- svg
 
 Przykłady:
 

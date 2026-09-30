@@ -440,3 +440,9 @@ JsonSource
 Dataset
         ↓
 Report Engine
+
+## Diagramy
+
+Szczegółowe diagramy znajdują się w:
+
+docs/diagrams/datasource-engine.ascii.md

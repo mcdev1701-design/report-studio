@@ -38,7 +38,7 @@ implementacji.
 
 ## Weryfikacja
 
-Ostatni lokalny wynik: `3 passed` dla `tests/unit`.
+Ostatni lokalny wynik: `6 passed` dla `tests/unit`.
 
 ## Do zamknięcia etapu
 

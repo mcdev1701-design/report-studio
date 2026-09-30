@@ -392,3 +392,15 @@ Każdy nowy plik Python powinien zawierać:
 Projekt ma charakter edukacyjny,
 dlatego czytelność jest ważniejsza
 niż minimalna liczba linii kodu.
+
+## Diagramy
+
+Diagramy ASCII są domyślną formą dokumentowania architektury.
+
+Diagram draw.io tworzymy dopiero wtedy, gdy:
+
+- diagram ASCII staje się nieczytelny,
+- zależności pomiędzy komponentami są złożone,
+- diagram ma istotną wartość dokumentacyjną.
+
+Unikamy tworzenia diagramów wyłącznie dla celów estetycznych.
