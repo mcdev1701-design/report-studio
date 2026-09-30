@@ -1,40 +1,27 @@
-# Testing Strategy
+# Strategia testów
 
-## Cel
+Testy weryfikują zachowanie aplikacji na poziomie modułów i integracji.
 
-Automatyczna weryfikacja poprawności działania aplikacji.
+## Rodzaje testów
 
----
-
-## Poziomy testów
-
-### Unit Tests
-
-Pojedyncze funkcje.
-
-Lokalizacja:
-
-tests/unit/
-
----
-
-### Integration Tests
-
-Współpraca między modułami.
-
-Lokalizacja:
-
-tests/integration/
-
----
-
-### UI Tests
-
-Do dodania w przyszłości.
-
----
+- Jednostkowe: `tests/unit/`.
+- Integracyjne: `tests/integration/`.
+- UI: `tests/ui/` (obecnie bez zaimplementowanych testów).
+- Wydajnościowe: `tests/performance/` (obecnie bez zaimplementowanych testów).
 
 ## Uruchomienie
 
+Wszystkie testy:
+
 ```bash
-pytest
+python -m pytest
+```
+
+Testy jednostkowe:
+
+```bash
+python -m pytest tests/unit
+```
+
+Nowe testy dodawaj do katalogu odpowiadającego ich zakresowi. Testy powinny
+sprawdzać zachowanie, a nie szczegóły implementacyjne.

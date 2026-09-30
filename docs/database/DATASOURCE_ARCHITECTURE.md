@@ -110,14 +110,15 @@ Data Source:
 
 # Obsługiwane źródła danych
 
-## ETAP_02
+## Zaimplementowane
 
-Planowane:
+- JSON przez `JsonSource`.
+
+## Planowane w ramach ETAP_02
 
 - MSSQL
 - CSV
 - Excel
-- JSON
 
 ---
 
@@ -301,23 +302,18 @@ Nie powinien wiedzieć czy dane pochodzą z:
 
 # Kryteria ukończenia ETAP_02A
 
-✅ Zaprojektowany kontrakt Data Source
+- [x] Zaprojektowany i udokumentowany kontrakt `DataSource`.
+- [x] Określone planowane źródła danych.
+- [x] Przygotowany model rozwoju warstwy danych.
+- [x] Zaimplementowana klasa bazowa `DataSource`.
+- [x] Dodana implementacja `JsonSource`.
+- [x] Zdefiniowany model `Dataset` używany przez źródło JSON.
 
-✅ Udokumentowana architektura
+## Zakres implementacji ETAP_02A
 
-✅ Określone wspierane źródła danych
-
-✅ Przygotowany model rozwoju warstwy danych
-
-✅ Gotowość do implementacji klasy bazowej DataSource
-
-## ETAP_02A
-
-Na tym etapie implementowany jest wyłącznie
-kontrakt DataSource.
-
-Implementacje konkretnych źródeł danych
-powstaną w kolejnych etapach.
+Etap obejmuje kontrakt `DataSource`, pierwszą implementację `JsonSource`
+oraz wspólny model `Dataset`. Kolejne źródła danych mogą być dodawane
+niezależnie, zgodnie z tym kontraktem.
 
 # Pierwsza implementacja
 

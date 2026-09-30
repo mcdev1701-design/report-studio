@@ -10,7 +10,7 @@ feature/etap-01c-fastapi-bootstrap
 
 ## Status
 
-W realizacji
+Zakończony
 
 ## Cel
 
@@ -36,17 +36,20 @@ Przygotowanie profesjonalnego szkieletu backendu FastAPI.
 - utworzono core/settings.py
 - wprowadzono centralną konfigurację aplikacji
 
-### Wykonano 2
+### Logowanie
 
-- utworzono core/logger.py
+- utworzono `core/logger.py`
 - skonfigurowano logowanie aplikacji
 - dodano logowanie endpointów
-
-- usunięto config.py
-- wprowadzono centralny obiekt Settings
+- zastąpiono `config.py` centralnym obiektem `Settings`
 
 ### Dodano
 
 - lifecycle.py
 - obsługę uruchamiania aplikacji
 - obsługę zamykania aplikacji
+
+### Rezultat
+
+Powstał modularny szkielet FastAPI z konfiguracją, logowaniem, cyklem życia,
+endpointami diagnostycznymi i testami.

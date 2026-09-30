@@ -5,6 +5,10 @@
 Dokument definiuje obowiązkowe czynności wykonywane podczas realizacji
 kolejnych etapów projektu Report Studio.
 
+Jest głównym źródłem prawdy dla procesu pracy, strategii gałęzi i konwencji
+commitów. `GIT_CHEATSHEET.md` zawiera podręczne komendy Git, a
+`ADR-002-git-workflow.md` zapisuje decyzję o przyjętym modelu gałęzi.
+
 ---
 
 # Cykl życia etapu
@@ -194,8 +198,10 @@ Aktualizujemy:
 ```bash
 git add .
 
-git commit -m "ETAP_01C konfiguracja backend FastAPI"
+git commit -m "ETAP_02A data source engine"
 ```
+
+Format komunikatu: `ETAP_xx krótki opis zmiany`.
 
 ---
 

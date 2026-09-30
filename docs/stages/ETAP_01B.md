@@ -1,5 +1,9 @@
 # ETAP_01B
 
+## Status
+
+Zakończony
+
 ## Cel
 
 Przygotowanie dokumentacji architektonicznej.

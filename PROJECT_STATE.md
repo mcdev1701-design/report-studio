@@ -1,79 +1,32 @@
+# Stan projektu
+
 ## Aktualny etap
 
-ETAP_01D
+ETAP_02A - Data Source Engine
 
-## Aktualna gałąź
+## Aktualny branch
 
-feature/etap-01d-frontend-bootstrap
+feature/etap-02a-data-source-engine
 
 ## Status
 
 W realizacji
 
-## Zakończone
+## Zakończone etapy
 
-- ETAP_01A
-- ETAP_01B
-- ETAP_01C
+- ETAP_01A - Bootstrap projektu
+- ETAP_01B - Dokumentacja architektury
+- ETAP_01C - Backend Foundation
+- ETAP_01D - Frontend Bootstrap
 
-## Aktualnie realizowane
+## Wykonano w ETAP_02A
 
-- Frontend Bootstrap
-
-## Następny krok
-
-Przygotowanie struktury frontendu
-
-## Aktualnie realizowane
-
-ETAP_01D
-
-Wykonano:
-
-- Bootstrap frontendu
-- Integracja FastAPI + Frontend
-- Jinja2 Templates
-- Static Files
-- SystemStatusPanel
-- ToolboxPanel
-- CanvasPanel
-- PropertyPanel
-- Layout Flexbox
-- Responsywność UI
-- Dokument CSS_CHEATSHEET.md
-
-Następny krok:
-
-Pierwsza interakcja użytkownika z ToolboxPanel.
-
-## Aktualny etap
-
-ETAP_02A
-
-## Status
-
-W realizacji
-
-## Zakończone
-
-- ETAP_01A
-- ETAP_01B
-- ETAP_01C
-- ETAP_01D
+- Abstrakcyjny kontrakt `DataSource`.
+- Implementacja źródła danych `JsonSource`.
+- Model `Dataset` i integracja z `JsonSource`.
+- Testy jednostkowe dla źródła danych.
 
 ## Następny krok
 
-Data Source Engine
-
-Status:
-
-W realizacji
-
-Postęp:
-
-✅ DataSource
-✅ JsonSource
-
-Następny krok:
-
-Projekt modelu Dataset
+Zweryfikować kryteria ukończenia ETAP_02A i zaktualizować dokument etapu
+przed jego zamknięciem.

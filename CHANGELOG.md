@@ -14,6 +14,13 @@ dokumentowane w tym pliku.
 - CONTRIBUTING
 - PROJECT_STATE
 - Dokumentacja architektury
+- Przewodnik Word z zasadami i katalogiem plików Markdown.
+
+### Changed
+
+- Uporządkowano dokumenty główne i opis bieżącego etapu.
+- Ujednolicono kartę ETAP_02A z aktualną implementacją i wynikiem testów.
+- Scalono zasady Git i commitów w `PROJECT_WORKFLOW.md`.
 
 ## [v0.1.0]
 

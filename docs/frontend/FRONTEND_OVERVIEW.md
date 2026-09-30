@@ -8,19 +8,11 @@ Frontend odpowiada za interakcję użytkownika z systemem, projektowanie raport�
 
 ---
 
-# Status
+## Aktualna implementacja
 
-Aktualny etap:
-
-ETAP_01D
-
-Status:
-
-W realizacji
-
-Branch:
-
-feature/etap-01d-frontend-bootstrap
+Frontend jest serwowany przez FastAPI. Szablon znajduje się w
+`backend/app/templates/`, a zasoby statyczne w `backend/app/static/`.
+Bieżący etap i branch są utrzymywane w `PROJECT_STATE.md`.
 
 ---
 
@@ -55,11 +47,10 @@ Frontend odpowiada za:
 
 - prezentację danych użytkownikowi,
 - komunikację z backendem FastAPI,
-- obsługę interfejsu użytkownika,
-- projektowanie raportów,
-- konfigurację źródeł danych,
-- podgląd raportów,
-- eksport raportów.
+- obsługę paneli i interakcji dostępnych w bieżącej wersji.
+
+Projektowanie raportów, konfiguracja źródeł, podgląd i eksport są zakresem
+przyszłych etapów opisanych w roadmapie.
 
 ---
 
@@ -112,20 +103,14 @@ Odpowiada za:
 
 # Struktura katalogów
 
-Docelowa struktura:
+Aktualna struktura:
 
 ```text
-frontend/
-
-├── index.html
-│
-├── css/
-│   └── style.css
-│
-├── js/
-│   └── app.js
-│
-└── assets/
+backend/app/
+|-- templates/index.html
+`-- static/
+        |-- css/style.css
+        `-- js/app.js
 ```
 
 ---
@@ -291,161 +276,15 @@ Zakres:
 - app.js
 - pierwsza komunikacja z API
 
----
-
-## ETAP_03
-
-Visual Designer
-
-Zakres:
-
-- Canvas
-- Toolbox
-- Properties Panel
-
----
-
-## ETAP_03B
-
-Konva.js
-
-Zakres:
-
-- obiekty raportu,
-- zaznaczanie,
-- przesuwanie,
-- zmiana rozmiaru.
-
----
-
-## ETAP_03C
-
-GSAP
-
-Zakres:
-
-- animacje,
-- efekty wizualne,
-- poprawa UX.
-
----
-
-# Zasady
-
-1. Najpierw dokumentacja, potem implementacja.
-2. Nie wprowadzamy frameworków frontendowych bez uzasadnionej potrzeby.
-3. Kod powinien być maksymalnie czytelny i edukacyjny.
-4. Każda większa decyzja frontendowa powinna zostać opisana w ADR.
-5. Frontend ma pozostać modularny i łatwy do rozbudowy.
-
-## Status
-
-Aktualny etap:
-
-ETAP_01D
-
-Status:
-
-W realizacji
-
-Branch:
-
-feature/etap-01d-frontend-bootstrap
-
-## Pierwszy przepływ danych
-
+Szczegółowy plan etapów znajduje się w `docs/architecture/ROADMAP.md`.
 HTML
 
-↓
+`app.js` wywołuje `loadApplicationInfo()` po `DOMContentLoaded`. Funkcja
+pobiera JSON z `/api/v1/info` i aktualizuje element `backend-info`.
 
-DOMContentLoaded
-
-↓
-
-JavaScript
-
-↓
-
-REST API
-
-↓
-
-JSON
-
-↓
-
-DOM Update
-
-loadApplicationInfo()
-
-Odpowiedzialność:
-
-1. Wysłanie zapytania HTTP.
-2. Odebranie odpowiedzi JSON.
-3. Aktualizacja elementu backend-info.
-4. Obsługa błędów.
-
-## Funkcja loadApplicationInfo()
-
-Odpowiedzialność:
-
-1. Wysłanie zapytania HTTP do backendu.
-2. Odebranie odpowiedzi JSON.
-3. Aktualizacja widoku.
-4. Obsługa błędów połączenia.
-
-Wejście:
-
-Brak.
-
-Wyjście:
-
-Aktualizacja elementu:
-
-backend-info
-
-## Aktualizacja DOM
-
-Po pobraniu danych z API frontend aktualizuje zawartość:
-
-backend-info
-
-Przepływ:
-
-FastAPI
-↓
-JSON
-↓
-JavaScript
-↓
-DOM Update
-↓
-Widok użytkownika
-
-### Odpowiedzialność funkcji loadApplicationInfo()
-
-1. Pobranie danych z API.
-2. Odczyt odpowiedzi JSON.
-3. Odszukanie elementu backend-info.
-4. Aktualizacja zawartości elementu.
-5. Obsługa błędów.
-
-## Aktualizacja widoku
-
-Dane pobrane z API są wyświetlane
-w elemencie:
-
-backend-info
-
-Mechanizm:
-
-JSON
-↓
-JavaScript
-↓
-innerHTML
-↓
-DOM Update
+```text
+HTML -> JavaScript -> FastAPI -> JSON -> DOM
+```
 
 # Komponenty UI
 
@@ -517,8 +356,7 @@ Odpowiedzialność:
 - interakcja z ToolboxPanel.
 
 Aktualny status:
-
-Makieta UI.
+Panel renderuje i zaznacza obiekty DOM; integracja z Konva.js jest planowana.
 
 ## PropertyPanel
 
@@ -541,8 +379,8 @@ Odpowiedzialność:
 - komunikacja z CanvasPanel.
 
 Aktualny status:
-
-Makieta UI.
+Panel pokazuje wybrane narzędzie lub zaznaczony obiekt; pełna edycja
+właściwości jest zakresem przyszłych prac.
 
 ## Layout v1
 
@@ -579,34 +417,10 @@ Technologia:
 - CSS Flexbox
 - Media Queries
 
-## Aktualny stan UI
+## Implementacja UI
 
-Dostępne komponenty:
-
-- SystemStatusPanel
-- ToolboxPanel
-- CanvasPanel
-- PropertyPanel
-
-Layout:
-
-Desktop
-
-Toolbox | Canvas | Properties
-
-System Status
-
-Mobile
-
-Toolbox
-Canvas
-Properties
-System Status
-
-Technologie:
-
-- CSS Flexbox
-- Media Queries
+Punktem wejścia logiki interfejsu jest `backend/app/static/js/app.js`.
+Szczegóły paneli, układu i interakcji opisują poprzednie sekcje.
 
 ## Pierwsza interakcja UI
 

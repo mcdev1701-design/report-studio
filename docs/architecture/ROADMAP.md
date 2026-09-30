@@ -17,7 +17,7 @@ Zakres:
 
 Status:
 
-W realizacji
+Zakończony
 
 ---
 
@@ -40,11 +40,8 @@ Rezultat:
 
 Pierwszy działający silnik źródeł danych.
 
-ETAP_02A
-Data Source Engine - źródło 
-
-ETAP_02B
-Dataset Model - zunifikowane dane w formacie list[dict]
+Status: W realizacji. Aktualny podetap: ETAP_02A. Szczegóły znajdują się w
+`docs/stages/ETAP_02A.md`.
 
 ---
 

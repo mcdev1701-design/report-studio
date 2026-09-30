@@ -1,4 +1,6 @@
 # GIT CHEATSHEET - REPORT STUDIO
+Polecenia opisują składnię Git. Obowiązujący proces i format commitów
+znajdują się w `PROJECT_WORKFLOW.md`.
 
 ## Sprawdzenie stanu repozytorium
 
@@ -253,7 +255,7 @@ git config --global user.email "twoj@email.pl"
 
 ---
 
-# WORKFLOW PROJEKTU REPORT STUDIO
+# Przykładowy zestaw poleceń
 
 ## Utworzenie nowej funkcjonalności
 
@@ -307,81 +309,4 @@ git push origin v0.1.0
 
 ```bash
 git branch --merged
-
-```
-
----
-
-# STRATEGIA GAŁĘZI
-
-main
-- stabilne wersje projektu
-
-develop
-- główna gałąź rozwoju
-
-feature/*
-- pojedyncze funkcjonalności
-
----
-
-# KONWENCJA KOMITÓW
-
-```text
-ETAP_01A bootstrap projektu
-ETAP_01B architektura projektu
-ETAP_01C konfiguracja FastAPI
-ETAP_01D pierwszy frontend
-
-ETAP_02A data source abstraction
-ETAP_02B MSSQL connector
-
-ETAP_03A visual designer
-ETAP_03B Konva integration
-ETAP_03C GSAP integration
-```
-
----
-
-# TYPOWY CYKL PRACY
-
-1. Przełącz na develop
-
-```bash
-git switch develop
-```
-
-2. Utwórz nową gałąź
-
-```bash
-git switch -c feature/nazwa
-```
-
-3. Wprowadź zmiany
-
-4. Commit
-
-```bash
-git add .
-git commit -m "Opis zmian"
-```
-
-5. Push
-
-```bash
-git push -u origin feature/nazwa
-```
-
-6. Merge do develop
-
-```bash
-git switch develop
-git merge feature/nazwa
-git push
-```
-
-7. Usuń gałąź
-
-```bash
-git branch -d feature/nazwa
 ```

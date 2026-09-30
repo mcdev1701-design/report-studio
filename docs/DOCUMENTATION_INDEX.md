@@ -1,10 +1,11 @@
-# DOCUMENTATION_INDEX
+# Indeks dokumentacji
 
 ## Cel dokumentu
 
 Dokument opisuje strukturę dokumentacji projektu Report Studio.
 
-Każdy nowy dokument powinien zostać przypisany do jednej z kategorii opisanych poniżej.
+Każdy dokument ma jedno główne miejsce i odpowiedzialność. Bieżący etap,
+branch i następny krok są utrzymywane wyłącznie w `PROJECT_STATE.md`.
 
 ---
 
@@ -12,17 +13,14 @@ Każdy nowy dokument powinien zostać przypisany do jednej z kategorii opisanych
 
 ## README.md
 
-Opis projektu widoczny na GitHub.
+Publiczny opis projektu.
 
 Zawiera:
 
 - cel projektu,
 - opis technologii,
-- instrukcję uruchomienia,
 - informacje o licencji,
-- aktualny status projektu,
-- aktualny etap,
-- aktualny branch.
+- krótki status projektu.
 
 Aktualizowany:
 
@@ -73,7 +71,35 @@ Zawiera:
 - zadania w realizacji,
 - kolejne kroki.
 
-Aktualizowany po zakończeniu każdego podetapu i etapu.
+Jedno źródło prawdy dla aktualnego etapu, brancha, wykonanych prac i
+najbliższego kroku. Aktualizowany przy zmianie tych informacji.
+
+---
+
+## PROJECT_CONTEXT.md
+
+Stały kontekst projektu, jego cel, założenia i technologie. Nie przechowuje
+bieżącego statusu prac.
+
+---
+
+## PROJECT_STRUCTURE.md
+
+Skrócony opis katalogów projektu i ich odpowiedzialności.
+
+---
+
+## CONTRIBUTING.md
+
+Podstawowe zasady przygotowywania zmian i wskazówki do workflow.
+
+---
+
+## DOCUMENTATION_GUIDE.docx
+
+[Przewodnik Word](DOCUMENTATION_GUIDE.docx) zawiera zasady prowadzenia
+dokumentacji i opis każdego pliku Markdown. `docs/trash/info.md` jest
+prywatnym zbiorem luźnych notatek, a nie źródłem normatywnym.
 
 ---
 
@@ -115,6 +141,9 @@ Aktualizacja:
 
 Nie służy do opisywania codziennych zmian w kodzie.
 
+Log jest chronologicznym podsumowaniem. Szczegółowy zapis formalnej decyzji
+znajduje się w odpowiadającym jej ADR.
+
 ---
 
 ## PROJECT_WORKFLOW.md
@@ -133,34 +162,10 @@ Jest nadrzędnym dokumentem operacyjnym projektu.
 
 ---
 
-## COMMIT_RULES.md
-
-Standard tworzenia commitów.
-
-Opisuje:
-
-- format commitów,
-- przykłady commitów,
-- dobre praktyki.
-
----
-
-## GIT_WORKFLOW.md
-
-Strategia pracy z Git.
-
-Opisuje:
-
-- branch main,
-- branch develop,
-- branch feature,
-- merge workflow.
-
----
-
 ## GIT_CHEATSHEET.md
 
-Szybka ściąga z najczęściej używanych komend Git.
+Szybka ściąga komend Git. Strategię i konwencję commitów opisuje
+`PROJECT_WORKFLOW.md`.
 
 ---
 
@@ -202,16 +207,6 @@ Jak działa system?
 
 ---
 
-## PROJECT_STRUCTURE.md
-
-Opis struktury katalogów projektu.
-
-Odpowiada na pytanie:
-
-Gdzie znajduje się dany element systemu?
-
----
-
 # Decyzje architektoniczne (docs/decisions)
 
 ## ADR-XXX-*.md
@@ -224,6 +219,7 @@ Przykłady:
 
 - ADR-001-project-philosophy.md
 - ADR-002-git-workflow.md
+- ADR-003-frontend.md
 
 Każdy ADR powinien zawierać:
 
@@ -239,7 +235,7 @@ Każdy ADR powinien zawierać:
 
 Dokumentacja backendu i endpointów.
 
-Przykład:
+Dokument:
 
 ### BACKEND_OVERVIEW.md
 
@@ -250,12 +246,7 @@ Zawiera:
 - główne komponenty,
 - sposób uruchamiania.
 
-Docelowo:
-
-- endpointy,
-- requesty,
-- response,
-- przykłady użycia.
+Opisuje również dostępne endpointy i przykładowy sposób uruchomienia.
 
 ---
 
@@ -269,55 +260,44 @@ Główny dokument opisujący frontend aplikacji.
 
 Zawiera:
 
-- cele i założenia frontendu,
-- wykorzystywane technologie,
-- planowane technologie,
-- strukturę katalogów,
-- komunikację z backendem,
-- architekturę frontendu,
-- roadmapę rozwoju frontendu.
+- aktualną strukturę plików frontendu,
+- panele i dostępne interakcje,
+- rozróżnienie używanych i planowanych technologii.
 
-Docelowo:
+## CSS_CHEATSHEET.md
 
-- Konva.js,
-- GSAP,
-- komponenty GUI,
-- logika projektanta raportów,
-- komunikacja z API.
+Praktyczna ściąga dotycząca CSS używanego w projekcie.
 
 ---
 
 # Baza danych (docs/database)
 
-Dokumentacja warstwy danych.
+## DATASOURCE_ARCHITECTURE.md
 
-Docelowo:
+Opis architektury źródeł danych i kontraktu `DataSource`.
 
-- MSSQL,
-- modele danych,
-- migracje,
-- konfiguracja połączeń,
-- diagramy bazy danych.
+JSON jest zaimplementowany. MSSQL, CSV i Excel pozostają planowane.
 
 ---
 
 # Testy (docs/testing)
 
-Dokumentacja testów.
+## TESTING_STRATEGY.md
 
-Docelowo:
+Strategia i zakres testowania projektu.
 
-- testy jednostkowe,
-- testy integracyjne,
-- testy UI,
-- testy wydajnościowe,
-- procedury testowe.
+## KNOWN_WARNINGS.md
+
+Znane ostrzeżenia i ograniczenia testów.
+
+Zawiera ostrzeżenia deprecacyjne potwierdzone w aktualnym zestawie testów.
 
 ---
 
 # Deployment (docs/deployment)
 
-Dokumentacja wdrożeniowa.
+Katalog jest przygotowany; dokumentacja wdrożeniowa nie została jeszcze
+utworzona.
 
 Docelowo:
 
@@ -331,7 +311,7 @@ Docelowo:
 
 # Diagramy (docs/diagrams)
 
-Diagramy projektu.
+Katalog jest przygotowany; diagramy nie zostały jeszcze dodane.
 
 Formaty:
 
@@ -355,10 +335,10 @@ Dokumentacja poszczególnych etapów rozwoju projektu.
 
 Przykłady:
 
-- ETAP_01A.md
 - ETAP_01B.md
 - ETAP_01C.md
 - ETAP_01D.md
+- ETAP_02A.md
 
 Każdy dokument etapu powinien zawierać:
 
@@ -380,53 +360,20 @@ Aktualizowany:
 
 ---
 
-# PROJECT_CONTEXT.md
+# Materiały pomocnicze
 
-Kontekst dla AI
-
-# Archiwum (docs/archive)
-
-Archiwalne lub wycofane dokumenty.
-
-Przechowuje:
-
-- stare wersje dokumentów,
-- porzucone koncepcje,
-- nieaktualne diagramy,
-- materiały historyczne.
-
-Dokumentów nie usuwamy bez potrzeby.
-
-Przenosimy je do archiwum.
+`docs/trash/info.md` zawiera prywatne, luźne wpisy użytkownika. Plik jest
+celowo zachowany i nie stanowi dokumentacji normatywnej projektu.
 
 ---
 
 # Zasady prowadzenia dokumentacji
 
-1. Najpierw dokumentacja, potem implementacja.
-2. Każdy nowy dokument musi zostać wpisany do DOCUMENTATION_INDEX.md.
-3. Nie duplikujemy informacji pomiędzy dokumentami.
-4. Jeden dokument powinien mieć jedną odpowiedzialność.
-5. README.md musi zawsze odzwierciedlać aktualny stan projektu.
-6. Każdy etap musi posiadać własny dokument w katalogu docs/stages.
-7. Każda istotna decyzja architektoniczna powinna posiadać wpis w ARCHITECT_LOG.md lub oddzielny ADR.
-8. Przed utworzeniem taga należy zaktualizować:
-   - README.md
-   - PROJECT_STATE.md
-   - DEVLOG.md
-   - CHANGELOG.md
-   - ROADMAP.md
-9. Rozpoczęcie etapu wymaga aktualizacji:
-   - README.md
-   - PROJECT_STATE.md
-   - DEVLOG.md
-   - ETAP_xx.md
-10. Zakończenie etapu wymaga aktualizacji:
-   - README.md
-   - PROJECT_STATE.md
-   - DEVLOG.md
-   - ETAP_xx.md
-11. Każdy kamień milowy (Milestone) powinien zakończyć się:
-   - aktualizacją CHANGELOG.md,
-   - utworzeniem taga Git,
-   - publikacją Release na GitHub.
+1. Jeden dokument ma jedną odpowiedzialność.
+2. Bieżący status utrzymuj wyłącznie w `PROJECT_STATE.md`.
+3. Po dodaniu, usunięciu lub przeniesieniu dokumentu zaktualizuj ten indeks
+   i [przewodnik Word](DOCUMENTATION_GUIDE.docx).
+4. Zasady i momenty aktualizacji dokumentów opisuje przewodnik Word oraz
+   [workflow projektu](PROJECT_WORKFLOW.md).
+5. `docs/trash/info.md` jest prywatnym notatnikiem i pozostaje poza
+   dokumentacją normatywną.

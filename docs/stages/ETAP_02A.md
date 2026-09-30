@@ -1,12 +1,8 @@
-# ETAP_02A
-
-## Nazwa
-
-Data Source Abstraction
+# ETAP_02A - Data Source Engine
 
 ## Branch
 
-feature/etap-02a-data-source-abstraction
+feature/etap-02a-data-source-engine
 
 ## Status
 
@@ -14,63 +10,37 @@ W realizacji
 
 ## Cel
 
-Stworzenie wspólnego interfejsu
-dla wszystkich źródeł danych.
+Zdefiniować wspólny kontrakt źródeł danych i sprawdzić go na pierwszej
+implementacji.
 
 ## Zakres
 
-- DataSource
-- dokumentacja architektury
-- kontrakt interfejsu
-- pierwszy model domenowy
+- Abstrakcyjna klasa `DataSource`.
+- Implementacja źródła JSON.
+- Model `Dataset` jako ujednolicona postać zwracanych danych.
+- Testy jednostkowe.
 
 ## Kryteria ukończenia
 
-- zaprojektowany DataSource
-- dokumentacja architektury
-- pierwszy interfejs źródła danych
+- Kontrakt źródła danych jest zdefiniowany i udokumentowany.
+- `JsonSource` implementuje kontrakt i zwraca dane jako `Dataset`.
+- Testy jednostkowe przechodzą.
 
-### Wykonano
+## Wykonano
 
-- utworzono katalog datasources
-- utworzono klasę bazową DataSource
-- wykorzystano Abstract Base Class
-- zdefiniowano kontrakt dla źródeł danych
+- Utworzono klasę bazową `DataSource` opartą na `ABC`.
+- Zaimplementowano `connect()`, `disconnect()`, `test_connection()` i
+  `get_data()` w `JsonSource`.
+- Dodano przykładowe dane JSON w `examples/sample_data.json`.
+- Dodano model `Dataset` z właściwościami `row_count` i `columns`.
+- Zintegrowano `JsonSource` z `Dataset`.
+- Dodano testy jednostkowe dla kontraktu i źródła JSON.
 
-### Wykonano
+## Weryfikacja
 
-- utworzono JsonSource
-- przygotowano przykładowe dane JSON
-- zaimplementowano:
-  - connect()
-  - disconnect()
-  - test_connection()
-  - get_data()
-- dodano testy jednostkowe
+Ostatni lokalny wynik: `3 passed` dla `tests/unit`.
 
-### Wykonano
+## Do zamknięcia etapu
 
-- utworzono DataSource
-- wykorzystano ABC
-- utworzono JsonSource
-- przygotowano sample_data.json
-- dodano testy jednostkowe
-
-### Wynik testów
-
-✅ 6 passed
-
-### Dodano
-
-- model Dataset
-- row_count
-- columns
-- standard wymiany danych pomiędzy
-  DataSource a Report Engine
-
-### Dodano
-
-- integrację JsonSource z Dataset
-- row_count
-- columns
-- wspólny model wymiany danych
+- Potwierdzić kryteria ukończenia.
+- Uzupełnić podsumowanie i wynik końcowej weryfikacji.

@@ -299,66 +299,23 @@ Powstał pierwszy działający szkielet wizualnego projektanta raportów.
 
 ## ETAP_02A
 
-Rozpoczęto projektowanie
-warstwy Data Source.
+Rozpoczęto prace nad warstwą źródeł danych, aby oddzielić pobieranie danych
+od silnika raportowego.
 
-Cel:
+### DataSource i JsonSource
 
-Oddzielenie logiki źródeł danych
-od reszty systemu.
+- Dodano abstrakcyjny kontrakt `DataSource`.
+- Zaimplementowano `JsonSource` z metodami `connect()`, `disconnect()`,
+	`test_connection()` i `get_data()`.
+- Dodano `examples/sample_data.json` do weryfikacji pierwszej implementacji.
 
-Rozpoczęto implementację Data Source Engine.
+### Dataset
 
-Wprowadzono abstrakcyjną klasę DataSource.
+- Dodano model `Dataset` jako wspólny format danych i metadanych.
+- `JsonSource.get_data()` zwraca `Dataset` z `row_count` i `columns` zamiast
+	surowej listy rekordów.
 
-Cel:
+### Weryfikacja historyczna
 
-Ujednolicenie obsługi wszystkich źródeł danych.
-
-Wprowadzono pierwszą implementację DataSource.
-
-Komponent:
-
-JsonSource
-
-Cel:
-
-Zweryfikowanie poprawności kontraktu
-DataSource przed implementacją MSSQL.
-
-### JsonSource
-
-Wprowadzono pierwszą implementację DataSource.
-
-Komponent:
-
-JsonSource
-
-Wynik:
-
-- connect()
-- disconnect()
-- test_connection()
-- get_data()
-
-Testy:
-
-✅ 6 passed
-
-Wniosek:
-
-Architektura DataSource jest gotowa
-do implementacji kolejnych źródeł danych.
-
-Wprowadzono Dataset jako wspólny model danych.
-
-JsonSource nie zwraca już list[dict].
-
-JsonSource zwraca Dataset.
-
-Korzyści:
-
-- metadane
-- liczba rekordów
-- kolumny
-- wspólny kontrakt dla wszystkich źródeł danych
+W trakcie prac zapisano wynik `6 passed`. Aktualny wynik pełnego zestawu
+testów znajduje się w `docs/testing/KNOWN_WARNINGS.md` oraz w logu uruchomienia.

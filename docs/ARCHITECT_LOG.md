@@ -2,6 +2,9 @@
 
 Dokument zawiera historię najważniejszych decyzji architektonicznych projektu Report Studio.
 
+Log zachowuje chronologię decyzji. Uzasadnienia i konsekwencje formalnie
+zatwierdzonych decyzji znajdują się w dokumentach ADR.
+
 ---
 
 ## 2026-09
@@ -108,16 +111,7 @@ Wszystkie ustawienia aplikacji znajdują się w:
 
 ```text
 backend/app/core/settings.py
-
-## Zasady prowadzenia dokumentu 
-1. Wpisujemy wyłącznie decyzje architektoniczne. 
-2. Nie wpisujemy zwykłych zmian implementacyjnych. 
-3. Jeden wpis = jedna decyzja. 
-4. Każda decyzja powinna zawierać: 
-- Decyzję 
-- Powód 
-- Korzyści lub Wynik 
-5. Wpisy grupujemy chronologicznie według dat.
+```
 
 ## 2026-09-24
 
@@ -168,8 +162,6 @@ spowodowałoby dodatkową złożoność:
 - brak problemów z CORS,
 - łatwiejsza nauka działania FastAPI.
 
-Frontend będzie serwowany przez FastAPI.
-
 ## 2026-09-25
 
 ### Decyzja
@@ -204,6 +196,7 @@ backend/app/static/
 ├── css/
 ├── js/
 └── assets/
+```
 
 ### Decyzja
 
@@ -222,25 +215,6 @@ Rozdzielenie odpowiedzialności interfejsu użytkownika.
 - prostsza rozbudowa,
 - czytelniejszy kod,
 - łatwiejsza integracja z Konva.js.
-
-### Decyzja
-
-Interfejs projektanta raportów oparto na trzech głównych komponentach:
-
-- ToolboxPanel
-- CanvasPanel
-- PropertyPanel
-
-### Powód
-
-Jest to sprawdzony wzorzec stosowany
-w systemach projektowania wizualnego.
-
-### Korzyści
-
-- rozdzielenie odpowiedzialności,
-- łatwiejsza rozbudowa,
-- prostsza integracja z Konva.js.
 
 ### Decyzja
 
