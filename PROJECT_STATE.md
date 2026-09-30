@@ -10,7 +10,28 @@
 
 ## Aktualny etap
 
-ETAP_02B - Dataset & Source Implementations
+### ETAP_02B
+
+Status:
+
+W realizacji
+
+Wykonano:
+
+- JsonSource
+- CSVSource
+- Dataset
+- Refaktoryzacja DataSource
+- Ujednolicenie source_type
+- Testy jednostkowe
+
+Wynik:
+
+✅ 10 passed
+
+Następny krok:
+
+Implementacja ExcelSource
 
 ## Aktualny branch
 

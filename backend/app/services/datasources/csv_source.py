@@ -1,18 +1,18 @@
 """
-Implementacja DataSource dla plików JSON.
+Implementacja DataSource dla plików CSV.
 
 Cel:
 
-Odczyt danych z plików JSON
+Odczyt danych z plików CSV
 oraz zwrócenie ich do Report Studio
-w ujednoliconej postaci.
+w postaci Dataset.
 
 Aktualny standard:
 
 Dataset
 """
 
-import json
+from csv import DictReader
 
 from datetime import datetime
 
@@ -25,9 +25,9 @@ from backend.app.services.datasources.datasource import (
 
 from backend.app.models.dataset import Dataset
 
-class JsonSource(DataSource):
+class CSVSource(DataSource):
     """
-    DataSource dla plików JSON.
+    DataSource dla plików CSV.
     """
 
     def __init__(self, file_path: str):
@@ -36,7 +36,7 @@ class JsonSource(DataSource):
 
         Args:
             file_path:
-                Ścieżka do pliku JSON.
+                Ścieżka do pliku CSV.
         """
 
         self.file_path = file_path
@@ -45,7 +45,7 @@ class JsonSource(DataSource):
 
     def connect(self):
         """
-        Walidacja dostępności pliku JSON.
+        Walidacja dostępności pliku CSV.
         """
 
         if not self.test_connection():
@@ -58,9 +58,9 @@ class JsonSource(DataSource):
 
     def disconnect(self):
         """
-        Zamknięcie połączenia.
+        Zamyka źródło danych.
 
-        Dla JSON nie ma aktywnego połączenia,
+        Dla CSV nie ma aktywnego połączenia,
         ale zachowujemy wspólny kontrakt.
         """
 
@@ -91,13 +91,19 @@ class JsonSource(DataSource):
 
     def get_data(self) -> Dataset:
         """
-        Pobranie danych z pliku JSON.   
+        Pobiera dane z pliku CSV.
+
+        Returns:
+            Dataset
         """
+
         if not self.connected:
 
             raise RuntimeError(
                 "DataSource is not connected."
             )
+
+        rows = []
 
         with open(
             self.file_path,
@@ -105,12 +111,16 @@ class JsonSource(DataSource):
             encoding="utf-8"
         ) as file:
 
-            data = json.load(file)
+            reader = DictReader(file)
+
+            for row in reader:
+
+                rows.append(row)
 
         return Dataset(
-            name="JSON Dataset",
-            source_type="json",
+            name="CSV Dataset",
+            source_type="csv",
             source_name=self.file_path,
             loaded_at=datetime.now(),
-            rows=data
+            rows=rows
         )

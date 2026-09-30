@@ -1,42 +1,41 @@
 """
-Testy JsonSource.
+Testy CSVSource.
 
 Cel:
 
 Weryfikacja poprawności implementacji
-DataSource dla plików JSON.
+DataSource dla plików CSV.
 """
-
-import pytest
 
 from datetime import datetime
 
+import pytest
+
 from backend.app.models.dataset import Dataset
 
-from backend.app.services.datasources.json_source import (
-    JsonSource
+from backend.app.services.datasources.csv_source import (
+    CSVSource
 )
 
 
-def test_json_source_connection():
+def test_csv_source_connection():
     """
-    Sprawdzenie dostępności pliku JSON.
+    Sprawdzenie dostępności pliku CSV.
     """
 
-    source = JsonSource(
-        "examples/sample_data.json"
+    source = CSVSource(
+        "examples/sample_data.csv"
     )
 
     assert source.test_connection() is True
 
-
-def test_json_source_get_data():
+def test_csv_source_get_data():
     """
-    Pobranie danych z pliku JSON.   
+    Pobranie danych z pliku CSV.
     """
 
-    source = JsonSource(
-        "examples/sample_data.json"
+    source = CSVSource(
+        "examples/sample_data.csv"
     )
 
     source.connect()
@@ -50,12 +49,12 @@ def test_json_source_get_data():
         Dataset
     )
 
-    assert dataset.name == "JSON Dataset"
+    assert dataset.name == "CSV Dataset"
 
-    assert dataset.source_type == "json"
+    assert dataset.source_type == "csv"
 
     assert dataset.source_name == (
-        "examples/sample_data.json"
+        "examples/sample_data.csv"
     )
 
     assert isinstance(
@@ -63,7 +62,7 @@ def test_json_source_get_data():
         datetime
     )
 
-    assert dataset.row_count == 2
+    assert dataset.row_count == 3
 
     assert dataset.columns == [
         "id",
@@ -71,12 +70,13 @@ def test_json_source_get_data():
         "price"
     ]
 
-def test_json_source_requires_connection():
-    """
+def test_csv_source_requires_connection():
+    """ 
     Próba pobrania danych bez uprzedniego połączenia.   
     """
-    source = JsonSource(
-        "examples/sample_data.json"
+    
+    source = CSVSource(
+    "examples/sample_data.csv"
     )
 
     with pytest.raises(RuntimeError):

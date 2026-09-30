@@ -233,3 +233,17 @@ Prosta implementacja układu:
 - responsywność
 - czytelny kod CSS
 - łatwa przyszła integracja z Konva.js
+
+### Decyzja
+
+Wszystkie źródła danych zwracają Dataset.
+
+### Powód
+
+Silnik raportowy nie powinien znać typu źródła danych.
+
+### Korzyści
+
+- JSON i CSV są nierozróżnialne dla Report Engine
+- łatwiejsza implementacja MSSQL
+- łatwiejsze rozszerzanie systemu

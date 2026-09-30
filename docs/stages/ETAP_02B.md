@@ -28,3 +28,19 @@ Implementacja kolejnych źródeł danych opartych o kontrakt DataSource.
 - ExcelSource zwraca Dataset
 - testy przechodzą poprawnie
 - architektura pozostaje spójna
+
+### Dodano
+
+- CSVSource
+- sample_data.csv
+- test_csv_source.py
+
+### Refaktoryzacja
+
+- ujednolicono JsonSource
+- connect() wykorzystuje test_connection()
+- source_type zapisany małymi literami
+
+### Wynik testów
+
+✅ 10 passed

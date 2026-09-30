@@ -28,6 +28,10 @@ Aktualny branch, szczegółowy postęp i następny krok znajdują się w
 - [Struktura projektu](PROJECT_STRUCTURE.md)
 - [Historia zmian](CHANGELOG.md)
 
+## Uruchomienie testów
+
+(.venv) pytest -v
+
 ## Licencja
 
 Projekt udostępniony na licencji MIT. Szczegóły znajdują się w pliku

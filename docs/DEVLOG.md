@@ -339,3 +339,29 @@ Zakres:
 Cel:
 
 Zweryfikowanie, że różne źródła danych zwracają ten sam model Dataset.
+
+### CSVSource
+
+Dodano drugą implementację DataSource.
+
+Komponent:
+
+CSVSource
+
+Weryfikacja architektury:
+
+JSON
+↓
+Dataset
+
+CSV
+↓
+Dataset
+
+Rezultat:
+
+Różne źródła danych zwracają ten sam model Dataset.
+
+Testy:
+
+✅ 10 passed

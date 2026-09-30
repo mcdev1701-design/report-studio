@@ -433,16 +433,30 @@ Renderer pracuje na Dataset.
 
 ## Aktualny przepływ danych
 
-JSON File
+JSON File, CSV File
         ↓
-JsonSource
+JsonSource, CSVSource
         ↓
-Dataset
+     Dataset
         ↓
-Report Engine
+  Report Engine
 
 ## Diagramy
 
 Szczegółowe diagramy znajdują się w:
 
 docs/diagrams/datasource-engine.ascii.md
+
+## Zweryfikowane implementacje
+
+✅ JsonSource
+
+✅ CSVSource
+
+Obie implementacje:
+
+- dziedziczą po DataSource
+- zwracają Dataset
+- przechodzą testy jednostkowe
+
+Architektura została zweryfikowana dla więcej niż jednego źródła danych.
