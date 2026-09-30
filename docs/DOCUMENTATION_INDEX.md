@@ -372,7 +372,7 @@ celowo zachowany i nie stanowi dokumentacji normatywnej projektu.
 1. Jeden dokument ma jedną odpowiedzialność.
 2. Bieżący status utrzymuj wyłącznie w `PROJECT_STATE.md`.
 3. Po dodaniu, usunięciu lub przeniesieniu dokumentu zaktualizuj ten indeks
-   i [przewodnik Word](DOCUMENTATION_GUIDE.docx).
+   i [przewodnik Word](DOCUMENTATION_GUIDE.odt).
 4. Zasady i momenty aktualizacji dokumentów opisuje przewodnik Word oraz
    [workflow projektu](PROJECT_WORKFLOW.md).
 5. `docs/trash/info.md` jest prywatnym notatnikiem i pozostaje poza
