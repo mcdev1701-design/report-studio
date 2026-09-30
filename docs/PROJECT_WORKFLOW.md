@@ -193,15 +193,83 @@ Aktualizujemy:
 
 ---
 
-## Commit
+# Commity etapów
+
+## Commity organizacyjne
+
+Dopuszczalne są commity niezawierające zmian w kodzie,
+jeżeli dokumentują rozpoczęcie lub zakończenie etapu.
+
+Przykłady:
+
+ETAP_02B rozpoczecie source implementations
+
+ETAP_02B zamkniecie source implementations
+
+## Rozpoczęcie etapu
+
+Po rozpoczęciu nowego etapu lub podetapu należy:
+
+- utworzyć branch,
+- zaktualizować dokumentację,
+- wykonać commit otwierający etap.
+
+Przykład:
 
 ```bash
-git add .
-
-git commit -m "ETAP_02A data source engine"
+git commit -m "ETAP_02B rozpoczecie source implementations"
 ```
 
-Format komunikatu: `ETAP_xx krótki opis zmiany`.
+Cel:
+
+Czytelne oznaczenie momentu rozpoczęcia prac.
+
+---
+
+## Realizacja etapu
+
+W trakcie realizacji etapu wykonujemy commity opisujące:
+
+- implementację,
+- testy,
+- refaktoryzację,
+- dokumentację.
+
+Przykłady:
+
+```bash
+git commit -m "ETAP_02B implementacja CsvSource"
+```
+
+```bash
+git commit -m "ETAP_02B testy CsvSource"
+```
+
+---
+
+## Zakończenie etapu
+
+Po spełnieniu kryteriów ukończenia:
+
+- aktualizujemy dokumentację,
+- aktualizujemy status etapu,
+- wykonujemy commit zamykający etap.
+
+Przykład:
+
+```bash
+git commit -m "ETAP_02B zamkniecie source implementations"
+```
+
+---
+
+## Kamień milowy
+
+Po zakończeniu większego etapu:
+
+```bash
+git tag -a v0.2.0 -m "ETAP_02 Complete"
+```
 
 ---
 

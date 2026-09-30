@@ -319,3 +319,7 @@ od silnika raportowego.
 
 W trakcie prac zapisano wynik `6 passed`. Aktualny wynik pełnego zestawu
 testów znajduje się w `docs/testing/KNOWN_WARNINGS.md` oraz w logu uruchomienia.
+
+### Rozpoczęto
+
+ETAP_02B - Dataset & Source Implementations

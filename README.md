@@ -17,9 +17,6 @@ inspirowanego narzędziami takimi jak Crystal Reports.
 
 ## Status projektu
 
-Zakończono fundamenty projektu, backendu i frontendu (ETAP_01A-ETAP_01D).
-Trwa ETAP_02A: silnik źródeł danych, abstrakcja `DataSource` oraz źródło JSON.
-
 Aktualny branch, szczegółowy postęp i następny krok znajdują się w
 [PROJECT_STATE.md](PROJECT_STATE.md).
 
