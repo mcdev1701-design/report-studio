@@ -26,7 +26,7 @@ Aktualny branch, szczegółowy postęp i następny krok znajdują się w
 ## Dokumentacja
 
 - [Indeks dokumentacji](docs/DOCUMENTATION_INDEX.md)
-- [Zasady i katalog dokumentacji (Word)](docs/DOCUMENTATION_GUIDE.docx)
+- [Zasady i katalog dokumentacji (Word)](docs/DOCUMENTATION_GUIDE.odt)
 - [Kontekst projektu](PROJECT_CONTEXT.md)
 - [Struktura projektu](PROJECT_STRUCTURE.md)
 - [Historia zmian](CHANGELOG.md)
