@@ -22,9 +22,22 @@ implementacji.
 
 ## Kryteria ukończenia
 
-- Kontrakt źródła danych jest zdefiniowany i udokumentowany.
-- `JsonSource` implementuje kontrakt i zwraca dane jako `Dataset`.
-- Testy jednostkowe przechodzą.
+✅ Zaprojektowany kontrakt DataSource
+
+✅ Udokumentowana architektura
+
+✅ Określone wspierane źródła danych
+
+✅ Przygotowany model rozwoju warstwy danych
+
+✅ Utworzona abstrakcyjna klasa DataSource
+
+✅ Utworzony model Dataset
+
+✅ Utworzona pierwsza implementacja JsonSource
+
+✅ Testy przechodzą poprawnie
+
 
 ## Wykonano
 
@@ -40,7 +53,6 @@ implementacji.
 
 Ostatni lokalny wynik: `6 passed` dla `tests/unit`.
 
-## Do zamknięcia etapu
+Status:
 
-- Potwierdzić kryteria ukończenia.
-- Uzupełnić podsumowanie i wynik końcowej weryfikacji.
+ETAP_02A zakończony.

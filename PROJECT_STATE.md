@@ -2,7 +2,7 @@
 
 ## Aktualny etap
 
-ETAP_02A - Data Source Engine
+ETAP_02B - Dataset & Source Implementations
 
 ## Aktualny branch
 
@@ -18,6 +18,7 @@ W realizacji
 - ETAP_01B - Dokumentacja architektury
 - ETAP_01C - Backend Foundation
 - ETAP_01D - Frontend Bootstrap
+- ETAP_02A - Data Source Engine
 
 ## Wykonano w ETAP_02A
 
@@ -28,5 +29,5 @@ W realizacji
 
 ## Następny krok
 
-Zweryfikować kryteria ukończenia ETAP_02A i zaktualizować dokument etapu
+Zweryfikować kryteria ukończenia ETAP_02B i zaktualizować dokument etapu
 przed jego zamknięciem.
