@@ -501,10 +501,19 @@ Wszystkie implementacje:
 MSSQLSource korzysta z konfiguracji dostarczanej przez:
 
 .env
-↓
+    ↓
 Settings
-↓
+    ↓
 MSSQLSource
+    ↓
+SQLAlchemy
+    ↓
+sqlalchemy-pytds
+    ↓
+SQL Server
+    ↓
+Dataset
+
 
 Dane dostępowe nie są przechowywane w kodzie źródłowym.
 
@@ -580,3 +589,4 @@ natomiast:
 korzystają z:
 
 execute_query()
+

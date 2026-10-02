@@ -319,3 +319,18 @@ Wspólny kontrakt DataSource okazał się zbyt ogólny.
 - łatwiejsza implementacja PostgreSQL,
 - łatwiejsza implementacja SQLite,
 - mniejsza liczba sztucznych metod.
+
+### Decyzja
+
+MSSQLSource będzie wykorzystywał SQLAlchemy wraz z sqlalchemy-pytds.
+
+### Powód
+
+Projekt Report Studio ma zachować możliwie największą niezależność od systemu operacyjnego.
+
+### Korzyści
+
+- brak zależności od ODBC,
+- brak zależności od sterowników Windows,
+- większa przenośność pomiędzy Linux, Windows i macOS,
+- spójna warstwa SQLAlchemy dla źródeł SQL.
