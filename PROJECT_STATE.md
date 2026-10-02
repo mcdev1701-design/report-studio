@@ -99,6 +99,6 @@ feature/etap-02b-source-implementations
 
 ✅ Konfiguracja MSSQL przez .env i Settings
 
-### Następny krok
+### Następny krok:
 
-Implementacja SQLSource i MSSQLSource
+Implementacja MSSQLSource oparta o SQLSource.

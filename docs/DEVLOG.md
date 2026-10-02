@@ -427,3 +427,42 @@ Korzyści:
 - brak danych dostępowych w repozytorium
 - spójna konfiguracja aplikacji
 - przygotowanie pod MSSQLSource
+
+### SQLSource
+
+Wprowadzono warstwę pośrednią pomiędzy:
+
+DataSource
+↓
+MSSQLSource
+
+Cel:
+
+Uniknięcie uzależnienia architektury od jednego silnika bazodanowego.
+
+Przyszłe źródła:
+
+- MSSQL
+- PostgreSQL
+- SQLite
+
+### SQLSource
+
+Dodano warstwę pośrednią SQLSource.
+
+Architektura:
+
+DataSource
+↓
+SQLSource
+↓
+MSSQLSource
+
+Cel:
+
+Przygotowanie pod:
+- MSSQL
+- PostgreSQL
+- SQLite
+
+oraz ograniczenie zależności od jednego silnika bazodanowego.

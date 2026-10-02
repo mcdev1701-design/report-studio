@@ -97,3 +97,25 @@ Status:
 - MSSQLSource będzie korzystał z SQLSource.
 - Konfiguracja połączenia będzie dostarczana przez:
   .env → Settings → MSSQLSource.
+
+### Dodano
+
+- SQLSource
+- warstwę pośrednią dla źródeł SQL
+
+### Cel
+
+Przygotowanie architektury pod:
+
+- MSSQLSource
+- PostgreSQLSource
+- SQLiteSource
+
+### Wykonano
+
+- SQLSource (warstwa pośrednia dla źródeł SQL)
+- konfiguracja MSSQL oparta o:
+  - .env
+  - Settings
+- debug_settings.py
+- przygotowanie architektury MSSQLSource
