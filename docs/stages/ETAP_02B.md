@@ -79,3 +79,15 @@ JSON, CSV oraz Excel zwracają wspólny model Dataset.
 Status:
 
 ✅ Konfiguracja środowiska gotowa
+
+1. Decyzja SQLAlchemy
+
+2. Aktualizacja DATASOURCE_ARCHITECTURE.md
+
+3. SQLSource (abstrakcja)
+
+4. MSSQLSource
+
+5. Pierwsze połączenie z SQL Server
+
+6. Dataset

@@ -261,3 +261,17 @@ Obsługa nowoczesnego formatu XLSX bez zależności od Microsoft Excel.
 - obsługa plików XLSX,
 - integracja z istniejącym kontraktem DataSource,
 - możliwość wykorzystania danych biznesowych dostarczanych przez użytkowników.
+
+### Decyzja
+
+Warstwa źródeł SQL będzie projektowana z myślą o wieloplatformowości.
+
+### Powód
+
+Report Studio jest projektem Open Source.
+
+Implementacja nie powinna być uzależniona od jednego systemu operacyjnego.
+
+### Kierunek
+
+Preferowane jest wykorzystanie SQLAlchemy jako warstwy abstrakcji dla źródeł SQL.
