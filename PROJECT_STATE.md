@@ -101,4 +101,4 @@ feature/etap-02b-source-implementations
 
 ### Następny krok
 
-Implementacja MSSQLSource
+Implementacja SQLSource i MSSQLSource

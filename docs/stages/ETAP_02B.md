@@ -91,3 +91,9 @@ Status:
 5. Pierwsze połączenie z SQL Server
 
 6. Dataset
+
+### Decyzje architektoniczne
+
+- MSSQLSource będzie korzystał z SQLSource.
+- Konfiguracja połączenia będzie dostarczana przez:
+  .env → Settings → MSSQLSource.

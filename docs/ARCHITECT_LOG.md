@@ -275,3 +275,19 @@ Implementacja nie powinna być uzależniona od jednego systemu operacyjnego.
 ### Kierunek
 
 Preferowane jest wykorzystanie SQLAlchemy jako warstwy abstrakcji dla źródeł SQL.
+
+### Decyzja
+
+Źródła danych SQL będą implementowane
+przez warstwę pośrednią SQLSource.
+
+### Powód
+
+Ograniczenie zależności od jednego silnika bazodanowego.
+
+### Korzyści
+
+- łatwiejsza obsługa MSSQL,
+- możliwość dodania PostgreSQL,
+- możliwość dodania SQLite,
+- zgodność z założeniami Open Source.

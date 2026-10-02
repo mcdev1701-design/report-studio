@@ -400,6 +400,18 @@ Testy:
 
 ✅ 13 passed
 
+### Przygotowanie SQLSource
+
+Podjęto decyzję o dodaniu warstwy SQLSource
+przed implementacją MSSQLSource.
+
+Powód:
+
+- wieloplatformowość,
+- łatwiejsza obsługa PostgreSQL,
+- łatwiejsza obsługa SQLite,
+- mniejsze uzależnienie od SQL Server.
+
 ### Przygotowanie MSSQLSource
 
 Wprowadzono konfigurację MSSQL opartą o:

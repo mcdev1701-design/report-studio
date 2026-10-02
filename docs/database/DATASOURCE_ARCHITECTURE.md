@@ -507,3 +507,13 @@ Settings
 MSSQLSource
 
 Dane dostępowe nie są przechowywane w kodzie źródłowym.
+
+# SQLSource
+
+DataSource
+      |
+      v
+SQLSource
+      |
+      v
+MSSQLSource
