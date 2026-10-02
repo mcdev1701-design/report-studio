@@ -1,47 +1,39 @@
-"""
-Konfiguracja aplikacji Report Studio.
+import os
 
-Cel:
-    Centralne przechowywanie ustawień projektu.
-
-Dlaczego to robimy?
-
-    Dzięki temu wszystkie ustawienia
-    znajdują się w jednym miejscu.
-
-W przyszłości:
-
-    - MSSQL
-    - Logging
-    - Security
-    - Environment Variables
-    - PDF Engine
-"""
+from dotenv import load_dotenv
 
 from dataclasses import dataclass
+
+
+load_dotenv()
 
 
 @dataclass
 class Settings:
     """
-    Główna konfiguracja aplikacji.
-
-    Dataclass automatycznie generuje:
-
-    - __init__()
-    - __repr__()
-    - porównania obiektów
-
-    Dzięki temu kod jest prostszy
-    i bardziej czytelny.
+    Klasa przechowująca ustawienia aplikacji.
     """
-
     app_name: str = "Report Studio"
 
     app_version: str = "0.1.0"
 
     api_prefix: str = "/api/v1"
 
+    mssql_server: str | None = os.getenv(
+        "MSSQL_SERVER"
+    )
 
-# Tworzymy pojedynczą instancję konfiguracji.
+    mssql_database: str | None = os.getenv(
+        "MSSQL_DATABASE"
+    )
+
+    mssql_username: str | None = os.getenv(
+        "MSSQL_USERNAME"
+    )
+
+    mssql_password: str | None = os.getenv(
+        "MSSQL_PASSWORD"
+    )
+
+
 settings = Settings()

@@ -32,6 +32,12 @@ Aktualny branch, szczegółowy postęp i następny krok znajdują się w
 
 (.venv) pytest -v
 
+## AI-Assisted Development
+
+Projekt jest rozwijany przy wsparciu Microsoft 365 Copilot w ramach podejścia AI-Assisted Development.
+
+Copilot wspomaga proces analizy, projektowania, implementacji i dokumentowania rozwiązania, przy czym wszystkie decyzje architektoniczne, weryfikacja kodu oraz integracja zmian pozostają po stronie autora projektu.
+
 ## Licencja
 
 Projekt udostępniony na licencji MIT. Szczegóły znajdują się w pliku

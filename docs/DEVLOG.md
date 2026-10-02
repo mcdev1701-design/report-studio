@@ -399,3 +399,19 @@ Zweryfikowane źródła:
 Testy:
 
 ✅ 13 passed
+
+### Przygotowanie MSSQLSource
+
+Wprowadzono konfigurację MSSQL opartą o:
+
+.env
+↓
+Settings
+↓
+DataSource
+
+Korzyści:
+
+- brak danych dostępowych w repozytorium
+- spójna konfiguracja aplikacji
+- przygotowanie pod MSSQLSource

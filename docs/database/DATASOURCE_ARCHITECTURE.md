@@ -495,3 +495,15 @@ Wszystkie implementacje:
 - dziedziczą po DataSource,
 - zwracają Dataset,
 - wykorzystują wspólny kontrakt źródła danych.
+
+### Konfiguracja
+
+MSSQLSource korzysta z konfiguracji dostarczanej przez:
+
+.env
+↓
+Settings
+↓
+MSSQLSource
+
+Dane dostępowe nie są przechowywane w kodzie źródłowym.

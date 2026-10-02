@@ -68,3 +68,14 @@ JSON, CSV oraz Excel zwracają wspólny model Dataset.
 ### Wynik testów
 
 ✅ 13 passed
+
+### Przygotowanie MSSQLSource
+
+- dodano obsługę zmiennych środowiskowych
+- dodano konfigurację MSSQL do Settings
+- utworzono lokalny plik .env
+- zweryfikowano poprawny odczyt konfiguracji
+
+Status:
+
+✅ Konfiguracja środowiska gotowa
