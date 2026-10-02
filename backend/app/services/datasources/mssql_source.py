@@ -41,7 +41,7 @@ class MSSQLSource(SQLSource):
         """
 
         return (
-            f"mssql://"
+            f"mssql+pytds://"
             f"{settings.mssql_username}:"
             f"{settings.mssql_password}@"
             f"{settings.mssql_server}/"
