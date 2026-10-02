@@ -42,14 +42,3 @@ class DataSource(ABC):
         Test dostępności źródła danych.
         """
         pass
-
-    @abstractmethod
-    def get_data(self):
-        """
-        Pobranie danych.
-
-        Zwraca:
-
-        Dane w ujednoliconej postaci.
-        """
-        pass

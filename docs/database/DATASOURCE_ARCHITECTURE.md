@@ -517,14 +517,21 @@ Architektura:
 ```text
 DataSource
       |
-      v
-SQLSource
-      |
-      +---- MSSQLSource
-      |
-      +---- PostgreSQLSource
-      |
-      +---- SQLiteSource
+      +----------------+
+                       |
+                       |
+               +-------+-------+
+               |               |
+               v               v
+
+          FileSource      SQLSource
+               |               |
+               |               |
+        +------+------+        |
+        |      |      |        |
+        v      v      v        v
+
+      JSON    CSV   Excel    MSSQL
 ```
 
 Odpowiedzialność:
@@ -534,3 +541,42 @@ Odpowiedzialność:
 - tworzenie Dataset.
 
 Implementacje pochodne odpowiadają wyłącznie za konfigurację połączenia.
+
+## Refaktoryzacja kontraktu DataSource
+
+Po implementacji pierwszych źródeł danych zauważono różnicę pomiędzy:
+
+- źródłami plikowymi,
+- źródłami SQL.
+
+Wprowadzono warstwę pośrednią:
+
+DataSource
+↓
+FileSource
+
+oraz:
+
+DataSource
+↓
+SQLSource
+
+Dzięki temu:
+
+- JsonSource
+- CSVSource
+- ExcelSource
+
+korzystają z:
+
+get_data()
+
+natomiast:
+
+- MSSQLSource
+- PostgreSQLSource
+- SQLiteSource
+
+korzystają z:
+
+execute_query()

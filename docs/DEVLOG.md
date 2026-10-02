@@ -466,3 +466,25 @@ Przygotowanie pod:
 - SQLite
 
 oraz ograniczenie zależności od jednego silnika bazodanowego.
+
+### Refaktoryzacja DataSource
+
+Podczas projektowania MSSQLSource odkryto,
+że źródła plikowe oraz źródła SQL posiadają
+odmienne modele pracy.
+
+Wprowadzono:
+
+DataSource
+↓
+FileSource
+
+oraz
+
+DataSource
+↓
+SQLSource
+
+Rezultat:
+
+Bardziej czytelna oraz łatwiejsza do rozbudowy architektura.

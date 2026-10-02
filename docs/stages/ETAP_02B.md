@@ -119,3 +119,21 @@ Przygotowanie architektury pod:
   - Settings
 - debug_settings.py
 - przygotowanie architektury MSSQLSource
+
+### Refaktoryzacja architektury
+
+Dodano:
+
+- FileSource
+- SQLSource
+
+Zmodyfikowano:
+
+- JsonSource
+- CSVSource
+- ExcelSource
+
+Rezultat:
+
+Architektura źródeł danych została podzielona
+na źródła plikowe i źródła SQL.

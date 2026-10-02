@@ -291,3 +291,31 @@ Ograniczenie zależności od jednego silnika bazodanowego.
 - możliwość dodania PostgreSQL,
 - możliwość dodania SQLite,
 - zgodność z założeniami Open Source.
+
+### Decyzja
+
+Rozdzielono DataSource na FileSource oraz SQLSource.
+
+### Powód
+
+Źródła plikowe wykorzystują model:
+
+connect()
+↓
+get_data()
+
+Źródła SQL wykorzystują model:
+
+connect()
+↓
+execute_query()
+
+Wspólny kontrakt DataSource okazał się zbyt ogólny.
+
+### Korzyści
+
+- bardziej naturalny model źródeł danych,
+- łatwiejsza implementacja MSSQL,
+- łatwiejsza implementacja PostgreSQL,
+- łatwiejsza implementacja SQLite,
+- mniejsza liczba sztucznych metod.

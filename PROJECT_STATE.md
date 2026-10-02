@@ -85,7 +85,11 @@ ETAP_02B - Source Implementations
 
 feature/etap-02b-source-implementations
 
-### Wykonano
+✅ DataSource
+
+✅ FileSource
+
+✅ SQLSource
 
 ✅ JsonSource
 
@@ -95,10 +99,18 @@ feature/etap-02b-source-implementations
 
 ✅ Dataset
 
-✅ Diagramy Data Source Engine
+✅ Refaktoryzacja kontraktu źródeł danych
 
-✅ Konfiguracja MSSQL przez .env i Settings
+✅ 17 passed
 
 ### Następny krok:
 
-Implementacja MSSQLSource oparta o SQLSource.
+Implementacja MSSQLSource oparta o:
+
+.env
+↓
+Settings
+↓
+SQLSource
+↓
+SQLAlchemy

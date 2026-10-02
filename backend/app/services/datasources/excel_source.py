@@ -14,12 +14,11 @@ from openpyxl import load_workbook
 
 from backend.app.models.dataset import Dataset
 
-from backend.app.services.datasources.datasource import (
-    DataSource
+from backend.app.services.datasources.file_source import (
+    FileSource
 )
 
-
-class ExcelSource(DataSource):
+class ExcelSource(FileSource):
     """
     DataSource dla plików Excel.
     """

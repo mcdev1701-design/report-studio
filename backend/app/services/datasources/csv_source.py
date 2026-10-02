@@ -19,13 +19,13 @@ from datetime import datetime
 """
 Abstrakcyjna definicja źródła danych.
 """
-from backend.app.services.datasources.datasource import (
-    DataSource
+from backend.app.services.datasources.file_source import (
+    FileSource
 )
 
 from backend.app.models.dataset import Dataset
 
-class CSVSource(DataSource):
+class CSVSource(FileSource):
     """
     DataSource dla plików CSV.
     """
