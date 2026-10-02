@@ -365,3 +365,37 @@ Różne źródła danych zwracają ten sam model Dataset.
 Testy:
 
 ✅ 10 passed
+
+### ExcelSource
+
+Dodano trzecią implementację DataSource.
+
+Komponent:
+
+ExcelSource
+
+Obsługiwany format:
+
+- XLSX
+
+Przepływ:
+
+Excel
+↓
+ExcelSource
+↓
+Dataset
+
+Rezultat:
+
+Trzy różne źródła danych zwracają wspólny model Dataset.
+
+Zweryfikowane źródła:
+
+- JSON
+- CSV
+- Excel
+
+Testy:
+
+✅ 13 passed

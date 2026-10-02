@@ -247,3 +247,17 @@ Silnik raportowy nie powinien znać typu źródła danych.
 - JSON i CSV są nierozróżnialne dla Report Engine
 - łatwiejsza implementacja MSSQL
 - łatwiejsze rozszerzanie systemu
+
+### Decyzja
+
+ExcelSource wykorzystuje openpyxl.
+
+### Powód
+
+Obsługa nowoczesnego formatu XLSX bez zależności od Microsoft Excel.
+
+### Korzyści
+
+- obsługa plików XLSX,
+- integracja z istniejącym kontraktem DataSource,
+- możliwość wykorzystania danych biznesowych dostarczanych przez użytkowników.

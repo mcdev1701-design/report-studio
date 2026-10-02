@@ -45,3 +45,12 @@ W realizacji
 
 Zweryfikować kryteria ukończenia ETAP_02B i zaktualizować dokument etapu
 przed jego zamknięciem.
+
+### Wykonano w ETAP_02B
+
+- CSVSource
+- ExcelSource
+- Dataset
+- Refaktoryzacja JsonSource
+- Ujednolicenie DataSource
+- Testy jednostkowe

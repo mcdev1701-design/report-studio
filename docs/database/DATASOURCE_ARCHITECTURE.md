@@ -460,3 +460,38 @@ Obie implementacje:
 - przechodzą testy jednostkowe
 
 Architektura została zweryfikowana dla więcej niż jednego źródła danych.
+
+## ExcelSource
+
+Cel:
+
+Odczyt danych z plików Excel (.xlsx).
+
+Zakres v1:
+
+- pierwszy arkusz roboczy
+- nagłówki w pierwszym wierszu
+
+Format wyjściowy:
+
+Dataset
+
+## Zaimplementowane
+
+- JsonSource
+- CSVSource
+- ExcelSource
+
+## Zweryfikowane źródła danych
+
+Aktualnie zaimplementowano:
+
+- JSON
+- CSV
+- Excel
+
+Wszystkie implementacje:
+
+- dziedziczą po DataSource,
+- zwracają Dataset,
+- wykorzystują wspólny kontrakt źródła danych.
