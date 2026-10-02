@@ -508,12 +508,29 @@ MSSQLSource
 
 Dane dostępowe nie są przechowywane w kodzie źródłowym.
 
-# SQLSource
+## SQLSource
 
+Warstwa pośrednia pomiędzy DataSource a implementacjami SQL.
+
+Architektura:
+
+```text
 DataSource
       |
       v
 SQLSource
       |
-      v
-MSSQLSource
+      +---- MSSQLSource
+      |
+      +---- PostgreSQLSource
+      |
+      +---- SQLiteSource
+```
+
+Odpowiedzialność:
+
+- zarządzanie połączeniem SQL,
+- wykonywanie zapytań,
+- tworzenie Dataset.
+
+Implementacje pochodne odpowiadają wyłącznie za konfigurację połączenia.
