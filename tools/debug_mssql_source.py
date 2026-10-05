@@ -14,13 +14,15 @@ print()
 print("=== CONNECTION STRING ===")
 print()
 
-# print(
-#     source.build_connection_string()
-# )
-
 print(
     source.build_connection_string().replace(
         settings.mssql_password,
         "********"
-    )
+    ))
+print()
+print("=== TEST CONNECTION ===")
+print()
+
+print(
+    source.test_connection()
 )

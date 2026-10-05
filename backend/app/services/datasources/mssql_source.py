@@ -15,6 +15,9 @@ Settings
 MSSQLSource
 """
 
+from sqlalchemy import create_engine
+from sqlalchemy import text
+
 from backend.app.core.settings import settings
 
 from backend.app.services.datasources.sql_source import (
@@ -33,6 +36,8 @@ class MSSQLSource(SQLSource):
 
         super().__init__()
 
+        self.engine = None
+
     def build_connection_string(self) -> str:
         """
         Buduje connection string.
@@ -50,40 +55,49 @@ class MSSQLSource(SQLSource):
 
     def connect(self):
         """
-        Nawiązanie połączenia.
-
-        Implementacja zostanie dodana
-        po integracji z SQLAlchemy.
+        Nawiązanie połączenia z bazą danych.
         """
 
-        raise NotImplementedError(
-            "connect() not implemented yet."
-        )
+        connection_string = self.build_connection_string()
+
+        self.engine = create_engine(connection_string)
+
+        self.connection = self.engine.connect()
+
+        self.connected = True
 
     def disconnect(self):
         """
         Zamknięcie połączenia.
-
-        Implementacja zostanie dodana
-        po integracji z SQLAlchemy.
         """
 
-        raise NotImplementedError(
-            "disconnect() not implemented yet."
-        )
+        if self.connection:
+            self.connection.close()
+
+        self.connected = False
 
     def test_connection(self):
-        """
-        Test połączenia.
 
-        Implementacja zostanie dodana
-        po integracji z SQLAlchemy.
-        """
+        try:
 
-        raise NotImplementedError(
-            "test_connection() not implemented yet."
-        )
+            self.connect()
 
+            result = self.connection.execute(
+                text("SELECT 1")
+            )
+
+            result.scalar()
+
+            self.disconnect()
+
+            return True
+
+        except Exception as exc:
+            print(
+                f"Test połączenia nie powiódł się: {exc}"
+            )
+            return False
+    
     def execute_query(
         self,
         query: str

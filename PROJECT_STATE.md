@@ -36,14 +36,21 @@ W realizacji
 
 ✅ 17 passed
 
-### Następny krok:
+### Wykonano
 
-Implementacja MSSQLSource oparta o:
+✅ MSSQLSource
 
-.env
-↓
-Settings
-↓
-SQLSource
-↓
-SQLAlchemy
+✅ SQLAlchemy
+
+✅ sqlalchemy-pytds
+
+✅ Połączenie z SQL Server
+
+✅ test_connection()
+
+✅ 18 passed
+
+### Następny krok
+
+Implementacja execute_query()
+oraz konwersja wyników SQL do Dataset.

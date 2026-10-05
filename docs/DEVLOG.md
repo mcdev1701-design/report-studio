@@ -488,3 +488,26 @@ SQLSource
 Rezultat:
 
 Bardziej czytelna oraz łatwiejsza do rozbudowy architektura.
+
+### MSSQLSource
+
+Po raz pierwszy zweryfikowano komunikację
+Report Studio z rzeczywistym SQL Server.
+
+Architektura:
+
+.env
+↓
+Settings
+↓
+MSSQLSource
+↓
+SQLAlchemy
+↓
+sqlalchemy-pytds
+↓
+SQL Server
+
+Rezultat:
+
+test_connection() zwraca True.

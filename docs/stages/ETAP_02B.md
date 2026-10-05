@@ -137,3 +137,16 @@ Rezultat:
 
 Architektura źródeł danych została podzielona
 na źródła plikowe i źródła SQL.
+
+### MSSQLSource v1
+
+Zaimplementowano:
+
+- build_connection_string()
+- connect()
+- disconnect()
+- test_connection()
+
+Wynik:
+
+✅ poprawne połączenie z SQL Server

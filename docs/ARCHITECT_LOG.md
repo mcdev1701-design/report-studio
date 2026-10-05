@@ -334,3 +334,20 @@ Projekt Report Studio ma zachować możliwie największą niezależność od sys
 - brak zależności od sterowników Windows,
 - większa przenośność pomiędzy Linux, Windows i macOS,
 - spójna warstwa SQLAlchemy dla źródeł SQL.
+
+### Decyzja
+
+Dla SQL Server wykorzystano:
+
+SQLAlchemy
++
+sqlalchemy-pytds
+
+### Powód
+
+Ograniczenie zależności od ODBC
+oraz zwiększenie przenośności projektu.
+
+### Wynik
+
+Połączenie zostało poprawnie zweryfikowane.
