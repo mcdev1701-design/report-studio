@@ -53,3 +53,15 @@ Przygotowanie architektury pod:
 ### Zweryfikowano
 
 - STDIN → Dataset
+
+### Decyzja architektoniczna
+
+Źródła Pipe będą rozwijane jako:
+
+StreamSource
+↓
+PipeSource
+↓
+WindowsPipe / UnixPipe
+
+Zamiast implementacji zależnej wyłącznie od Windows.

@@ -37,3 +37,7 @@ Assert - Sprawdzenie wyniku
 2. PROJECT_STATE.md
 3. Aktualny ETAP_xx.md
 4. PROJECT_WORKFLOW.md
+
+### Debugowanie stdin
+
+(.venv) type examples/sample_data.json | python -m tools.debug_stdin_source

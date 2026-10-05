@@ -44,12 +44,19 @@ zaimplementowane klasy:
           +-----------------------+-----------------------+
           |                       |                       |
           v                       v                       v
- +-----------------+     +-----------------+    +-----------------+
- |   FileSource    |     |    SQLSource    |    |  StreamSource   |
- +-----------------+     +-----------------+    +--------+--------+
-                                                       |       |
-                                                       v       v
-                                                  STDINSource NamedPipeSource
+
+     FileSource             SQLSource             StreamSource
+          |                       |                       |
+          |                       |                       |
+          v                       v                       v
+
+   JSON / CSV / Excel      MSSQLSource           PipeSource
+                                                       |
+                                    +------------------+------------------+
+                                    |                                     |
+                                    v                                     v
+
+                              WindowsPipe                           UnixPipe
 ```
 
 Status i kryteria ukończenia etapu znajdują się w

@@ -351,3 +351,18 @@ oraz zwiększenie przenośności projektu.
 ### Wynik
 
 Połączenie zostało poprawnie zweryfikowane.
+
+### Decyzja
+
+Źródła Pipe będą projektowane jako wieloplatformowe.
+
+### Powód
+
+Report Studio jest projektem Open Source.
+
+### Korzyści
+
+- wsparcie Windows,
+- wsparcie Linux,
+- wsparcie macOS,
+- brak zależności od jednego systemu operacyjnego.

@@ -8,7 +8,9 @@ from backend.app.services.datasources.stdin_source import (
 
 
 def test_stdin_source_get_data():
-
+    """
+    Testuje metodę get_data() klasy STDINSource.
+    """
     source = STDINSource()
 
     source.connect()
