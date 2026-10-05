@@ -35,5 +35,9 @@ class Settings:
         "MSSQL_PASSWORD"
     )
 
+    mssql_schema: str | None = os.getenv(
+    "MSSQL_SCHEMA"
+    )
+
 
 settings = Settings()

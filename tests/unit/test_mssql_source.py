@@ -49,3 +49,22 @@ def test_mssql_source_connection_string():
         settings.mssql_server
         in connection_string
     )
+
+def test_mssql_execute_query():
+
+    source = MSSQLSource()
+
+    source.connect()
+
+    dataset = source.execute_query(
+        f"""
+        SELECT TOP 1 *
+        FROM {settings.mssql_schema}.Products
+        """
+    )
+
+    source.disconnect()
+
+    assert dataset.source_type == "mssql"
+
+    assert dataset.row_count >= 1

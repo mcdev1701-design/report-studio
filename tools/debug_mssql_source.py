@@ -1,6 +1,4 @@
-"""
-Debug MSSQLSource.
-"""
+from pprint import pprint
 
 from backend.app.services.datasources.mssql_source import (
     MSSQLSource
@@ -10,19 +8,34 @@ from backend.app.core.settings import settings
 
 source = MSSQLSource()
 
-print()
-print("=== CONNECTION STRING ===")
-print()
+source.connect()
 
-print(
-    source.build_connection_string().replace(
-        settings.mssql_password,
-        "********"
-    ))
-print()
-print("=== TEST CONNECTION ===")
-print()
+schema = settings.mssql_schema
 
-print(
-    source.test_connection()
+dataset = source.execute_query(
+    f"""
+    SELECT *
+    FROM {schema}.Products
+    """
 )
+
+source.disconnect()
+
+print()
+print("=== DATASET ===")
+print()
+
+print(dataset)
+
+print()
+print("=== COLUMNS ===")
+print(dataset.columns)
+
+print()
+print("=== ROW COUNT ===")
+print(dataset.row_count)
+
+print()
+print("=== ROWS ===")
+
+pprint(dataset.rows)

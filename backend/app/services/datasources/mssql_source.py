@@ -18,6 +18,8 @@ MSSQLSource
 from sqlalchemy import create_engine
 from sqlalchemy import text
 
+from datetime import datetime
+
 from backend.app.core.settings import settings
 
 from backend.app.services.datasources.sql_source import (
@@ -97,7 +99,7 @@ class MSSQLSource(SQLSource):
                 f"Test połączenia nie powiódł się: {exc}"
             )
             return False
-    
+
     def execute_query(
         self,
         query: str
@@ -105,10 +107,43 @@ class MSSQLSource(SQLSource):
         """
         Wykonanie zapytania SQL.
 
-        Implementacja zostanie dodana
-        po integracji z SQLAlchemy.
+        Args:
+            query:
+                Zapytanie SQL.
+
+        Returns:
+            Dataset
         """
 
-        raise NotImplementedError(
-            "execute_query() not implemented yet."
+        if not self.connected:
+
+            raise RuntimeError(
+                "DataSource is not connected."
+            )
+
+        result = self.connection.execute(
+            text(query)
+        )
+
+        rows = []
+
+        column_names = result.keys()
+
+        for row in result:
+
+            rows.append(
+                dict(
+                    zip(
+                        column_names,
+                        row
+                    )
+                )
+            )
+
+        return Dataset(
+            name="MSSQL Dataset",
+            source_type="mssql",
+            source_name=settings.mssql_database,
+            loaded_at=datetime.now(),
+            rows=rows
         )
