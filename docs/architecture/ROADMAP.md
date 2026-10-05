@@ -27,7 +27,7 @@ Cel:
 
 Uniwersalna warstwa dostępu do danych.
 
-Obsługiwane źródła:
+Planowane źródła dla ukończenia ETAP_02:
 
 - MSSQL
 - CSV
@@ -36,12 +36,16 @@ Obsługiwane źródła:
 - STDIN
 - Named Pipes
 
+Zaimplementowane są JSON, CSV, Excel i MSSQL. Źródła strumieniowe są
+zakresem ETAP_02C.
+
 Rezultat:
 
 Pierwszy działający silnik źródeł danych.
 
-Status: W realizacji. Aktualny podetap: ETAP_02A. Szczegóły znajdują się w
-`docs/stages/ETAP_02A.md`.
+Status: W realizacji. Zakończono ETAP_02A i ETAP_02B. Aktualny podetap
+jest wskazany w [PROJECT_STATE.md](../../PROJECT_STATE.md); szczegóły prac
+znajdują się w odpowiadającym mu dokumencie w `docs/stages/`.
 
 ---
 

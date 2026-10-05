@@ -1,87 +1,81 @@
-# DataSource Engine
+# Data Source Engine
 
-## Aktualna architektura
+## Aktualna hierarchia zaimplementowanych źródeł
 
 ```text
-                     +---------------+
-                     |  DataSource   |
-                     +---------------+
-                              |
-              +---------------+---------------+
-              |                               |
-              v                               v
-
-        +-------------+                 +-------------+
-        | FileSource  |                 |  SQLSource  |
-        +-------------+                 +-------------+
-              |                               |
-      +-------+-------+                       |
-      |       |       |                       |
-      v       v       v                       v
-
- +--------+ +------+ +-------+        +-------------+
- | JSON   | | CSV  | | Excel |        | MSSQLSource |
- +--------+ +------+ +-------+        +-------------+
-                                 |
-                                 v
-
-                          +---------------+
-                          |    Dataset    |
-                          +---------------+
+                         +------------------+
+                         |   DataSource     |
+                         +--------+---------+
+                                  |
+                   +--------------+--------------+
+                   |                             |
+                   v                             v
+          +-----------------+           +-----------------+
+          |   FileSource    |           |    SQLSource    |
+          +--------+--------+           +--------+--------+
+                   |                             |
+          +--------+--------+                    v
+          |        |        |             +--------------+
+          v        v        v             | MSSQLSource  |
+       JsonSource CSVSource ExcelSource   +------+-------+
+          |        |        |                    |
+          +--------+--------+--------------------+
+                           v
+                      +----------+
+                      | Dataset  |
+                      +----------+
 ```
+
+Źródła plikowe udostępniają `get_data()`, a `MSSQLSource` udostępnia
+`execute_query(query)`. Obie ścieżki zwracają `Dataset`.
 
 ---
 
-## Architektura docelowa
+## Rozszerzenie w zakresie ETAP_02C
+
+Poniższy diagram przedstawia planowany zakres etapu, a nie aktualnie
+zaimplementowane klasy:
 
 ```text
-+-------------+
-| JsonSource  |
-+-------------+
-        |
-+-------------+
-| CSVSource   |
-+-------------+
-        |
-+-------------+
-| ExcelSource |
-+-------------+
-        |
-+-------------+
-| SQLSource   |
-+-------------+
-        |
-+-------------+
-| MSSQLSource |
-+-------------+
-        |
-+-------------+
-| PipeSource  |
-+-------------+
-        |
-        v
-
-+---------------------+
-|      Dataset        |
-+---------------------+
+                         +------------------+
+                         |   DataSource     |
+                         +--------+---------+
+                                  |
+          +-----------------------+-----------------------+
+          |                       |                       |
+          v                       v                       v
+ +-----------------+     +-----------------+    +-----------------+
+ |   FileSource    |     |    SQLSource    |    |  StreamSource   |
+ +-----------------+     +-----------------+    +--------+--------+
+                                                       |       |
+                                                       v       v
+                                                  STDINSource NamedPipeSource
 ```
+
+Status i kryteria ukończenia etapu znajdują się w
+[ETAP_02C.md](../stages/ETAP_02C.md).
 
 ---
 
-## Odpowiedzialności
+## Przepływ docelowy danych
 
 ```text
-DataSource
-    |
-    +-- pobiera dane
-    |
-    +-- nie renderuje raportów
-    |
-    +-- nie obsługuje UI
-
-Dataset
-    |
-    +-- przechowuje dane
-    |
-    +-- przechowuje metadane
+Źródło danych
+      |
+      v
+   Dataset
+      |
+      v
+ Report Engine
+      |
+      v
+  Renderer
+      |
+      +---- HTML
+      +---- PDF
+      +---- Excel
+      +---- CSV
 ```
+
+Warstwa źródeł danych nie odpowiada za Report Engine ani Renderer. Integracja
+tych elementów należy do architektury docelowej projektu.

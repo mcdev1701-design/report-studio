@@ -6,7 +6,7 @@ feature/etap-02a-data-source-engine
 
 ## Status
 
-W realizacji
+Zakończony
 
 ## Cel
 
@@ -51,8 +51,6 @@ implementacji.
 
 ## Weryfikacja
 
-Ostatni lokalny wynik: `6 passed` dla `tests/unit`.
+Wynik testów odnotowany przy zamykaniu etapu: `6 passed` dla `tests/unit`.
 
-Status:
-
-ETAP_02A zakończony.
+Etap został zakończony.

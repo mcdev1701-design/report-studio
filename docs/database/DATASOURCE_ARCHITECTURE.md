@@ -1,592 +1,127 @@
-# Data Source Architecture
+# Architektura źródeł danych
 
-## Cel dokumentu
+## Cel i zakres
 
-Dokument opisuje architekturę warstwy Data Source projektu Report Studio.
+Warstwa źródeł danych pobiera rekordy ze źródeł takich jak pliki lub baza
+danych i normalizuje wynik do modelu `Dataset`. Nie odpowiada za interfejs
+użytkownika, projektowanie ani renderowanie raportu.
 
-Warstwa Data Source odpowiada za dostarczanie danych do silnika raportowego.
+Dokument opisuje istniejące implementacje oraz planowane rozszerzenia.
+Szczegółowy diagram znajduje się w
+[datasource-engine.ascii.md](../diagrams/datasource-engine.ascii.md).
 
-Nie odpowiada za:
+## Aktualny stan implementacji
 
-- renderowanie raportów,
-- eksport danych,
-- interfejs użytkownika,
-- projektowanie raportów.
+### Zaimplementowane
 
-Jedyną odpowiedzialnością Data Source jest pobranie oraz udostępnienie danych.
+- `JsonSource` - odczyt plików JSON.
+- `CSVSource` - odczyt plików CSV.
+- `ExcelSource` - odczyt plików `.xlsx`.
+- `MSSQLSource` - wykonywanie zapytań do Microsoft SQL Server.
+- `FileSource` i `SQLSource` - klasy bazowe dla odpowiednich typów źródeł.
 
----
+Implementacje znajdują się w `backend/app/services/datasources/`.
 
-# Definicja Data Source
+### Źródła strumieniowe
 
-Data Source jest abstrakcją źródła danych.
+Zakres ETAP_02C obejmuje:
 
-Z punktu widzenia Report Studio nie ma znaczenia czy dane pochodzą z:
+- `StreamSource`.
+- `STDINSource`.
+- `NamedPipeSource`.
 
-- MSSQL
-- CSV
-- Excel
-- JSON
-- STDIN
-- Named Pipe
+Te źródła nie są jeszcze częścią aktualnej implementacji backendu.
 
-Każde źródło danych powinno być obsługiwane w taki sam sposób.
+### Możliwe przyszłe rozszerzenia
 
----
+PostgreSQL, SQLite, Oracle i REST API są kierunkami rozwoju; nie należą do
+zakresu ukończonych implementacji wymienionych powyżej.
 
-# Główne założenia
+## Kontrakt i hierarchia
 
-## Jednolity interfejs
+`DataSource` definiuje cykl życia źródła:
 
-Każde źródło danych powinno udostępniać ten sam zestaw operacji.
+- `connect()` - przygotowanie źródła do odczytu.
+- `disconnect()` - zamknięcie połączenia lub zwolnienie zasobów.
+- `test_connection()` - sprawdzenie dostępności źródła.
 
-Dzięki temu silnik raportowy nie będzie musiał wiedzieć z jakiego źródła pochodzą dane.
-
-Przykład:
-
-```text
-Report Engine
-
-        │
-        ▼
-
-DataSource
-
-        │
-        ▼
-
-MSSQL
-CSV
-Excel
-JSON
-STDIN
-Pipe
-```
-
----
-
-## Rozszerzalność
-
-Dodanie nowego źródła danych nie powinno wymagać zmian
-w silniku raportowym.
-
-Przykład:
-
-Dzisiaj:
-
-```text
-MSSQL
-CSV
-Excel
-```
-
-Jutro:
-
-```text
-Oracle
-PostgreSQL
-REST API
-```
-
-Powinny być dodawane jako nowe implementacje Data Source.
-
----
-
-## Separacja odpowiedzialności
-
-Data Source:
-
-✅ pobiera dane
-
-Data Source:
-
-❌ nie renderuje raportu
-
-❌ nie eksportuje PDF
-
-❌ nie obsługuje UI
-
----
-
-# Obsługiwane źródła danych
-
-## Zaimplementowane
-
-- JSON przez `JsonSource`.
-
-## Planowane w ramach ETAP_02
-
-- MSSQL
-- CSV
-- Excel
-
----
-
-## Planowane w kolejnych etapach
-
-- STDIN
-- Named Pipe
-- PostgreSQL
-- Oracle
-- REST API
-
----
-
-# Kontrakt Data Source
-
-Każde źródło danych powinno wspierać następujące operacje.
-
----
-
-## connect()
-
-Cel:
-
-Nawiązanie połączenia ze źródłem danych.
-
-Przykłady:
-
-MSSQL
-
-```text
-Połączenie z serwerem SQL.
-```
-
-CSV
-
-```text
-Otwarcie pliku.
-```
-
-Named Pipe
-
-```text
-Połączenie z kanałem komunikacyjnym.
-```
-
----
-
-## disconnect()
-
-Cel:
-
-Zamknięcie połączenia lub zwolnienie zasobów.
-
-Przykłady:
-
-- zamknięcie połączenia MSSQL,
-- zamknięcie pliku,
-- zamknięcie Pipe.
-
----
-
-## test_connection()
-
-Cel:
-
-Weryfikacja dostępności źródła danych.
-
-Przykłady:
-
-```text
-Czy serwer SQL odpowiada?
-```
-
-```text
-Czy plik istnieje?
-```
-
-```text
-Czy Pipe jest dostępny?
-```
-
----
-
-## get_data()
-
-Cel:
-
-Pobranie danych.
-
-Rezultat:
-
-Dane powinny zostać zwrócone w ujednoliconej formie.
-
----
-
-# Model architektury
-
-```text
-+----------------+
-|   DataSource   |
-+----------------+
-        ▲
-        │
-        │
-+-------+--------+--------+--------+---------+---------+
-|       |        |        |        |         |         |
-▼       ▼        ▼        ▼        ▼         ▼
-
-MSSQL   CSV     Excel    JSON    STDIN     Pipe
-```
-
----
-
-# Oczekiwana struktura projektu
-
-```text
-backend/app/
-
-services/
-
-datasources/
-
-├── datasource.py
-├── mssql_source.py
-├── csv_source.py
-├── excel_source.py
-├── json_source.py
-├── stdin_source.py
-└── pipe_source.py
-```
-
----
-
-# Przepływ danych
-
-```text
-Data Source
-        │
-        ▼
-Data Source Engine
-        │
-        ▼
-Report Engine
-        │
-        ▼
-Renderer
-        │
-        ▼
-HTML / PDF / Excel
-```
-
----
-
-# Decyzje architektoniczne
-
-## Data Source nie zna raportów
-
-Warstwa Data Source nie posiada wiedzy o:
-
-- układzie raportu,
-- grupowaniu,
-- eksportach,
-- wizualizacji.
-
-Jej zadaniem jest wyłącznie dostarczenie danych.
-
----
-
-## Report Engine nie zna typu źródła
-
-Report Engine korzysta wyłącznie z interfejsu Data Source.
-
-Nie powinien wiedzieć czy dane pochodzą z:
-
-- MSSQL,
-- CSV,
-- Excel,
-- Pipe.
-
----
-
-# Kryteria ukończenia ETAP_02A
-
-- [x] Zaprojektowany i udokumentowany kontrakt `DataSource`.
-- [x] Określone planowane źródła danych.
-- [x] Przygotowany model rozwoju warstwy danych.
-- [x] Zaimplementowana klasa bazowa `DataSource`.
-- [x] Dodana implementacja `JsonSource`.
-- [x] Zdefiniowany model `Dataset` używany przez źródło JSON.
-
-## Zakres implementacji ETAP_02A
-
-Etap obejmuje kontrakt `DataSource`, pierwszą implementację `JsonSource`
-oraz wspólny model `Dataset`. Kolejne źródła danych mogą być dodawane
-niezależnie, zgodnie z tym kontraktem.
-
-# Pierwsza implementacja
-
-## JsonSource
-
-Cel:
-
-Zweryfikowanie poprawności architektury DataSource.
-
-Powód wyboru:
-
-- brak zależności zewnętrznych,
-- prosta implementacja,
-- możliwość testowania bez bazy danych.
-
-Odpowiedzialność:
-
-- odczyt pliku JSON,
-- zwrócenie danych do silnika raportowego.
-
-## Format zwracanych danych
-
-get_data() zwraca:
-
-list[dict]
-
-Przykład:
-
-[
-    {
-        "id": 1,
-        "name": "Produkt A"
-    },
-    {
-        "id": 2,
-        "name": "Produkt B"
-    }
-]
-
-Powód:
-
-Jest to uniwersalny format możliwy do obsługi przez wszystkie planowane źródła danych.
-
-# Wewnętrzny model danych
-
-Data Source odpowiada wyłącznie za pobranie danych.
-
-Wszystkie dane powinny zostać przekształcone do wspólnego formatu.
-
-Aktualny standard:
-
-```python
-list[dict]
-```
-
-Przykład:
-
-```python
-[
-    {
-        "id": 1,
-        "name": "Produkt A"
-    }
-]
-```
-
-Dzięki temu Report Engine nie musi wiedzieć czy dane
-pochodzą z:
-
-- MSSQL
-- CSV
-- Excel
-- JSON
-- Pipe
-
-## Konfiguracja Data Source
-
-Każde źródło danych otrzymuje konfigurację
-podczas tworzenia obiektu.
-
-Przykład:
-
-source = JsonSource(
-    file_path="sample_data.json"
-)
-
-source.connect()
-
-source.get_data()
-
-## JsonSource
-
-Pierwsza implementacja DataSource.
-
-Cel:
-
-Weryfikacja architektury Data Source Engine.
-
-Format wejściowy:
-
-JSON
-
-Format wyjściowy:
-
-list[dict]
-
-# Dataset
-
-Dataset jest uniwersalnym nośnikiem danych
-w projekcie Report Studio.
-
-DataSource zwraca Dataset.
-
-Report Engine pracuje na Dataset.
-
-Renderer pracuje na Dataset.
-
-## Aktualny przepływ danych
-
-JSON File, CSV File
-        ↓
-JsonSource, CSVSource
-        ↓
-     Dataset
-        ↓
-  Report Engine
-
-## Diagramy
-
-Szczegółowe diagramy znajdują się w:
-
-docs/diagrams/datasource-engine.ascii.md
-
-## Zweryfikowane implementacje
-
-✅ JsonSource
-
-✅ CSVSource
-
-Obie implementacje:
-
-- dziedziczą po DataSource
-- zwracają Dataset
-- przechodzą testy jednostkowe
-
-Architektura została zweryfikowana dla więcej niż jednego źródła danych.
-
-## ExcelSource
-
-Cel:
-
-Odczyt danych z plików Excel (.xlsx).
-
-Zakres v1:
-
-- pierwszy arkusz roboczy
-- nagłówki w pierwszym wierszu
-
-Format wyjściowy:
-
-Dataset
-
-## Zaimplementowane
-
-- JsonSource
-- CSVSource
-- ExcelSource
-
-## Zweryfikowane źródła danych
-
-Aktualnie zaimplementowano:
-
-- JSON
-- CSV
-- Excel
-
-Wszystkie implementacje:
-
-- dziedziczą po DataSource,
-- zwracają Dataset,
-- wykorzystują wspólny kontrakt źródła danych.
-
-### Konfiguracja
-
-MSSQLSource korzysta z konfiguracji dostarczanej przez:
-
-.env
-    ↓
-Settings
-    ↓
-MSSQLSource
-    ↓
-SQLAlchemy
-    ↓
-sqlalchemy-pytds
-    ↓
-SQL Server
-    ↓
-Dataset
-
-
-Dane dostępowe nie są przechowywane w kodzie źródłowym.
-
-## SQLSource
-
-Warstwa pośrednia pomiędzy DataSource a implementacjami SQL.
-
-Architektura:
+Klasy pochodne grupują źródła według sposobu pobierania danych:
 
 ```text
 DataSource
-      |
-      +----------------+
-                       |
-                       |
-               +-------+-------+
-               |               |
-               v               v
-
-          FileSource      SQLSource
-               |               |
-               |               |
-        +------+------+        |
-        |      |      |        |
-        v      v      v        v
-
-      JSON    CSV   Excel    MSSQL
+├── FileSource
+│   ├── JsonSource
+│   ├── CSVSource
+│   └── ExcelSource
+└── SQLSource
+    └── MSSQLSource
 ```
 
-Odpowiedzialność:
+Źródła plikowe implementują `get_data()`. Źródła SQL udostępniają
+`execute_query(query)`. W obu przypadkach wynikiem jest `Dataset`; metody
+pobierania różnią się, ponieważ źródła plikowe i SQL mają odmienny sposób
+interakcji.
 
-- zarządzanie połączeniem SQL,
-- wykonywanie zapytań,
-- tworzenie Dataset.
+Źródła strumieniowe, gdy zostaną zaimplementowane, będą rozwijane w ramach
+ETAP_02C. Ich dokładne miejsce w hierarchii powinno wynikać z projektu
+`StreamSource`, a nie z założenia, że wszystkie źródła muszą mieć identyczną
+metodę pobierania.
 
-Implementacje pochodne odpowiadają wyłącznie za konfigurację połączenia.
+## Model `Dataset`
 
-## Refaktoryzacja kontraktu DataSource
+`Dataset` jest wspólną postacią danych przekazywaną przez implementacje.
+Zawiera:
 
-Po implementacji pierwszych źródeł danych zauważono różnicę pomiędzy:
+- `name` - nazwę zestawu danych,
+- `source_type` - typ źródła,
+- `source_name` - identyfikator lub nazwę źródła,
+- `loaded_at` - czas pobrania,
+- `rows` - rekordy jako listę słowników.
 
-- źródłami plikowymi,
-- źródłami SQL.
+Model udostępnia też `row_count` i `columns`. Jego definicja znajduje się
+w `backend/app/models/dataset.py`.
 
-Wprowadzono warstwę pośrednią:
+## Przepływy
 
-DataSource
-↓
-FileSource
+### Źródło plikowe
 
-oraz:
+```text
+Plik JSON / CSV / XLSX
+          |
+          v
+       FileSource
+          |
+          | get_data()
+          v
+        Dataset
+```
 
-DataSource
-↓
-SQLSource
+### Źródło SQL
 
-Dzięki temu:
+```text
+.env -> Settings -> MSSQLSource -> SQLAlchemy -> SQL Server
+                                      |
+                                      | execute_query(query)
+                                      v
+                                    Dataset
+```
 
-- JsonSource
-- CSVSource
-- ExcelSource
+Konfiguracja połączenia MSSQL jest pobierana z `Settings`; dane dostępowe
+nie powinny być umieszczane w kodzie źródłowym.
 
-korzystają z:
+## Zasady architektoniczne
 
-get_data()
+- Konkretny typ źródła nie powinien być wymagany do interpretacji zawartości
+  `Dataset`.
+- Źródła danych odpowiadają za pobranie i opisanie danych, nie za ich
+  raportowanie ani prezentację.
+- Dodanie nowego źródła powinno rozszerzać warstwę źródeł bez przenoszenia
+  logiki odczytu do interfejsu użytkownika.
 
-natomiast:
+## Historia kontraktu
 
-- MSSQLSource
-- PostgreSQLSource
-- SQLiteSource
-
-korzystają z:
-
-execute_query()
-
+ETAP_02A rozpoczął się od kontraktu `DataSource` i `JsonSource`. W toku
+ETAP_02B wspólny model wynikowy został ujednolicony jako `Dataset`, a
+rozróżnienie `FileSource`/`SQLSource` odzwierciedliło różne sposoby
+pobierania danych. Wcześniejsze opisy `list[dict]` jako samodzielnego wyniku
+źródła przedstawiają etap pośredni; aktualnym formatem wyniku jest `Dataset`.

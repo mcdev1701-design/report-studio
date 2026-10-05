@@ -16,7 +16,8 @@ inspirowanego Crystal Reports. Projekt służy nauce budowy aplikacji oraz
 
 - Backend: FastAPI.
 - Frontend: HTML, CSS i Vanilla JavaScript.
-- Planowane: Konva.js, GSAP i Microsoft SQL Server.
+- Źródła danych: JSON, CSV, Excel i Microsoft SQL Server.
+- Planowane technologie frontendu: Konva.js i GSAP.
 
 ## Workflow Git
 

@@ -29,3 +29,9 @@ Projekt i implementacja źródeł strumieniowych.
 - działający NamedPipeSource
 - zwracanie Dataset
 - testy przechodzą poprawnie
+
+## Status implementacji
+
+ETAP_02C jest w realizacji. Źródła strumieniowe z zakresu tego etapu nie są
+jeszcze ujęte w aktualnej implementacji backendu. Ich projekt i postęp
+realizacji dokumentuj w tym pliku.

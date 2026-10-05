@@ -274,9 +274,9 @@ Praktyczna ściąga dotycząca CSS używanego w projekcie.
 
 ## DATASOURCE_ARCHITECTURE.md
 
-Opis architektury źródeł danych i kontraktu `DataSource`.
-
-JSON jest zaimplementowany. MSSQL, CSV i Excel pozostają planowane.
+Opis aktualnej architektury źródeł danych, kontraktu `DataSource` oraz modelu
+`Dataset`. Źródła JSON, CSV, Excel i MSSQL są zaimplementowane; źródła
+strumieniowe są zakresem ETAP_02C.
 
 ---
 
@@ -348,6 +348,8 @@ Przykłady:
 - ETAP_01C.md
 - ETAP_01D.md
 - ETAP_02A.md
+- ETAP_02B.md
+- ETAP_02C.md
 
 Każdy dokument etapu powinien zawierać:
 
