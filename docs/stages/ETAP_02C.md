@@ -35,3 +35,15 @@ Projekt i implementacja źródeł strumieniowych.
 ETAP_02C jest w realizacji. Źródła strumieniowe z zakresu tego etapu nie są
 jeszcze ujęte w aktualnej implementacji backendu. Ich projekt i postęp
 realizacji dokumentuj w tym pliku.
+
+### Wykonano
+
+- zaprojektowano StreamSource
+- określono kontrakt dla źródeł strumieniowych
+
+### Cel
+
+Przygotowanie architektury pod:
+
+- STDINSource
+- NamedPipeSource

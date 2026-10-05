@@ -548,3 +548,18 @@ Cel:
 Obsługa danych dostarczanych
 w sposób ciągły lub jednorazowy
 bez pośrednictwa plików i baz danych.
+
+### StreamSource
+
+Rozpoczęto projekt źródeł strumieniowych.
+
+Architektura:
+
+DataSource
+↓
+StreamSource
+
+Przyszłe implementacje:
+
+- STDINSource
+- NamedPipeSource

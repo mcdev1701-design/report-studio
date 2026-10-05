@@ -13,8 +13,10 @@ Starlette wskazuje użycie `httpx` jako przestarzałe i sugeruje `httpx2`.
 
 Ostrzeżenie AnyIO wskazuje alias `anyio.abc.BlockingPortal` jako przestarzały.
 
-## Status
+### Status
 
-Potwierdzone 2026-09-30: `python -m pytest` zakończył się wynikiem
-`6 passed, 2 warnings`. Ostrzeżenia nie zostały usunięte w ramach tej
-refaktoryzacji dokumentacji.
+Ostrzeżenia zostały potwierdzone podczas wcześniejszych uruchomień testów.
+
+Aktualny wynik testów należy sprawdzać
+na podstawie bieżącego uruchomienia pytest.
+
