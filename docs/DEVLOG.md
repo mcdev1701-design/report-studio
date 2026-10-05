@@ -532,3 +532,19 @@ dla źródeł:
 
 Data Source Engine został zweryfikowany
 dla czterech różnych źródeł danych.
+
+## ETAP_02C
+
+Rozpoczęto projektowanie źródeł strumieniowych.
+
+Zakres:
+
+- StreamSource
+- STDINSource
+- NamedPipeSource
+
+Cel:
+
+Obsługa danych dostarczanych
+w sposób ciągły lub jednorazowy
+bez pośrednictwa plików i baz danych.

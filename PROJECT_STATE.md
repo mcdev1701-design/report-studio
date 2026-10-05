@@ -2,7 +2,7 @@
 
 ## Aktualny branch
 
-feature/etap-02b-source-implementations
+feature/etap-02c-stream-sources
 
 ## Status
 
@@ -16,42 +16,6 @@ W realizacji
 - ETAP_01D - Frontend Bootstrap
 - ETAP_02A - Data Source Foundation
 
-### Aktualny etap
+## Aktualny etap
 
-✅ DataSource
-
-✅ FileSource
-
-✅ SQLSource
-
-✅ JsonSource
-
-✅ CSVSource
-
-✅ ExcelSource
-
-✅ Dataset
-
-✅ Refaktoryzacja kontraktu źródeł danych
-
-✅ 17 passed
-
-### Wykonano
-
-✅ MSSQLSource
-
-✅ SQLAlchemy
-
-✅ sqlalchemy-pytds
-
-✅ Połączenie z SQL Server
-
-✅ test_connection()
-
-✅ execute_query()
-
-✅ Dataset z SQL Server
-
-✅ 19 passed
-
-### Następny krok
+ETAP_02C - Stream Sources
