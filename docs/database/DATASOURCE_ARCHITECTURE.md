@@ -125,3 +125,15 @@ ETAP_02B wspólny model wynikowy został ujednolicony jako `Dataset`, a
 rozróżnienie `FileSource`/`SQLSource` odzwierciedliło różne sposoby
 pobierania danych. Wcześniejsze opisy `list[dict]` jako samodzielnego wyniku
 źródła przedstawiają etap pośredni; aktualnym formatem wyniku jest `Dataset`.
+
+## STDINSource
+
+Pierwsza implementacja StreamSource.
+
+Przepływ:
+
+STDIN
+↓
+STDINSource
+↓
+Dataset

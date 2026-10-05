@@ -40,6 +40,8 @@ realizacji dokumentuj w tym pliku.
 
 - zaprojektowano StreamSource
 - określono kontrakt dla źródeł strumieniowych
+- StreamSource
+- STDINSource
 
 ### Cel
 
@@ -47,3 +49,7 @@ Przygotowanie architektury pod:
 
 - STDINSource
 - NamedPipeSource
+
+### Zweryfikowano
+
+- STDIN → Dataset
