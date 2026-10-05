@@ -511,3 +511,21 @@ SQL Server
 Rezultat:
 
 test_connection() zwraca True.
+
+Po raz pierwszy pobrano dane z SQL Server.
+
+Przepływ:
+
+SQL Server
+↓
+MSSQLSource
+↓
+Dataset
+
+Architektura została zweryfikowana
+dla źródeł:
+
+- JSON
+- CSV
+- Excel
+- MSSQL

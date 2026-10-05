@@ -48,9 +48,10 @@ W realizacji
 
 ✅ test_connection()
 
-✅ 18 passed
+✅ execute_query()
+
+✅ Dataset z SQL Server
+
+✅ 19 passed
 
 ### Następny krok
-
-Implementacja execute_query()
-oraz konwersja wyników SQL do Dataset.

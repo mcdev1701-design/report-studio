@@ -150,3 +150,18 @@ Zaimplementowano:
 Wynik:
 
 ✅ poprawne połączenie z SQL Server
+
+### MSSQLSource
+
+Dodano:
+
+- execute_query()
+- konwersję wyników SQL do Dataset
+
+Rezultat:
+
+SQL Server zwraca dane w tym samym formacie Dataset co:
+
+- JsonSource
+- CSVSource
+- ExcelSource
