@@ -529,3 +529,6 @@ dla źródeł:
 - CSV
 - Excel
 - MSSQL
+
+Data Source Engine został zweryfikowany
+dla czterech różnych źródeł danych.

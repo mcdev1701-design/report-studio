@@ -165,3 +165,29 @@ SQL Server zwraca dane w tym samym formacie Dataset co:
 - JsonSource
 - CSVSource
 - ExcelSource
+
+### Status
+
+Zakończony
+
+## Kryteria ukończenia
+
+✅ JsonSource
+
+✅ CSVSource
+
+✅ ExcelSource
+
+✅ MSSQLSource
+
+✅ Dataset
+
+✅ FileSource
+
+✅ SQLSource
+
+✅ Połączenie z SQL Server
+
+✅ execute_query()
+
+✅ 20 passed
