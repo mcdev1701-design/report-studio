@@ -624,27 +624,23 @@ Obsługiwane środowiska:
 
 Implementacja oparta o FIFO (mkfifo).
 
-### ETAP_02C
+#### Podsumowanie ETAP_02C
 
-Zaimplementowano źródła strumieniowe.
+Zrealizowano:
 
-Wdrożono:
-
+- StreamSource
 - STDINSource
+- PipeSource
 - WindowsPipeSource
 - UnixPipeSource
 
-Osiągnięto:
+Rezultat:
 
-DataSource
-↓
-Dataset
+Warstwa źródeł danych obsługuje:
 
-dla:
-
-- plików
+- pliki
 - SQL
-- strumieni
+- strumienie
 
 Wynik testów:
 
