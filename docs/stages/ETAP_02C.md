@@ -78,3 +78,30 @@ Przygotowanie architektury pod:
 
 - WindowsPipe
 - UnixPipe
+
+### Dodano
+
+- WindowsPipeSource
+- pierwszą implementację PipeSource
+
+### Zakres
+
+- połączenie z istniejącym Named Pipe
+- odbiór danych JSON
+- konwersja do Dataset
+
+### Refaktoryzacja narzędzi
+
+Połączono:
+
+- debug_pipe_server.py
+- debug_windows_pipe_source.py
+
+w jeden plik:
+
+- debug_windows_pipe_source.py
+
+Obsługiwane tryby:
+
+- server
+- client

@@ -380,3 +380,17 @@ Najlepsze wsparcie dla Windows Named Pipe.
 - łatwiejsza integracja z ERP,
 - łatwiejsza integracja z CDN XL,
 - pełna obsługa Named Pipe w Windows.
+
+### Decyzja
+
+Pierwszą implementacją PipeSource jest WindowsPipeSource.
+
+### Powód
+
+Weryfikacja architektury PipeSource
+oraz przygotowanie pod integracje ERP.
+
+### Korzyści
+
+- możliwość odbioru danych proces → proces,
+- przygotowanie pod scenariusze typu CDN XL.

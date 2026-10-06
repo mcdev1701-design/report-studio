@@ -580,3 +580,36 @@ Przyszłe implementacje:
 
 - WindowsPipe
 - UnixPipe
+
+### WindowsPipeSource
+
+Dodano pierwszą implementację PipeSource.
+
+Architektura:
+
+PipeSource
+↓
+WindowsPipeSource
+↓
+pywin32
+↓
+Windows Named Pipe
+
+Cel:
+
+Integracja z aplikacjami komunikującymi się przez Named Pipe.
+
+Połączono narzędzia debugujące Pipe.
+
+Nowy model:
+
+debug_windows_pipe_source.py
+
+Tryby:
+
+- server
+- client
+
+Cel:
+
+Uproszczenie debugowania WindowsPipeSource.

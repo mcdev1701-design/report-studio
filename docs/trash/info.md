@@ -41,3 +41,14 @@ Assert - Sprawdzenie wyniku
 ### Debugowanie stdin
 
 (.venv) type examples/sample_data.json | python -m tools.debug_stdin_source
+
+
+### Debugowanie windows_pipe
+
+(.venv) python -m tools.debug_windows_pipe_source server
+
+- tworzy \\.\pipe\ReportStudio
+
+(.venv) python -m tools.debug_windows_pipe_source client
+
+- tworzy klienta
