@@ -394,3 +394,28 @@ oraz przygotowanie pod integracje ERP.
 
 - możliwość odbioru danych proces → proces,
 - przygotowanie pod scenariusze typu CDN XL.
+
+### Decyzja
+
+PipeSource rozwijany jest jako rozwiązanie wieloplatformowe.
+
+### Powód
+
+Report Studio jest projektem Open Source.
+
+Komunikacja proces ↔ proces nie powinna być uzależniona od jednego systemu operacyjnego.
+
+### Architektura
+
+PipeSource
+    |
+    +-- WindowsPipeSource
+    |
+    +-- UnixPipeSource
+
+### Korzyści
+
+- wsparcie Windows,
+- wsparcie Linux,
+- wsparcie macOS,
+- możliwość testowania pod WSL.
