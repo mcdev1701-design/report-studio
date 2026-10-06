@@ -42,7 +42,6 @@ Assert - Sprawdzenie wyniku
 
 (.venv) type examples/sample_data.json | python -m tools.debug_stdin_source
 
-
 ### Debugowanie windows_pipe
 
 (.venv) python -m tools.debug_windows_pipe_source server
@@ -52,3 +51,10 @@ Assert - Sprawdzenie wyniku
 (.venv) python -m tools.debug_windows_pipe_source client
 
 - tworzy klienta
+
+### Debugowanie unix_pipe
+
+(wsl.1) mkfifo /tmp/reportstudio.pipe
+(wsl.1) python3 -m tools.debug_unix_pipe_source
+
+(wsl.2) echo '[{"id":1,"name":"Produkt A"}]' > /tmp/reportstudio.pipe

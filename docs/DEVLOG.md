@@ -613,3 +613,14 @@ Tryby:
 Cel:
 
 Uproszczenie debugowania WindowsPipeSource.
+
+Dodano UnixPipeSource.
+
+Obsługiwane środowiska:
+
+- Linux
+- WSL
+- macOS
+
+Implementacja oparta o FIFO (mkfifo).
+

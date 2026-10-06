@@ -105,3 +105,31 @@ Obsługiwane tryby:
 
 - server
 - client
+
+### Wykonano
+
+- StreamSource
+- STDINSource
+- PipeSource
+- WindowsPipeSource
+
+### Decyzje architektoniczne
+
+PipeSource rozwijany jest jako warstwa wieloplatformowa.
+
+Implementacje:
+
+- WindowsPipeSource
+- UnixPipeSource
+
+### Dodano
+
+- UnixPipeSource
+
+### Zweryfikowano
+
+PipeSource
+↓
+UnixPipeSource
+↓
+Dataset

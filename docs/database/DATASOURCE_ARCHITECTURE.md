@@ -153,3 +153,15 @@ pywin32
 Windows Named Pipe
 ↓
 Dataset
+
+### PipeSource
+
+PipeSource stanowi wspólny kontrakt dla komunikacji proces ↔ proces.
+
+Implementacje:
+
+- WindowsPipeSource
+- UnixPipeSource
+
+Obie implementacje zwracają Dataset.
+
