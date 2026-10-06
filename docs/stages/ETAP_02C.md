@@ -10,8 +10,7 @@ feature/etap-02c-stream-sources
 
 ## Status
 
-W realizacji - implementacja zakończona; formalne zamknięcie oczekuje na
-przegląd.
+Zakończony
 
 ## Cel
 

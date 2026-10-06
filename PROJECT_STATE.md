@@ -19,7 +19,7 @@ W realizacji
 
 ## Aktualny etap
 
-ETAP_02C - Stream Sources
+ETAP_03
 
 Szczegółowy zakres i kryteria ukończenia znajdują się w
 [docs/stages/ETAP_02C.md](docs/stages/ETAP_02C.md).
