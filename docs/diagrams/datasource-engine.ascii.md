@@ -50,13 +50,13 @@ zaimplementowane klasy:
           |                       |                       |
           v                       v                       v
 
-   JSON / CSV / Excel      MSSQLSource           PipeSource
-                                                       |
-                                    +------------------+------------------+
-                                    |                                     |
-                                    v                                     v
+   JSON / CSV / Excel      MSSQLSource                 PipeSource
+                                                           |
+                                        +------------------+------------------+
+                                        |                                     |
+                                        v                                     v
 
-                              WindowsPipe                           UnixPipe
+                                   WindowsPipe                           UnixPipe
 ```
 
 Status i kryteria ukończenia etapu znajdują się w

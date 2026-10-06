@@ -563,3 +563,20 @@ Przyszłe implementacje:
 
 - STDINSource
 - NamedPipeSource
+
+### PipeSource
+
+Rozpoczęto projekt źródeł Pipe.
+
+Architektura:
+
+DataSource
+↓
+StreamSource
+↓
+PipeSource
+
+Przyszłe implementacje:
+
+- WindowsPipe
+- UnixPipe

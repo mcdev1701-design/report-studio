@@ -65,3 +65,16 @@ PipeSource
 WindowsPipe / UnixPipe
 
 Zamiast implementacji zależnej wyłącznie od Windows.
+
+### Wykonano
+
+- StreamSource
+- STDINSource
+- PipeSource
+
+### Cel
+
+Przygotowanie architektury pod:
+
+- WindowsPipe
+- UnixPipe
