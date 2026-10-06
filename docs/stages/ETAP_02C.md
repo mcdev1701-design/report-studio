@@ -133,3 +133,29 @@ PipeSource
 UnixPipeSource
 ↓
 Dataset
+
+### Wykonano
+
+- StreamSource
+- STDINSource
+- PipeSource
+- WindowsPipeSource
+- UnixPipeSource
+
+### Zweryfikowano
+
+STDIN
+↓
+Dataset
+
+Windows Pipe
+↓
+Dataset
+
+Unix FIFO
+↓
+Dataset
+
+### Wynik
+
+✅ 23 passed
