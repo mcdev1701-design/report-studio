@@ -1,95 +1,51 @@
-# Frontend Architecture
+# Architektura frontendu
 
-## Aktualna architektura
+## Aktualny widok
 
 ```text
-+--------------------------------------+
-|           Report Studio              |
-+--------------------------------------+
-
-+------------+----------------+--------+
-| Toolbox    | Canvas         | Props  |
-+------------+----------------+--------+
+Report Studio (index.html)
+├── Toolbox
+├── Canvas
+├── Properties
+├── System Status
+└── Shortcuts
 ```
 
----
-
-## Przepływ zdarzeń
+## Inicjalizacja i komunikacja z API
 
 ```text
-Użytkownik
-      |
-      v
-+-------------+
-| ToolboxPanel|
-+-------------+
-      |
-      v
-JavaScript
-      |
-      v
-canvasObjects
-      |
-      v
-renderCanvas()
-      |
-      v
-CanvasPanel
+DOMContentLoaded
+       |
+       +--> GET /api/v1/info --> aktualizacja System Status
+       |
+       +--> inicjalizacja Toolbox i skrótów klawiaturowych
 ```
 
----
-
-## Zaznaczanie obiektów
+## Cykl życia obiektu na canvasie
 
 ```text
-Canvas Object
-      |
-      v
-Click
-      |
-      v
-selectedObjectId
-      |
-      v
-PropertyPanel
-```
-
----
-
-## Aktualna hierarchia UI
-
-```text
-Report Studio
-
-├── SystemStatusPanel
-│
-├── DesignerLayout
-│   │
-│   ├── ToolboxPanel
-│   │
-│   ├── CanvasPanel
-│   │
-│   └── PropertyPanel
-│
-└── ShortcutsPanel
-```
-
----
-
-## Kierunek rozwoju
-
-```text
-ToolboxPanel
+Kliknięcie Toolbox
        |
        v
-CanvasPanel
+canvasObjects (pamięć strony)
        |
        v
-PropertyPanel
-       |
-       v
-Konva.js
-       |
-       v
-Visual Report Designer
+renderCanvas() --> elementy DOM
+                       |
+                  kliknięcie
+                       v
+              selectedObjectId
+                       |
+                       v
+                  Properties
+                       |
+               klawisz Delete
+                       v
+             usunięcie obiektu
 ```
+
+## Granice implementacji
+
+Panele są obecnie elementami HTML, a obiekty canvasu są renderowane w DOM
+i przechowywane w pamięci przeglądarki. Konva.js oraz GSAP są planowane;
+szczegóły etapów opisuje [roadmapa](../architecture/ROADMAP.md).

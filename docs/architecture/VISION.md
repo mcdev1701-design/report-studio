@@ -24,16 +24,17 @@ działającego w przeglądarce internetowej.
 - architektura modułowa
 - możliwość pracy z wieloma źródłami danych
 
-## Obsługiwane źródła danych
+## Źródła danych objęte wizją
 
-- MS SQL Server
+- Microsoft SQL Server
 - CSV
 - Excel
 - JSON
 - STDIN
-- Named Pipe
+- Windows Named Pipe
+- Unix FIFO
 
-## Eksport
+## Docelowe formaty eksportu
 
 - HTML
 - PDF

@@ -645,3 +645,27 @@ Warstwa źródeł danych obsługuje:
 Wynik testów:
 
 ✅ 23 passed
+
+## ETAP_03A
+
+Rozpoczęto projektowanie modelu raportu.
+
+Cel:
+
+Zdefiniowanie struktury obiektów raportu.
+
+Zakres:
+
+- ReportObject
+- TextObject
+- FieldObject
+- ImageObject
+- ChartObject
+
+Założenie:
+
+Wspólne właściwości zostaną umieszczone
+w klasie bazowej ReportObject.
+
+Każdy typ obiektu będzie posiadał
+własny zestaw właściwości specyficznych.

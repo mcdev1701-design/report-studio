@@ -13,13 +13,15 @@ inspirowanego narzędziami takimi jak Crystal Reports.
 
 - Backend: FastAPI
 - Frontend: HTML, CSS i Vanilla JavaScript
-- Źródła danych: JSON, CSV, Excel i Microsoft SQL Server
+- Źródła danych: JSON, CSV, Excel, Microsoft SQL Server, STDIN,
+  Windows Named Pipe i Unix FIFO
 - Planowane technologie frontendu: Konva.js i GSAP
 
 ## Status projektu
 
-Aktualny branch, szczegółowy postęp i następny krok znajdują się w
-[PROJECT_STATE.md](PROJECT_STATE.md).
+Aktualny etap, branch i następny krok są prowadzone w
+[PROJECT_STATE.md](PROJECT_STATE.md). Aplikacja zawiera podstawowy interfejs
+projektanta oraz warstwę źródeł danych; model raportu jest obecnie rozwijany.
 
 ## Dokumentacja
 
@@ -27,17 +29,24 @@ Aktualny branch, szczegółowy postęp i następny krok znajdują się w
 - [Zasady i katalog dokumentacji (Word)](docs/DOCUMENTATION_GUIDE.odt)
 - [Kontekst projektu](PROJECT_CONTEXT.md)
 - [Struktura projektu](PROJECT_STRUCTURE.md)
+- [Mapa drogowa](docs/architecture/ROADMAP.md)
+- [Workflow projektu](docs/PROJECT_WORKFLOW.md)
 - [Historia zmian](CHANGELOG.md)
 
 ## Uruchomienie testów
 
-(.venv) pytest -v
+```bash
+python -m pytest -v
+```
 
 ## AI-Assisted Development
 
-Projekt jest rozwijany przy wsparciu Microsoft 365 Copilot w ramach podejścia AI-Assisted Development.
+Projekt jest rozwijany przy wsparciu Microsoft 365 Copilot w ramach podejścia
+AI-Assisted Development.
 
-Copilot wspomaga proces analizy, projektowania, implementacji i dokumentowania rozwiązania, przy czym wszystkie decyzje architektoniczne, weryfikacja kodu oraz integracja zmian pozostają po stronie autora projektu.
+Copilot wspomaga proces analizy, projektowania, implementacji i
+dokumentowania rozwiązania. Decyzje architektoniczne, weryfikacja kodu
+oraz integracja zmian pozostają po stronie autora projektu.
 
 ## Licencja
 

@@ -1,58 +1,37 @@
-# ROADMAP
+# Mapa drogowa
 
 ## ETAP_01 - FUNDAMENTY
 
-Cel:
+Przygotowanie środowiska projektu, repozytorium, dokumentacji, backendu,
+podstawowego frontendu i testów.
 
-Przygotowanie środowiska projektowego.
-
-Zakres:
-
-- Git
-- GitHub
-- Dokumentacja
-- FastAPI
-- Frontend
-- Testy
-
-Status:
-
-Zakończony
+**Status:** zakończony.
 
 ---
 
 ## ETAP_02 - DATA SOURCE ENGINE
 
-Cel:
-
 Uniwersalna warstwa dostępu do danych.
 
-Planowane źródła dla ukończenia ETAP_02:
+Zakres:
 
 - MSSQL
 - CSV
 - Excel
 - JSON
 - STDIN
-- Named Pipes
+- Windows Named Pipe
+- Unix FIFO
 
-Zaimplementowane są źródła JSON, CSV, Excel, MSSQL, STDIN oraz pipe:
-Windows Named Pipe i Unix FIFO.
+**Status:** zakończony. Szczegółowe karty podetapów znajdują się w
+`docs/stages/`.
 
-Rezultat:
-
-Pierwszy działający silnik źródeł danych.
-
-Status: W realizacji. Zakończono ETAP_02A i ETAP_02B; implementacja ETAP_02C
-i testy są zakończone, a formalne zamknięcie oczekuje na przegląd. Bieżący
-status wskazuje [PROJECT_STATE.md](../../PROJECT_STATE.md), a zakres i
-kryteria etapu opisuje [ETAP_02C.md](../stages/ETAP_02C.md).
+Rezultat: działający silnik źródeł danych zwracających wspólny model
+`Dataset`.
 
 ---
 
 ## ETAP_03 - VISUAL DESIGNER
-
-Cel:
 
 Przeglądarkowy projektant raportów.
 
@@ -71,20 +50,29 @@ Technologie:
 - Konva.js
 - GSAP
 
+Podetapy:
+
+- **ETAP_03A - Report Model:** model obiektów raportu i ich właściwości.
+- **ETAP_03B - Visual Canvas:** obszar projektowania wizualnego.
+- **ETAP_03C - Object Interaction:** interakcje z obiektami na canvasie.
+- **ETAP_03D - Konva Integration:** integracja biblioteki Konva.js.
+- **ETAP_03E - Property Binding:** powiązanie właściwości z panelem edycji.
+- **ETAP_03F - Layout Tools:** narzędzia układu obiektów.
+
+Szczegóły bieżącego etapu zawiera
+[PROJECT_STATE.md](../../PROJECT_STATE.md).
+
 ---
 
-## ETAP_04 - REPORT MODEL
+## ETAP_04 - REPORT PERSISTENCE
 
-Cel:
+Zapis i odczyt modelu raportu w formacie JSON.
 
-Model raportu zapisany w JSON.
+Planowany zakres:
 
-Funkcje:
-
-- Save
-- Load
-- Validation
-- Versioning
+- serializacja i deserializacja,
+- walidacja dokumentu,
+- wersjonowanie formatu.
 
 ---
 

@@ -1,312 +1,101 @@
-# GIT CHEATSHEET - REPORT STUDIO
-Polecenia opisują składnię Git. Obowiązujący proces i format commitów
-znajdują się w `PROJECT_WORKFLOW.md`.
+# Git - ściąga
 
-## Sprawdzenie stanu repozytorium
+Dokument zawiera przykładowe polecenia. Zasady pracy, nazewnictwo branchy
+i format commitów opisuje [workflow projektu](PROJECT_WORKFLOW.md).
+
+## Podstawowe informacje
 
 ```bash
 git status
-```
-
----
-
-## Wyświetlenie aktualnej gałęzi
-
-```bash
-git branch
-```
-
----
-
-## Wyświetlenie historii commitów
-
-```bash
+git branch --show-current
 git log --oneline
-```
-
----
-
-## Utworzenie nowej gałęzi
-
-```bash
-git switch -c feature/nazwa-galezi
-```
-
-Przykład:
-
-```bash
-git switch -c feature/etap-01c-fastapi
-```
-
----
-
-## Przełączenie na istniejącą gałąź
-
-```bash
-git switch develop
-```
-
-Przykład:
-
-```bash
-git switch main
-```
-
----
-
-## Dodanie wszystkich zmian
-
-```bash
-git add .
-```
-
----
-
-## Dodanie pojedynczego pliku
-
-```bash
-git add README.md
-```
-
----
-
-## Utworzenie commita
-
-```bash
-git commit -m "ETAP_01B architektura projektu"
-```
-
----
-
-## Sprawdzenie zdalnego repozytorium
-
-```bash
-git remote -v
-```
-
----
-
-## Dodanie zdalnego repozytorium GitHub
-
-```bash
-git remote add origin https://github.com/login/repo.git
-```
-
----
-
-## Pierwszy push
-
-```bash
-git push -u origin main
-```
-
----
-
-## Wysłanie zmian do GitHub
-
-```bash
-git push
-```
-
----
-
-## Pobranie zmian z GitHub
-
-```bash
-git pull
-```
-
----
-
-## Push nowej gałęzi
-
-```bash
-git push -u origin feature/etap-01c-fastapi
-```
-
----
-
-## Scalenie gałęzi z develop
-
-Przełącz się na develop:
-
-```bash
-git switch develop
-```
-
-Scal gałąź:
-
-```bash
-git merge feature/etap-01c-fastapi
-```
-
-Wyślij zmiany:
-
-```bash
-git push
-```
-
----
-
-## Usunięcie lokalnej gałęzi
-
-```bash
-git branch -d feature/etap-01c-fastapi
-```
-
----
-
-## Usunięcie gałęzi z GitHub
-
-```bash
-git push origin --delete feature/etap-01c-fastapi
-```
-
----
-
-## Utworzenie taga
-
-```bash
-git tag v0.1.0
-```
-
----
-
-## Wysłanie taga
-
-```bash
-git push origin v0.1.0
-```
-
----
-
-# Tagi
-
-## Wyświetlenie tagów
-
-```bash
-git tag
-```
-
-## Dodawanie tagów z opisami 
-
-```bash
-git tag -a v0.1.0 -m "Bootstrap projektu"
-```
-
-## Wyświetlanie szczegółow taga
-
-```bash
-git show v0.1.0
-```
-
-## Powrót do konkretnej wersji
-
-```bash
-git checkout v0.1.0
-```
-
-## Publikacja taga
-
-```bash
-git push origin v0.1.0
-```
-
-## Wycofanie zmian w pliku
-
-```bash
-git restore README.md
-```
-
----
-
-## Cofnięcie pliku z git add
-
-```bash
-git restore --staged README.md
-```
-
----
-
-## Podejrzenie różnic
-
-```bash
 git diff
 ```
 
----
+## Branche
 
-## Sprawdzenie konfiguracji użytkownika
-
-```bash
-git config --global user.name
-git config --global user.email
-```
-
----
-
-## Ustawienie użytkownika Git
-
-```bash
-git config --global user.name "Marcin Cygan"
-
-git config --global user.email "twoj@email.pl"
-```
-
----
-
-# Przykładowy zestaw poleceń
-
-## Utworzenie nowej funkcjonalności
+Nowy etap rozpoczynaj od aktualnego `develop`:
 
 ```bash
 git switch develop
-
-git switch -c feature/etap-01c-fastapi
+git pull
+git switch -c feature/etap-nazwa
 ```
 
----
-
-## Praca nad funkcjonalnością
-
-```bash
-git add .
-
-git commit -m "ETAP_01C konfiguracja FastAPI"
-
-git push -u origin feature/etap-01c-fastapi
-```
-
----
-
-## Zakończenie funkcjonalności
+Przełączanie na istniejący branch:
 
 ```bash
 git switch develop
-
-git merge feature/etap-01c-fastapi
-
-git push
-```
-
----
-
-## Utworzenie wersji projektu
-
-```bash
 git switch main
-
-git merge develop
-
-git push
-
-git tag v0.1.0
-
-git push origin v0.1.0
 ```
 
-## Sprawdzenie, które gałęzie są już scalone (będąc na gałęzi głównej)
+## Przygotowanie i commit zmian
+
+Dodawaj tylko pliki przeznaczone do commita:
 
 ```bash
-git branch --merged
+git add -- README.md
+git add -p
+git diff --cached
+git commit -m "ETAP_03A opis zmiany"
 ```
+
+## Push i merge
+
+Pierwszy push nowego brancha:
+
+```bash
+git push -u origin feature/etap-nazwa
+```
+
+Po zakończeniu etapu, zgodnie z workflow:
+
+```bash
+git switch develop
+git pull
+git merge feature/etap-nazwa
+git push
+```
+
+## Tagi
+
+Po przygotowaniu wydania na `main` zgodnie z workflow, utworzenie
+i publikowanie taga:
+
+```bash
+git tag -a v0.2.0 -m "Opis wydania"
+git push origin v0.2.0
+```
+
+Przegląd tagów i szczegółów:
+
+```bash
+git tag
+git show v0.2.0
+```
+
+## Repozytorium zdalne
+
+```bash
+git remote -v
+git remote add origin https://github.com/OWNER/REPOSITORY.git
+git push -u origin main
+```
+
+## Cofanie zmian
+
+Przed cofaniem sprawdź `git status` i `git diff`. Przywrócenie pliku usuwa
+niezapisane zmiany w jego lokalnej kopii:
+
+```bash
+git restore -- README.md
+```
+
+Usunięcie pliku z indeksu staging bez zmiany jego zawartości:
+
+```bash
+git restore --staged -- README.md
+```
+
+Polecenia usuwające branche i przywracające pliki stosuj tylko po
+potwierdzeniu, że nie zawierają potrzebnych zmian.

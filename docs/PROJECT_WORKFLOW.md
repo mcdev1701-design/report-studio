@@ -31,10 +31,8 @@ Każdy etap oraz podetap przechodzi przez następujące fazy:
 
 Przykłady:
 
-- ETAP_01C
-- ETAP_01D
-- ETAP_02A
-- ETAP_02B
+- ETAP_02C
+- ETAP_03A
 
 ## Krok 1
 
@@ -57,7 +55,7 @@ git switch -c feature/nazwa
 Przykład:
 
 ```bash
-git switch -c feature/etap-01c-fastapi-bootstrap
+git switch -c feature/etap-03a-report-model
 ```
 
 ---
@@ -66,12 +64,15 @@ git switch -c feature/etap-01c-fastapi-bootstrap
 
 Zaktualizuj PROJECT_STATE.md
 
-Aktualizujemy:
+Zaktualizuj również skrócony opis statusu w `README.md`, jeśli zmiana etapu
+wpływa na informację prezentowaną użytkownikowi.
 
-- Aktualny etap
-- Aktualną gałąź
-- Status
-- Następny krok
+Utrzymuj:
+
+- aktualny etap i branch,
+- status,
+- wykonane etapy,
+- następny krok.
 
 ---
 
@@ -81,11 +82,11 @@ Dodaj wpis do DEVLOG.md
 
 Przykład:
 
-Rozpoczęto ETAP_01C.
+Rozpoczęto ETAP_03A.
 
 Utworzono branch:
 
-feature/etap-01c-fastapi-bootstrap
+feature/etap-03a-report-model
 
 ---
 
@@ -102,7 +103,7 @@ docs/stages/
 Przykład:
 
 ```text
-ETAP_01C.md
+ETAP_03A.md
 ```
 
 Uzupełnij:
@@ -131,23 +132,11 @@ docs/decisions/
 
 # W trakcie realizacji etapu
 
-Aktualizujemy wyłącznie:
-
-## ETAP_xx.md
-
-opis wykonanych prac
-
----
-
-## ARCHITECT_LOG.md
-
-jeżeli podjęto nową decyzję architektoniczną
-
----
-
-## DEVLOG.md
-
-jeżeli napotkano istotne problemy lub rozwiązania
+Aktualizuj kartę bieżącego etapu w miarę postępu. Dopisuj do `DEVLOG.md`
+istotne rozwiązania, problemy i wnioski. Zmiany architektoniczne zapisuj
+w `ARCHITECT_LOG.md`, a decyzje o trwałych konsekwencjach również w ADR.
+`PROJECT_STATE.md` pozostaje źródłem prawdy o bieżącym etapie i następnym
+kroku.
 
 ---
 
@@ -155,11 +144,11 @@ jeżeli napotkano istotne problemy lub rozwiązania
 
 Przykład:
 
-ETAP_01C
+ETAP_03A
 
 ## Aktualizujemy:
 
-### ETAP_01C.md
+### ETAP_03A.md
 
 Status:
 
@@ -186,10 +175,17 @@ Dodajemy:
 
 ### PROJECT_STATE.md
 
-Aktualizujemy:
+Aktualizujemy zakończone etapy i wskazujemy kolejny etap oraz następny krok.
 
-- Zakończone etapy
-- Następny etap
+### README.md
+
+Aktualizujemy krótki status, jeśli zmienił się etap lub istotny kamień
+milowy. Szczegółowy stan pozostaje wyłącznie w `PROJECT_STATE.md`.
+
+### ROADMAP.md
+
+Aktualizujemy przy zmianie zakresu lub statusu większego etapu, nie przy
+każdym podetapie.
 
 ---
 
@@ -286,7 +282,7 @@ git push
 ```bash
 git switch develop
 
-git merge feature/etap-01c-fastapi-bootstrap
+git merge feature/etap-nazwa
 
 git push
 ```
@@ -296,7 +292,7 @@ git push
 ## Usunięcie branch
 
 ```bash
-git branch -d feature/etap-01c-fastapi-bootstrap
+git branch -d feature/etap-nazwa
 ```
 
 ---
@@ -403,11 +399,10 @@ ETAP_02
 
 Obowiązkowo:
 
-✅ PROJECT_STATE.md
-
-✅ DEVLOG.md
-
-✅ ETAP_xx.md
+- `PROJECT_STATE.md`
+- `docs/stages/ETAP_xx.md`
+- `docs/DEVLOG.md` przy rozpoczęciu i zamknięciu etapu oraz przy istotnych
+  problemach lub wnioskach.
 
 ---
 

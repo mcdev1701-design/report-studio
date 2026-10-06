@@ -34,8 +34,6 @@ Projekt i implementacja źródeł strumieniowych.
 
 Implementacje wymienione w zakresie etapu znajdują się w
 `backend/app/services/datasources/`. Każde źródło zwraca dane jako `Dataset`.
-Status projektu pozostaje „W realizacji” do formalnego przeglądu i zamknięcia
-etapu.
 
 ## Wykonano
 
@@ -52,10 +50,4 @@ Narzędzie debugujące Windows Pipe obsługuje tryby `server` i `client`.
 - STDIN zwraca dane jako `Dataset`.
 - Windows Named Pipe zwraca dane jako `Dataset`.
 - Unix FIFO zwraca dane jako `Dataset`.
-- Pełny zestaw testów: `24 passed` (ostatnie uruchomienie).
-
-## Do zamknięcia etapu
-
-- Przeprowadzić formalny przegląd kryteriów ukończenia.
-- Po akceptacji zaktualizować `PROJECT_STATE.md`, `README.md`, roadmapę
-  i dziennik prac zgodnie z [workflow projektu](../PROJECT_WORKFLOW.md).
+- Pełny zestaw testów przy zamknięciu etapu: `23 passed`.

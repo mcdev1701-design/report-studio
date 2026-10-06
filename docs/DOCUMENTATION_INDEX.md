@@ -266,7 +266,7 @@ Zawiera:
 
 ## CSS_CHEATSHEET.md
 
-Praktyczna ściąga dotycząca CSS używanego w projekcie.
+Przykłady selektorów i właściwości CSS przydatnych przy rozwoju interfejsu.
 
 ---
 
@@ -311,6 +311,9 @@ Docelowo:
 
 # Diagramy (docs/diagrams)
 
+Diagramy tekstowe architektury zapisane w Markdown. Każdy diagram powinien
+odróżniać stan aktualny od planowanego.
+
 ## datasource-engine.ascii.md
 
 Architektura Data Source Engine.
@@ -322,19 +325,6 @@ Architektura części frontendowej.
 ## report-engine.ascii.md
 
 Architektura silnika raportowego.
-
-Formaty:
-
-- .md
-- draw.io
-
-Przykłady:
-
-- architektura systemu,
-- przepływ danych,
-- workflow raportów,
-- struktura projektu,
-- model raportu.
 
 ---
 
@@ -350,6 +340,7 @@ Przykłady:
 - ETAP_02A.md
 - ETAP_02B.md
 - ETAP_02C.md
+- ETAP_03A.md
 
 Każdy dokument etapu powinien zawierać:
 
@@ -363,11 +354,13 @@ Każdy dokument etapu powinien zawierać:
 - rezultaty,
 - sposób testowania.
 
-Aktualizowany:
+W szczególności:
 
-- przy rozpoczęciu etapu,
-- w trakcie realizacji,
-- po zakończeniu etapu.
+- karty zakończonych etapów zachowują historię i zmienia się je tylko przy
+  korekcie błędów rzeczowych;
+- kartę bieżącego etapu aktualizuje się w trakcie prac i przy jego zamknięciu.
+
+Aktualny status i następny krok są utrzymywane w `PROJECT_STATE.md`.
 
 ---
 

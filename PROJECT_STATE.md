@@ -2,7 +2,7 @@
 
 ## Aktualny branch
 
-feature/etap-02c-stream-sources
+feature/etap-03a-report-model
 
 ## Status
 
@@ -16,13 +16,16 @@ W realizacji
 - ETAP_01D - Frontend Bootstrap
 - ETAP_02A - Data Source Foundation
 - ETAP_02B - Source Implementations
+- ETAP_02C - Stream Sources
 
 ## Aktualny etap
 
-ETAP_03
+ETAP_03A - Report Model
 
 Szczegółowy zakres i kryteria ukończenia znajdują się w
-[docs/stages/ETAP_02C.md](docs/stages/ETAP_02C.md).
+[docs/stages/ETAP_03A.md](docs/stages/ETAP_03A.md).
 
-Implementacja źródeł strumieniowych i testy kryteriów etapu są zakończone.
-Etap pozostaje w realizacji do czasu formalnego przeglądu i zamknięcia.
+## Następny krok
+
+Zdefiniować i zaimplementować model wskazany w
+[karcie etapu](docs/stages/ETAP_03A.md).

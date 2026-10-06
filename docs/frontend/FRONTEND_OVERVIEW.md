@@ -1,546 +1,79 @@
-# Frontend Overview
+# Frontend
 
-## Cel dokumentu
+## Zakres
 
-Dokument opisuje architekturę, strukturę oraz założenia części frontendowej projektu Report Studio.
+Frontend udostępnia w przeglądarce podstawowy interfejs projektanta raportów.
+Jest serwowany przez FastAPI i komunikuje się z backendem przez REST API.
+Opis przedstawia aktualną implementację; funkcje planowane są oznaczone
+osobno.
 
-Frontend odpowiada za interakcję użytkownika z systemem, projektowanie raportów oraz komunikację z backendem FastAPI.
+## Stos technologiczny
 
----
+### Aktualnie używane
 
-## Aktualna implementacja
+- HTML i szablony Jinja2 - struktura strony.
+- CSS - układ, wygląd i responsywność.
+- Vanilla JavaScript - komunikacja z API, obsługa zdarzeń i aktualizacja DOM.
+- FastAPI - serwowanie strony oraz endpointów.
 
-Frontend jest serwowany przez FastAPI. Szablon znajduje się w
-`backend/app/templates/`, a zasoby statyczne w `backend/app/static/`.
-Bieżący etap i branch są utrzymywane w `PROJECT_STATE.md`.
+### Planowane
 
----
+- Konva.js - renderowanie i interakcje na canvasie.
+- GSAP - animacje interfejsu.
 
-# Główne założenia
+Frontend nie korzysta obecnie z frameworka SPA.
 
-Frontend budowany jest zgodnie z filozofią projektu:
-
-- pełne zrozumienie każdej linii kodu,
-- minimalizacja złożoności na początku projektu,
-- stopniowe wprowadzanie nowych technologii,
-- rozbudowa oparta o rzeczywiste potrzeby.
-
-Na początkowym etapie nie wykorzystujemy frameworków frontendowych.
-
-Nie używamy:
-
-- React
-- Vue
-- Angular
-
-Frontend budowany jest w oparciu o:
-
-- HTML
-- CSS
-- Vanilla JavaScript
-
----
-
-# Rola frontendu
-
-Frontend odpowiada za:
-
-- prezentację danych użytkownikowi,
-- komunikację z backendem FastAPI,
-- obsługę paneli i interakcji dostępnych w bieżącej wersji.
-
-Projektowanie raportów, konfiguracja źródeł, podgląd i eksport są zakresem
-przyszłych etapów opisanych w roadmapie.
-
----
-
-# Technologie
-
-## Aktualnie używane
-
-### HTML
-
-Odpowiada za strukturę dokumentu.
-
-### CSS
-
-Odpowiada za wygląd interfejsu.
-
-### JavaScript
-
-Odpowiada za:
-
-- komunikację z API,
-- obsługę zdarzeń,
-- aktualizację interfejsu.
-
----
-
-## Planowane technologie
-
-### Konva.js
-
-Odpowiada za warstwę graficzną projektanta raportów.
-
-Przykłady:
-
-- Canvas
-- Drag & Drop
-- Resize
-- Grid
-- Snap
-
-### GSAP
-
-Odpowiada za:
-
-- animacje interfejsu,
-- płynne przejścia,
-- animacje komponentów,
-- poprawę UX.
-
----
-
-# Struktura katalogów
-
-Aktualna struktura:
+## Pliki
 
 ```text
 backend/app/
-|-- templates/index.html
-`-- static/
-        |-- css/style.css
-        `-- js/app.js
+├── templates/
+│   └── index.html
+└── static/
+    ├── css/
+    │   └── style.css
+    └── js/
+        └── app.js
 ```
 
----
-
-# Opis katalogów
-
-## index.html
-
-Główny dokument aplikacji.
-
-Zawiera:
-
-- strukturę widoku,
-- podłączenie CSS,
-- podłączenie JavaScript.
-
----
-
-## css/
-
-Arkusze stylów aplikacji.
-
-Na obecnym etapie:
-
-```text
-style.css
-```
-
-W kolejnych etapach:
-
-```text
-layout.css
-designer.css
-components.css
-theme.css
-```
-
----
-
-## js/
-
-Kod JavaScript aplikacji.
-
-Na obecnym etapie:
-
-```text
-app.js
-```
-
-W kolejnych etapach:
-
-```text
-api.js
-designer.js
-toolbar.js
-property-panel.js
-routing.js
-```
-
----
-
-## assets/
-
-Zasoby statyczne.
-
-Przykłady:
-
-- obrazy,
-- ikony,
-- logo,
-- czcionki.
-
----
-
-# Komunikacja z backendem
-
-Frontend komunikuje się z backendem za pomocą REST API.
-
-Przykład przepływu:
-
-```text
-Przeglądarka
-        │
-        ▼
-JavaScript
-        │
-        ▼
-FastAPI
-        │
-        ▼
-JSON
-        │
-        ▼
-JavaScript
-        │
-        ▼
-HTML
-```
-
----
-
-# Pierwszy cel ETAP_01D
-
-Uzyskanie komunikacji:
-
-```text
-Frontend
-        ↔
-Backend
-```
-
-Scenariusz:
-
-1. Użytkownik otwiera stronę.
-2. JavaScript wysyła zapytanie do API.
-3. FastAPI zwraca dane.
-4. Dane wyświetlane są w przeglądarce.
-
----
-
-# Docelowa architektura frontendu
-
-```text
-Browser
-
-↓
-
-index.html
-
-↓
-
-app.js
-
-↓
-
-FastAPI
-
-↓
-
-JSON
-
-↓
-
-app.js
-
-↓
-
-DOM Update
-```
-
----
-
-# Plan rozwoju
-
-## ETAP_01D
-
-Frontend Bootstrap
-
-Zakres:
-
-- index.html
-- style.css
-- app.js
-- pierwsza komunikacja z API
-
-Szczegółowy plan etapów znajduje się w `docs/architecture/ROADMAP.md`.
-HTML
-
-`app.js` wywołuje `loadApplicationInfo()` po `DOMContentLoaded`. Funkcja
-pobiera JSON z `/api/v1/info` i aktualizuje element `backend-info`.
-
-```text
-HTML -> JavaScript -> FastAPI -> JSON -> DOM
-```
-
-# Komponenty UI
-
-## SystemStatusPanel
-
-Cel:
-
-Prezentacja podstawowych informacji
-o działającej aplikacji.
-
-Źródło danych:
-
-GET /api/v1/info
-
-Wyświetlane informacje:
-
-- Application
-- Version
-- Status
-
-Odpowiedzialność:
-
-- wyświetlanie danych,
-- aktualizacja po otrzymaniu odpowiedzi API,
-- prezentacja stanu aplikacji.
-
-## ToolboxPanel
-
-Cel:
-
-Prezentacja elementów możliwych do dodania do raportu.
-
-W przyszłości:
-
-- Drag & Drop
-- Integracja z Konva.js
-- Tworzenie obiektów raportu
-
-Pierwsze elementy:
-
-- Text
-- Field
-- Image
-- Chart
-
-Odpowiedzialność:
-
-- prezentacja dostępnych narzędzi,
-- inicjowanie dodawania komponentów raportu.
-
-## CanvasPanel
-
-Cel:
-
-Główny obszar roboczy projektanta raportów.
-
-W przyszłości:
-
-- Konva.js
-- Drag & Drop
-- Resize obiektów
-- Grid
-- Snap
-
-Odpowiedzialność:
-
-- wyświetlanie elementów raportu,
-- projektowanie układu raportu,
-- interakcja z ToolboxPanel.
-
-Aktualny status:
-Panel renderuje i zaznacza obiekty DOM; integracja z Konva.js jest planowana.
-
-## PropertyPanel
-
-Cel:
-
-Prezentacja właściwości zaznaczonego elementu raportu.
-
-W przyszłości:
-
-- pozycja obiektu,
-- rozmiar obiektu,
-- czcionka,
-- kolor,
-- powiązane dane.
-
-Odpowiedzialność:
-
-- wyświetlanie właściwości,
-- edycja właściwości,
-- komunikacja z CanvasPanel.
-
-Aktualny status:
-Panel pokazuje wybrane narzędzie lub zaznaczony obiekt; pełna edycja
-właściwości jest zakresem przyszłych prac.
-
-## Layout v1
-
-Projektant raportów składa się z trzech głównych paneli:
-
-- ToolboxPanel
-- CanvasPanel
-- PropertyPanel
-
-Panele rozmieszczone są poziomo przy użyciu:
-
-display: flex
-
-Cel:
-
-Przygotowanie struktury przyszłego wizualnego projektanta raportów.
-
-## Responsywność
-
-Layout projektanta raportów powinien dostosowywać się do szerokości okna przeglądarki.
-
-Desktop:
-
-Toolbox | Canvas | Properties
-
-Tablet / Małe ekrany:
-
-Toolbox
-Canvas
-Properties
-
-Technologia:
-
-- CSS Flexbox
-- Media Queries
-
-## Implementacja UI
-
-Punktem wejścia logiki interfejsu jest `backend/app/static/js/app.js`.
-Szczegóły paneli, układu i interakcji opisują poprzednie sekcje.
-
-## Pierwsza interakcja UI
-
-Cel:
-
-Obsługa wyboru narzędzia z ToolboxPanel.
-
-Przepływ:
-
-Użytkownik
-↓
-Kliknięcie przycisku
-↓
-JavaScript
-↓
-Aktualizacja PropertyPanel
-
-Aktualny zakres:
-
-- wybór narzędzia,
-- wyświetlenie aktywnego narzędzia.
-
-## Komunikacja komponentów
-
-Aktualny przepływ:
-
-ToolboxPanel
-↓
-JavaScript
-↓
-CanvasPanel
-
-oraz
-
-ToolboxPanel
-↓
-JavaScript
-↓
-PropertyPanel
-
-## Pierwsze obiekty Canvas
-
-Cel:
-
-Dodawanie obiektów do CanvasPanel.
-
-Aktualny zakres:
-
-- Text Object
-
-Przepływ:
-
-Toolbox
-↓
-Click
-↓
-JavaScript
-↓
-Canvas Object
-↓
-CanvasPanel
-
-## Zaznaczanie obiektów
-
-Cel:
-
-Umożliwienie zaznaczania obiektów znajdujących się na CanvasPanel.
-
-Przepływ:
-
-Canvas Object
-↓
-Click
-↓
-selectedObject
-↓
-PropertyPanel
-
-Aktualny zakres:
-
-- zaznaczanie obiektu,
-- wyświetlenie informacji o obiekcie.
-
-## Wizualne zaznaczanie obiektów
-
-Cel:
-
-Wyróżnienie aktualnie zaznaczonego obiektu Canvas.
-
-Przepływ:
-
-Canvas Object
-↓
-Click
-↓
-selectedObject
-↓
-Aktualizacja stylu CSS
-↓
-Wyróżnienie obiektu
-
-## Usuwanie obiektów
-
-Cel:
-
-Usuwanie obiektów znajdujących się na CanvasPanel.
-
-Przepływ:
-
-Canvas Object
-↓
-Select
-↓
-Delete
-↓
-Usunięcie obiektu
-↓
-Render Canvas
-
-Aktualny zakres:
-
-- usuwanie pojedynczego obiektu
-- wykorzystanie klawisza Delete
+`index.html` definiuje panele i elementy DOM. `style.css` odpowiada za
+układ i wygląd. `app.js` inicjalizuje interfejs po zdarzeniu
+`DOMContentLoaded`.
+
+## Interfejs
+
+Widok zawiera:
+
+- **Toolbox** - przyciski Text, Field, Image i Chart.
+- **Canvas** - obszar wyświetlania obiektów.
+- **Properties** - informacje o wybranym narzędziu lub obiekcie.
+- **System Status** - informacje pobrane z backendu.
+- **Shortcuts** - podpowiedzi dostępnych skrótów.
+
+Panele są elementami HTML, a ich układ opiera się na CSS Flexbox. Przy
+szerokości okna do 1000 px układ przechodzi w orientację pionową.
+
+## Aktualne interakcje
+
+1. Po załadowaniu strony frontend pobiera `GET /api/v1/info` i wyświetla
+   nazwę aplikacji, wersję oraz status backendu.
+2. Kliknięcie przycisku Toolbox tworzy prosty obiekt DOM na canvasie
+   i aktualizuje panel Properties.
+3. Kliknięcie obiektu zaznacza go i pokazuje jego typ oraz identyfikator.
+4. Klawisz Delete usuwa zaznaczony obiekt.
+
+Obiekty są przechowywane w tablicy `canvasObjects` w pamięci strony.
+Odświeżenie strony usuwa bieżący stan projektu; zapisywanie raportu nie
+zostało jeszcze zaimplementowane.
+
+## Granice aktualnej implementacji
+
+- Canvas jest renderowany jako DOM, nie przez Konva.js.
+- Właściwości obiektów są wyświetlane, ale nie można ich jeszcze edytować.
+- Nie ma przeciągania, zmiany rozmiaru ani siatki przyciągania.
+- Toolbox tworzy placeholdery; nie implementuje jeszcze pełnej semantyki
+  obiektów raportu.
+- Integracja z modelem raportu jest rozwijana w ETAP_03A.
+
+Plan etapów opisuje [roadmapa](../architecture/ROADMAP.md), a bieżący stan
+projektu - [PROJECT_STATE.md](../../PROJECT_STATE.md).

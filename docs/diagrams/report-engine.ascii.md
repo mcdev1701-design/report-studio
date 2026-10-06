@@ -1,6 +1,10 @@
-# Report Engine
+# Docelowy silnik raportowy
 
-## Architektura docelowa
+Silnik raportowy i renderer są planowanymi elementami architektury. Model
+obiektów raportu jest rozwijany w ETAP_03A; diagram nie oznacza, że cały
+przepływ jest już zaimplementowany.
+
+## Docelowa architektura
 
 ```text
 Data Source
@@ -23,14 +27,12 @@ Data Source
 
 ---
 
-## Przepływ danych
+## Docelowy przepływ danych
 
 ```text
-JSON
-CSV
-Excel
-MSSQL
-Pipe
+Pliki
+SQL
+Strumienie
 
       |
       v
@@ -95,7 +97,7 @@ Renderer
 
 ---
 
-## Długoterminowa wizja
+## Możliwe rozszerzenia silnika
 
 ```text
 Dataset

@@ -1,17 +1,17 @@
 # Architektura systemu
 
-## Aktualne komponenty
+## Aktualna architektura
 
 ```text
 +-------------------------+
-| Frontend                |
+| Przeglądarka            |
 | HTML, CSS, Vanilla JS   |
 +------------+------------+
              |
              v
 +-------------------------+
 | FastAPI                 |
-| REST API i aplikacja    |
+| Strona i REST API       |
 +------------+------------+
              |
              v
@@ -20,24 +20,28 @@
 | File / SQL / Stream     |
 +------------+------------+
              |
-             +-------------------------+----------------------+
-             |                         |                      |
-             v                         v                      v
-  JSON / CSV / Excel                MSSQL              STDIN / Pipe
-             |                         |                      |
-             +-------------------------+----------------------+
-                                       v
-                                    Dataset
+             +---------------------+--------------------------+
+             |                     |                          |
+             v                     v                          v
+  JSON / CSV / Excel             MSSQL              STDIN / Named Pipe
+             |                     |                          |
+             +---------------------+--------------------------+
+                                   v
+                                Dataset
 ```
 
 ## Kierunek rozwoju
 
 ```text
-Frontend:
-  +-- Konva.js
-  +-- GSAP
+ETAP_03A: Report Model
+    |
+    v
+Visual Designer
+    |
+    +-- Konva.js
+    +-- GSAP
 ```
 
-Źródła strumieniowe są zaimplementowane. Technologie frontendu w powyższym
-diagramie są planowane. Bieżący status projektu znajduje się w
+Silnik raportowy, zapis projektów i eksport należą do kolejnych etapów.
+Bieżący zakres i status prac wskazuje
 [PROJECT_STATE.md](../../PROJECT_STATE.md).

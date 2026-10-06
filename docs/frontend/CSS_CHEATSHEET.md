@@ -1,10 +1,10 @@
-# CSS CHEATSHEET
+# Ściąga CSS
 
 ## Cel dokumentu
 
-Ściąga z właściwości CSS wykorzystywanych w projekcie Report Studio.
-
-Dokument rozwijany wraz z projektem.
+Przykłady selektorów i właściwości używanych w interfejsie Report Studio.
+Szczegóły aktualnego układu opisuje
+[przegląd frontendu](FRONTEND_OVERVIEW.md).
 
 ---
 
@@ -32,7 +32,7 @@ Odnosi się do jednego, unikalnego elementu.
 
 ---
 
-## Class
+## Klasa
 
 CSS:
 
@@ -50,7 +50,7 @@ HTML:
 
 Opis:
 
-Odnosi się do wielu elementów.
+Wybiera elementy mające podaną klasę.
 
 ---
 
@@ -72,14 +72,6 @@ min-width: 400px;
 
 Minimalna szerokość elementu.
 
-## max-width
-
-```css
-max-width: 800px;
-```
-
-Maksymalna szerokość elementu.
-
 ## width: 100%
 
 ```css
@@ -95,6 +87,14 @@ min-height: 500px;
 ```
 
 Minimalna wysokość elementu.
+
+## flex-shrink
+
+```css
+flex-shrink: 0;
+```
+
+Zapobiega zmniejszaniu elementu Flexbox poniżej jego szerokości bazowej.
 
 ---
 
@@ -184,6 +184,14 @@ font-family: Arial, sans-serif;
 
 Określa używaną czcionkę.
 
+## font-size
+
+```css
+font-size: 12px;
+```
+
+Ustawia rozmiar tekstu.
+
 ---
 
 # Display
@@ -236,6 +244,22 @@ gap: 20px;
 
 Odstęp pomiędzy elementami Flexbox.
 
+## align-items
+
+```css
+align-items: stretch;
+```
+
+Określa wyrównanie elementów w osi poprzecznej kontenera Flexbox.
+
+## cursor
+
+```css
+cursor: pointer;
+```
+
+Wskazuje, że element jest interaktywny.
+
 ---
 
 # Responsywność
@@ -250,8 +274,5 @@ Reguły wykonywane dla określonej szerokości ekranu.
 
 ---
 
-# Zasada projektu
-
-1. Dodaj nową właściwość do dokumentu.
-2. Opisz jej działanie.
-3. Dopiero potem wykorzystaj ją w projekcie.
+Aktualizuj ściągę, gdy projekt wprowadza istotny wzorzec CSS, który warto
+udokumentować; nie jest wymagane opisywanie każdej użytej właściwości.
