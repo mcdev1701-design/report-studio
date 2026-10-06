@@ -2,12 +2,12 @@
 Bazowa klasa źródeł Pipe.
 
 Źródła Pipe umożliwiają komunikację
-proces ↔ proces.
+pomiędzy procesami.
 
-Przykłady:
+Implementacje:
 
-- Windows Pipe
-- Unix FIFO
+- WindowsPipeSource
+- UnixPipeSource
 """
 
 from abc import abstractmethod
@@ -20,12 +20,34 @@ from backend.app.services.datasources.stream_source import (
 
 
 class PipeSource(StreamSource):
-    """
-    Bazowa klasa źródeł Pipe.
-    """
+
+    @abstractmethod
+    def connect(self):
+        """
+        Nawiązanie połączenia z Pipe.
+        """
+        pass
+
+    @abstractmethod
+    def disconnect(self):
+        """
+        Zamknięcie Pipe.
+        """
+        pass
+
+    @abstractmethod
+    def test_connection(self):
+        """
+        Weryfikacja dostępności Pipe.
+        """
+        pass
+
     @abstractmethod
     def get_data(self) -> Dataset:
         """
         Odczyt danych z Pipe.
+
+        Returns:
+            Dataset
         """
         pass

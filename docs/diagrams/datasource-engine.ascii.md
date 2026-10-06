@@ -56,7 +56,7 @@ zaimplementowane klasy:
                                         |                                     |
                                         v                                     v
 
-                                   WindowsPipe                           UnixPipe
+                                   WindowsPipeSource                       UnixPipeSource
 ```
 
 Status i kryteria ukończenia etapu znajdują się w
