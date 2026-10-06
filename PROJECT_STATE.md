@@ -26,8 +26,3 @@ Szczegółowy zakres i kryteria ukończenia znajdują się w
 
 Implementacja źródeł strumieniowych i testy kryteriów etapu są zakończone.
 Etap pozostaje w realizacji do czasu formalnego przeglądu i zamknięcia.
-
-## Następny krok
-
-Przeprowadzić formalny przegląd ETAP_02C, a po akceptacji zamknąć etap
-i zaktualizować dokumenty wskazane w [workflow projektu](docs/PROJECT_WORKFLOW.md).
