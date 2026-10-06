@@ -137,3 +137,19 @@ STDIN
 STDINSource
 ↓
 Dataset
+
+## WindowsPipeSource
+
+Implementacja PipeSource dla Windows.
+
+Architektura:
+
+PipeSource
+↓
+WindowsPipeSource
+↓
+pywin32
+↓
+Windows Named Pipe
+↓
+Dataset

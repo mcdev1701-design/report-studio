@@ -366,3 +366,17 @@ Report Studio jest projektem Open Source.
 - wsparcie Linux,
 - wsparcie macOS,
 - brak zależności od jednego systemu operacyjnego.
+
+### Decyzja
+
+WindowsPipeSource wykorzystuje bibliotekę pywin32.
+
+### Powód
+
+Najlepsze wsparcie dla Windows Named Pipe.
+
+### Korzyści
+
+- łatwiejsza integracja z ERP,
+- łatwiejsza integracja z CDN XL,
+- pełna obsługa Named Pipe w Windows.
