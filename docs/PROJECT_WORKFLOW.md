@@ -447,19 +447,19 @@ Nigdy odwrotnie.
 
 # Standard komentowania kodu
 
-Każdy nowy plik Python powinien zawierać:
+Komentarze i docstringi mają wyjaśniać kontrakt, ograniczenia lub
+nieoczywiste decyzje, których nie da się łatwo odczytać z kodu.
 
-1. Nagłówek modułu (docstring).
-2. Opis celu pliku.
-3. Opis przyszłego przeznaczenia.
-4. Komentarze dla sekcji kodu.
-5. Docstring dla każdej funkcji.
-6. Komentarz wyjaśniający "dlaczego",
-   a nie tylko "co robi kod".
+- Dodawaj docstringi do modułów i publicznych klas lub metod, gdy wyjaśniają
+  ich odpowiedzialność albo sposób użycia.
+- Komentuj powody nietypowych rozwiązań, ważne ograniczenia i konsekwencje
+  operacyjne.
+- Nie opisuj komentarzem oczywistych instrukcji ani nie powtarzaj kodu.
+- Nie dodawaj sekcji, komentarzy ani opisów przyszłego przeznaczenia, jeśli
+  nie przekazują konkretnej informacji.
+- Utrzymuj istniejące komentarze zgodne z aktualnym zachowaniem kodu.
 
-Projekt ma charakter edukacyjny,
-dlatego czytelność jest ważniejsza
-niż minimalna liczba linii kodu.
+Czytelność i wartość informacyjna są ważniejsze niż liczba komentarzy.
 
 ## Diagramy
 

@@ -17,10 +17,9 @@ from backend.app.services.datasources.datasource import (
 
 
 class StreamSource(DataSource):
+    """Wspólny kontrakt dla źródeł odczytujących dane ze strumienia."""
 
     @abstractmethod
     def get_data(self) -> Dataset:
-        """
-        Odczyt danych ze strumienia.
-        """
+        """Odczytuje rekordy ze strumienia i zwraca je jako Dataset."""
         pass

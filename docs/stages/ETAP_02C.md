@@ -10,7 +10,8 @@ feature/etap-02c-stream-sources
 
 ## Status
 
-W realizacji
+W realizacji - implementacja zakończona; formalne zamknięcie oczekuje na
+przegląd.
 
 ## Cel
 
@@ -18,123 +19,26 @@ Projekt i implementacja źródeł strumieniowych.
 
 ## Zakres
 
-- StreamSource
-- STDINSource
-- NamedPipeSource
+- `StreamSource`
+- `STDINSource`
+- `PipeSource` z implementacjami dla Windows Named Pipe i Unix FIFO
 
 ## Kryteria ukończenia
 
-- zaprojektowany StreamSource
-- działający STDINSource
-- działający NamedPipeSource
-- zwracanie Dataset
-- testy przechodzą poprawnie
+- [x] Zaprojektowany `StreamSource`.
+- [x] Działający `STDINSource`.
+- [x] Działające źródła Pipe dla Windows i Unix.
+- [x] Źródła zwracają `Dataset`.
+- [x] Testy przechodzą poprawnie.
 
 ## Status implementacji
 
-ETAP_02C jest w realizacji. Źródła strumieniowe z zakresu tego etapu nie są
-jeszcze ujęte w aktualnej implementacji backendu. Ich projekt i postęp
-realizacji dokumentuj w tym pliku.
+Implementacje wymienione w zakresie etapu znajdują się w
+`backend/app/services/datasources/`. Każde źródło zwraca dane jako `Dataset`.
+Status projektu pozostaje „W realizacji” do formalnego przeglądu i zamknięcia
+etapu.
 
-### Wykonano
-
-- zaprojektowano StreamSource
-- określono kontrakt dla źródeł strumieniowych
-- StreamSource
-- STDINSource
-
-### Cel
-
-Przygotowanie architektury pod:
-
-- STDINSource
-- NamedPipeSource
-
-### Zweryfikowano
-
-- STDIN → Dataset
-
-### Decyzja architektoniczna
-
-Źródła Pipe będą rozwijane jako:
-
-StreamSource
-↓
-PipeSource
-↓
-WindowsPipe / UnixPipe
-
-Zamiast implementacji zależnej wyłącznie od Windows.
-
-### Wykonano
-
-- StreamSource
-- STDINSource
-- PipeSource
-
-### Cel
-
-Przygotowanie architektury pod:
-
-- WindowsPipe
-- UnixPipe
-
-### Dodano
-
-- WindowsPipeSource
-- pierwszą implementację PipeSource
-
-### Zakres
-
-- połączenie z istniejącym Named Pipe
-- odbiór danych JSON
-- konwersja do Dataset
-
-### Refaktoryzacja narzędzi
-
-Połączono:
-
-- debug_pipe_server.py
-- debug_windows_pipe_source.py
-
-w jeden plik:
-
-- debug_windows_pipe_source.py
-
-Obsługiwane tryby:
-
-- server
-- client
-
-### Wykonano
-
-- StreamSource
-- STDINSource
-- PipeSource
-- WindowsPipeSource
-
-### Decyzje architektoniczne
-
-PipeSource rozwijany jest jako warstwa wieloplatformowa.
-
-Implementacje:
-
-- WindowsPipeSource
-- UnixPipeSource
-
-### Dodano
-
-- UnixPipeSource
-
-### Zweryfikowano
-
-PipeSource
-↓
-UnixPipeSource
-↓
-Dataset
-
-### Wykonano
+## Wykonano
 
 - StreamSource
 - STDINSource
@@ -142,20 +46,17 @@ Dataset
 - WindowsPipeSource
 - UnixPipeSource
 
-### Zweryfikowano
+Narzędzie debugujące Windows Pipe obsługuje tryby `server` i `client`.
 
-STDIN
-↓
-Dataset
+## Weryfikacja
 
-Windows Pipe
-↓
-Dataset
+- STDIN zwraca dane jako `Dataset`.
+- Windows Named Pipe zwraca dane jako `Dataset`.
+- Unix FIFO zwraca dane jako `Dataset`.
+- Pełny zestaw testów: `24 passed` (ostatnie uruchomienie).
 
-Unix FIFO
-↓
-Dataset
+## Do zamknięcia etapu
 
-### Wynik
-
-✅ 23 passed
+- Przeprowadzić formalny przegląd kryteriów ukończenia.
+- Po akceptacji zaktualizować `PROJECT_STATE.md`, `README.md`, roadmapę
+  i dziennik prac zgodnie z [workflow projektu](../PROJECT_WORKFLOW.md).

@@ -1,47 +1,31 @@
-"""
-Dataset projektu Report Studio.
+"""Wspólny model danych zwracany przez źródła Report Studio."""
 
-Cel:
-
-Przechowywanie danych pobranych
-ze źródeł danych oraz metadanych.
-"""
-
-from dataclasses import dataclass
-from dataclasses import field
+from dataclasses import dataclass, field
 from datetime import datetime
 
 
 @dataclass
 class Dataset:
-    """
-    Reprezentacja danych pobranych ze źródła danych.    
-    """
+    """Rekordy pobrane ze źródła wraz z opisującymi je metadanymi."""
+
     name: str
 
     source_type: str
 
     source_name: str
 
-    loaded_at: datetime = field(
-	        default_factory=datetime.now() # jeżeli użytkownik nie poda daty, to domyślnie będzie aktualna data i czas
-        )
+    loaded_at: datetime = field(default_factory=datetime.now)
 
-    rows: list[dict] = field(default_factory=list) # jeżeli użytkownik nie poda listy, to domyślnie będzie pusta lista
+    rows: list[dict] = field(default_factory=list)
 
     @property
     def row_count(self) -> int:
-        """
-        Liczba rekordów.
-        """
-
+        """Zwraca liczbę rekordów w zestawie danych."""
         return len(self.rows)
 
     @property
     def columns(self):
-        """
-        Lista kolumn w ujednoliconej postaci.
-        """
+        """Zwraca nazwy kolumn na podstawie pierwszego rekordu."""
         if not self.rows:
             return []
 

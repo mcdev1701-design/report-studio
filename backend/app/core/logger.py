@@ -32,20 +32,12 @@ def setup_logger() -> logging.Logger:
         logging.Logger
     """
 
-    # Tworzymy logger aplikacji.
     logger = logging.getLogger("report_studio")
-
-    # Ustawiamy minimalny poziom logowania.
     logger.setLevel(logging.INFO)
 
-    # Zapobiega wielokrotnemu dodawaniu handlerów
-    # podczas działania funkcji reload w Uvicorn.
+    # Uvicorn reload może ponownie importować moduł; nie duplikuj wtedy handlera.
     if not logger.handlers:
-
-        # Obsługa wyświetlania logów w konsoli.
         console_handler = logging.StreamHandler()
-
-        # Format komunikatów logów.
         formatter = logging.Formatter(
             "%(asctime)s | %(levelname)s | %(name)s | %(message)s"
         )
@@ -57,5 +49,4 @@ def setup_logger() -> logging.Logger:
     return logger
 
 
-# Globalna instancja loggera.
 logger = setup_logger()

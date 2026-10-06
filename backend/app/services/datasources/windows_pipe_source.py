@@ -15,11 +15,13 @@ from backend.app.services.datasources.pipe_source import (
 
 
 class WindowsPipeSource(PipeSource):
+    """Odbiera rekordy JSON z Windows Named Pipe."""
 
     def __init__(
         self,
         pipe_name: str
     ):
+        """Tworzy źródło wskazujące nazwę Windows Named Pipe."""
         self.pipe_name = pipe_name
 
         self.pipe_handle = None
@@ -27,9 +29,7 @@ class WindowsPipeSource(PipeSource):
         self.connected = False
 
     def connect(self):
-        """
-        Połączenie z istniejącym Named Pipe.
-        """
+        """Otwiera istniejący Named Pipe do odczytu."""
 
         self.pipe_handle = win32file.CreateFile(
             self.pipe_name,
@@ -44,9 +44,7 @@ class WindowsPipeSource(PipeSource):
         self.connected = True
 
     def disconnect(self):
-        """
-        Zamknięcie Pipe.
-        """
+        """Zamyka uchwyt Pipe, jeśli połączenie zostało otwarte."""
 
         if self.pipe_handle:
 
@@ -57,7 +55,7 @@ class WindowsPipeSource(PipeSource):
         self.connected = False
 
     def test_connection(self):
-
+        """Próbuje otworzyć i zamknąć Pipe, zwracając wynik testu."""
         try:
 
             self.connect()
@@ -73,6 +71,7 @@ class WindowsPipeSource(PipeSource):
             return False
 
     def get_data(self) -> Dataset:
+        """Odczytuje do 65 536 bajtów JSON i zwraca je jako Dataset."""
 
         if not self.connected:
 

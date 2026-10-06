@@ -13,6 +13,21 @@ from backend.app.services.datasources.excel_source import (
 )
 
 
+def test_dataset_uses_a_fresh_timestamp_by_default():
+    first = Dataset(
+        name="First",
+        source_type="test",
+        source_name="test",
+    )
+    second = Dataset(
+        name="Second",
+        source_type="test",
+        source_name="test",
+    )
+
+    assert first.loaded_at is not second.loaded_at
+
+
 def test_all_file_sources_return_dataset():
 
     json_source = JsonSource(

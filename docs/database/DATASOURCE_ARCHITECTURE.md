@@ -24,13 +24,13 @@ Implementacje znajdują się w `backend/app/services/datasources/`.
 
 ### Źródła strumieniowe
 
-Zakres ETAP_02C obejmuje:
+ETAP_02C dostarczył:
 
-- `StreamSource`.
-- `STDINSource`.
-- `NamedPipeSource`.
-
-Te źródła nie są jeszcze częścią aktualnej implementacji backendu.
+- `StreamSource` - abstrakcyjną bazę źródeł strumieniowych.
+- `STDINSource` - odczyt JSON ze standardowego wejścia.
+- `PipeSource` - wspólny kontrakt źródeł komunikujących się przez pipe.
+- `WindowsPipeSource` - odczyt z Windows Named Pipe.
+- `UnixPipeSource` - odczyt z Unix FIFO.
 
 ### Możliwe przyszłe rozszerzenia
 
@@ -53,8 +53,13 @@ DataSource
 │   ├── JsonSource
 │   ├── CSVSource
 │   └── ExcelSource
-└── SQLSource
-    └── MSSQLSource
+├── SQLSource
+│   └── MSSQLSource
+└── StreamSource
+    ├── STDINSource
+    └── PipeSource
+        ├── WindowsPipeSource
+        └── UnixPipeSource
 ```
 
 Źródła plikowe implementują `get_data()`. Źródła SQL udostępniają
@@ -62,10 +67,9 @@ DataSource
 pobierania różnią się, ponieważ źródła plikowe i SQL mają odmienny sposób
 interakcji.
 
-Źródła strumieniowe, gdy zostaną zaimplementowane, będą rozwijane w ramach
-ETAP_02C. Ich dokładne miejsce w hierarchii powinno wynikać z projektu
-`StreamSource`, a nie z założenia, że wszystkie źródła muszą mieć identyczną
-metodę pobierania.
+Źródła strumieniowe implementują `get_data()` i zwracają `Dataset`.
+`STDINSource` dziedziczy bezpośrednio po `StreamSource`, natomiast
+implementacje pipe dzielą kontrakt `PipeSource`.
 
 ## Model `Dataset`
 
@@ -126,42 +130,11 @@ rozróżnienie `FileSource`/`SQLSource` odzwierciedliło różne sposoby
 pobierania danych. Wcześniejsze opisy `list[dict]` jako samodzielnego wyniku
 źródła przedstawiają etap pośredni; aktualnym formatem wyniku jest `Dataset`.
 
-## STDINSource
+## Zachowanie źródeł strumieniowych
 
-Pierwsza implementacja StreamSource.
+`STDINSource` blokująco odczytuje JSON ze standardowego wejścia do końca
+wejścia. `WindowsPipeSource` odbiera JSON z Windows Named Pipe przy użyciu
+`pywin32`; `UnixPipeSource` odczytuje dane z Unix FIFO.
 
-Przepływ:
-
-STDIN
-↓
-STDINSource
-↓
-Dataset
-
-## WindowsPipeSource
-
-Implementacja PipeSource dla Windows.
-
-Architektura:
-
-PipeSource
-↓
-WindowsPipeSource
-↓
-pywin32
-↓
-Windows Named Pipe
-↓
-Dataset
-
-### PipeSource
-
-PipeSource stanowi wspólny kontrakt dla komunikacji proces ↔ proces.
-
-Implementacje:
-
-- WindowsPipeSource
-- UnixPipeSource
-
-Obie implementacje zwracają Dataset.
-
+Odczyt pipe może blokować zgodnie z semantyką danego systemu operacyjnego.
+Źródła konwertują zdekodowane rekordy do wspólnego modelu `Dataset`.

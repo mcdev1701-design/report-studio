@@ -17,31 +17,27 @@
              v
 +-------------------------+
 | Warstwa źródeł danych   |
-| FileSource / SQLSource  |
+| File / SQL / Stream     |
 +------------+------------+
              |
-             +-------------------------+
-             |                         |
-             v                         v
-  JSON / CSV / Excel                MSSQL
-             |                         |
-             +------------+------------+
-                          v
-                       Dataset
+             +-------------------------+----------------------+
+             |                         |                      |
+             v                         v                      v
+  JSON / CSV / Excel                MSSQL              STDIN / Pipe
+             |                         |                      |
+             +-------------------------+----------------------+
+                                       v
+                                    Dataset
 ```
 
 ## Kierunek rozwoju
 
 ```text
-StreamSource
-  +-- STDINSource
-  +-- NamedPipeSource
-
 Frontend:
   +-- Konva.js
   +-- GSAP
 ```
 
-Źródła strumieniowe oraz wskazane technologie frontendu są planowane lub
-rozwijane w swoich etapach. Bieżący status projektu znajduje się w
+Źródła strumieniowe są zaimplementowane. Technologie frontendu w powyższym
+diagramie są planowane. Bieżący status projektu znajduje się w
 [PROJECT_STATE.md](../../PROJECT_STATE.md).

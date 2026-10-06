@@ -20,19 +20,19 @@ from backend.app.services.datasources.pipe_source import (
 
 
 class UnixPipeSource(PipeSource):
+    """Odczytuje rekordy JSON z Unix FIFO."""
 
     def __init__(
         self,
         pipe_path: str
     ):
+        """Tworzy źródło dla FIFO wskazanego ścieżką."""
         self.pipe_path = pipe_path
 
         self.connected = False
 
     def connect(self):
-        """
-        Weryfikacja istnienia FIFO.
-        """
+        """Sprawdza istnienie ścieżki i oznacza źródło jako połączone."""
 
         if not self.test_connection():
 
@@ -43,16 +43,17 @@ class UnixPipeSource(PipeSource):
         self.connected = True
 
     def disconnect(self):
-
+        """Oznacza źródło jako odłączone."""
         self.connected = False
 
     def test_connection(self):
-
+        """Sprawdza, czy ścieżka FIFO istnieje."""
         return os.path.exists(
             self.pipe_path
         )
 
     def get_data(self) -> Dataset:
+        """Blokująco odczytuje JSON z FIFO do końca strumienia."""
 
         if not self.connected:
 

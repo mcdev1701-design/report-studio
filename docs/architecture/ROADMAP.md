@@ -36,16 +36,17 @@ Planowane źródła dla ukończenia ETAP_02:
 - STDIN
 - Named Pipes
 
-Zaimplementowane są JSON, CSV, Excel i MSSQL. Źródła strumieniowe są
-zakresem ETAP_02C.
+Zaimplementowane są źródła JSON, CSV, Excel, MSSQL, STDIN oraz pipe:
+Windows Named Pipe i Unix FIFO.
 
 Rezultat:
 
 Pierwszy działający silnik źródeł danych.
 
-Status: W realizacji. Zakończono ETAP_02A i ETAP_02B. Aktualny podetap
-jest wskazany w [PROJECT_STATE.md](../../PROJECT_STATE.md); szczegóły prac
-znajdują się w odpowiadającym mu dokumencie w `docs/stages/`.
+Status: W realizacji. Zakończono ETAP_02A i ETAP_02B; implementacja ETAP_02C
+i testy są zakończone, a formalne zamknięcie oczekuje na przegląd. Bieżący
+status wskazuje [PROJECT_STATE.md](../../PROJECT_STATE.md), a zakres i
+kryteria etapu opisuje [ETAP_02C.md](../stages/ETAP_02C.md).
 
 ---
 

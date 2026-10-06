@@ -275,8 +275,8 @@ Praktyczna ściąga dotycząca CSS używanego w projekcie.
 ## DATASOURCE_ARCHITECTURE.md
 
 Opis aktualnej architektury źródeł danych, kontraktu `DataSource` oraz modelu
-`Dataset`. Źródła JSON, CSV, Excel i MSSQL są zaimplementowane; źródła
-strumieniowe są zakresem ETAP_02C.
+`Dataset`. Obejmuje zaimplementowane źródła plikowe, SQL i strumieniowe oraz
+kierunki przyszłych rozszerzeń.
 
 ---
 

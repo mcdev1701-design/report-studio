@@ -14,24 +14,22 @@ from backend.app.services.datasources.stream_source import (
 
 
 class STDINSource(StreamSource):
+    """Odczytuje pojedynczy dokument JSON ze standardowego wejścia."""
 
     def __init__(self):
-
         self.connected = False
 
     def connect(self):
-
         self.connected = True
 
     def disconnect(self):
-
         self.connected = False
 
     def test_connection(self):
-
         return True
 
     def get_data(self) -> Dataset:
+        """Blokująco odczytuje JSON do końca wejścia i tworzy Dataset."""
 
         if not self.connected:
 
